@@ -3,7 +3,7 @@
 $host = "localhost";
 $user_db = "root";
 $pass_db = "";
-$db_name = "proyecto2";
+$db_name = "bdemt3grp02";
 
 
 try{
