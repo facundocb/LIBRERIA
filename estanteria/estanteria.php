@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-include("layout/header.php");
-include("functions/conexion.php");
+include("../layout/header.php");
+include("../functions/conexion.php");
 ?>
     
     <div id="panel_estante">
@@ -20,16 +20,24 @@ include("functions/conexion.php");
 
             <tbody>
             <?php 
-                    $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD FROM LIBRO INNER JOIN TIENE ON TIENE.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = TIENE.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
 
-                    foreach($sql as $row){
-                        echo '<tr>';
-                            echo '<td>' . $row["NOM_LIBRO"] . '</td>';
-                            echo '<td>' . $row["ID_LIBRO"] . '</td>';
-                            echo '<td class="cantidad">' . $row["CANTIDAD"] . '</td>';
-                            echo '<td class="precio">' . $row["PRECIO_LIBRO"] . '</td>';
-                        echo '</tr>';
-                    }
+            if(!isset($_SESSION['logued'])){
+                echo 'carrito vacio';
+            }
+            else{
+                $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD FROM LIBRO INNER JOIN TIENE ON TIENE.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = TIENE.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
+
+                foreach($sql as $row){
+                    echo '<tr>';
+                        echo '<td>' . $row["NOM_LIBRO"] . '</td>';
+                        echo '<td>' . $row["ID_LIBRO"] . '</td>';
+                        echo '<td class="cantidad">' . $row["CANTIDAD"] . '</td>';
+                        echo '<td class="precio">' . $row["PRECIO_LIBRO"] . '</td>';
+                    echo '</tr>';
+                }
+            
+            }
+
                 ?>
                 
             </tbody>

@@ -54,7 +54,7 @@
 
                         <li>
                         <i class="fa-solid fa-book"></i>
-                        <button><a class='direccion_invisible' href="estanteria.php">Estanteria</a></button>
+                        <button><a class='direccion_invisible' href="estanteria/estanteria.php">Estanteria</a></button>
                         </li>
 
                 </ul>
