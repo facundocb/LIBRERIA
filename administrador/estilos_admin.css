@@ -1,0 +1,518 @@
+:root{
+    --color-uno:#155765;
+    --color-dos:#99D3DF;
+    --color-tres:#333333;
+    --color-cuatro: #ffffff;
+    --color-cinco: #e8e8e8;
+    --error_color: #ed4337;
+    
+} 
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-cinco);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+#contenedor{
+    background-color: var(--color-dos);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+   
+    color: var(--color-tres);
+    font-family: 'Poppins', sans-serif; 
+    font-size: 2em;
+    height: 5vh;
+}
+
+#contenedor form{
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    width: 40vw;
+    height: 50vh;
+}
+
+#contenedor form input{
+    padding-left: 1vw;
+    height: 2vw;
+    width:20vw;
+    background-color: var(--color-cuatro);
+    border: none;
+    color:#131313;
+    font-size: 0.8em;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contenedor #boton{
+    width: 10vw;
+    height: 2.5vw;
+    color:var(--color-cuatro);
+    background-color: var(--color-uno);
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 0;
+    cursor: pointer;
+}
+
+#error{
+    width: 100%;
+    height: 5vh;
+    background-color: var(--error_color);
+    font-size: 1.5em;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: var(--color-cuatro);
+
+}
+
+
+/* Esto es la página principal */
+
+#header{
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--color-dos);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo{
+    margin-left: 5vw;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    width: 20vw;
+}
+
+#header p{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 600;
+    color:var(--color-uno);
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#header a{
+    width: 9vw;
+    height: 6vh;
+    color: var(--color-cuatro);
+    background-color: var(--color-uno);
+    text-transform: uppercase;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+
+#container_botones{
+    width: 24vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+
+#header a:hover{
+    background-color: var(--error_color);
+    color: black;
+}
+
+
+#listado{
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 70vh;
+    align-items: center;
+    table-layout: fixed;
+    overflow-x: hidden;
+    border: solid 1px #333333;
+}
+
+#result_consulta{
+    width: 100%;
+    background-color: var(--color-cuatro);
+    border-collapse: collapse;
+    text-align: left;
+    overflow-y:scroll;
+    height: 70vh;
+}
+
+#result_consulta th{
+    padding: 0.7vw;
+    overflow: hidden;
+}
+
+#result_consulta td{
+    height: 2vw;
+    overflow: hidden;
+    padding: 0.7vw;
+    font-family: 'Poppins',sans-serif;
+}
+
+#result_consulta .result_fila{
+    height: 4vw;
+}
+
+
+#result_consulta .result_fila:nth-child(even){
+    background-color: var(--color-cinco);
+}
+
+
+#result_consulta thead{
+    background-color: var(--color-uno);
+    color: var(--color-cuatro);
+    height: 10vh;
+    font-weight: 400;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+#buscar_libro_input{
+    height: auto;
+    width: 30vw;
+    font-family: 'Poppins', sans-serif;
+    color:#555555;
+   
+    margin: 0;
+    padding-left: 0.5vw;
+    border: none;
+    background-color: var(--color-cuatro);
+    outline: none;
+}
+
+#boton_buscar{
+    height: auto;
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    background-color: var(--color-uno);
+    border: none;
+    color: var(--color-cuatro);
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+#buscador{
+    height: 3vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+
+
+
+
+
+#funciones{
+    display: flex;
+    flex-wrap:wrap;
+    width: 100%;
+    padding: 0;
+}
+
+/*cosas generales */
+ .input_texto{
+    width: 30vw;
+    margin-top: 1.5vh;
+    border: #cccccc 1px solid;
+    box-sizing: border-box;
+    height: 5vh;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    align-self: center;
+    outline: none;
+ }
+
+ .input_texto_descripcion{
+    width: 30vw;
+    margin-top: 1.5vh;
+    border: #cccccc 1px solid;
+    box-sizing: border-box;
+    height: 15vh;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    align-self: center;
+    outline: none;
+ }
+
+ .input_boton{
+    width: 15vw;
+    height: 5vh;
+    margin-top: 2vh;
+    font-family: Poppins, sans-serif;
+    background-color: var(--color-cuatro);
+    cursor: pointer;
+    color: var(--color-uno);
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 7px;
+    border: 1px solid var(--color-uno);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.input_boton:hover{
+    background-color: var(--color-uno);
+    border: solid 1px var(--color-cuatro);
+    color: var(--color-cuatro);
+}
+
+.titulo{
+    margin-left: 1.5vw;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.9em;
+    font-weight: 600;
+    color: var(--color-tres);
+}
+
+.subtitulo{
+ 
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--color-tres);
+    margin-bottom: 1vh;
+}
+
+/* seccion de insertar_usuario */
+
+#insertar_usuario{
+    width: 45vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#insertar_usuario div{
+    margin-left: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 80vh;
+    justify-content: center;
+}
+
+/*contenedor chico para poder contener las funciones en una columna */
+#funciones_chicas{
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 50vw;
+    justify-content: flex-start;
+    align-items: center;
+}
+/* seccion de banear usuarios*/
+#banear_usuario{
+    width: 45vw;
+    height: 40vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#banear_usuario div{
+    margin-left: 1.5vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*SECCION DE AGREGAR ADMINISTRADORES*/
+
+#agregar_administrador{
+    width: 45vw;
+    height: 45vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#agregar_administrador div{
+    margin-left: 1.5vw;
+    height: 35vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* SECCION DE ACTUALIZAR INFO DE USUARIOS */
+
+#actualizar_usuario{
+   
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2vw;
+}
+
+#form_buscar_user_mod{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin-left: 1.5vw;
+}
+
+#form_modificar_user{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1.5vw;
+}
+
+
+
+
+.input_boton_actualizar{
+    width: 8vw;
+    height: 5vh;
+    margin-top: 2vh;
+    font-family: Poppins, sans-serif;
+    background-color: var(--color-cuatro);
+    cursor: pointer;
+    color: var(--color-uno);
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 7px;
+    border: 1px solid var(--color-uno);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.input_boton_actualizar:hover{
+    background-color: #155765;
+    color: var(--color-cinco);
+    border: solid 1px var(--color-cinco);
+}
+/* a partir de acá arranca la pagina de los libros*/
+
+#agregar_libro{
+
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 5vw;   
+}
+#agregar_libro #form_agregar_libro{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5vw;
+}
+
+#agregar_libro div input[type=file]{
+    width: 30vw;
+    display: none;
+}
+
+label{
+    display: flex;
+    width: 15vw;
+    height: 5vh;
+    margin-top: 2vh;
+    font-family: Poppins, sans-serif;
+    background-color: var(--color-cuatro);
+    cursor: pointer;
+    color: var(--color-uno);
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 7px;
+    border: 1px solid var(--color-uno);
+    text-decoration: none;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+}
+
+label:hover{
+    background-color: #155765;
+    color: var(--color-cinco);
+    border: solid 1px var(--color-cinco);    
+}
+
+
+#cambiar_estado_libro{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#cambiar_estado_libro > #form_cambiar_estado_libro{
+    margin-left: 1.5vw;
+    width: 30vw ;
+} 
+
+#modificar_libro{
+    width: 35vw;
+    height: 130vh;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+
+#form_buscar_libro_mod{
+   
+    margin-left: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vh;
+    width: 30vw;
+}
+
+
+#form_modificar_datos_libro{
+    margin-top: 1vw;
+    width: 30vw;
+    margin-left: 1.5vw;
+    display: flex;
+    flex-direction: column;    
+}
