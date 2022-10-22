@@ -6,7 +6,6 @@ if(isset($_SESSION['logued_as_admin'])){
   session_destroy();
 }
 
-
  require("layout/header.php");
  //pide el header con el titulo de la pagina principal
  include("functions/conexion.php");
