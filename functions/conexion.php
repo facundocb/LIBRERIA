@@ -109,6 +109,7 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
 
 //ezeqiel puto.
 //segunda prueba.
+//xd
 
 
 //funcion de verificacion.php
