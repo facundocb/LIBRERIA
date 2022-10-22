@@ -54,5 +54,5 @@
         
         
         <?php 
-        include("layout/footer.php");
+        include("/LIBRERIA/layout/footer.php");
         ?>

@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 
@@ -16,6 +17,7 @@ include("../functions/conexion.php");
                     <th>Cantidad</th>
                     <th>Precio unitario</th>
                 </tr>
+                
             </thead>
 
             <tbody>
