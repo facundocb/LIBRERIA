@@ -23,13 +23,15 @@ include("../functions/conexion.php");
             <tbody>
             <?php 
 
-            if(!isset($_SESSION['logued'])){
+            if(!isset($_SESSION['username'])){
                 echo 'carrito vacio';
+                
             }
             else{
-                $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD FROM LIBRO INNER JOIN TIENE ON TIENE.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = TIENE.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
+                $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD FROM libro INNER JOIN tiene ON tiene.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = tiene.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
 
                 foreach($sql as $row){
+                    
                     echo '<tr>';
                         echo '<td>' . $row["NOM_LIBRO"] . '</td>';
                         echo '<td>' . $row["ID_LIBRO"] . '</td>';

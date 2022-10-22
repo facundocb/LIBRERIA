@@ -2,12 +2,12 @@
 <?php 
 //value="<?php echp $_SESSION['passwd']"
 //<?php echo $_SESSION['username']
-  if(isset($_SESSION['username'])){
+if(isset($_SESSION['username'])){
   ?>
     <div id='login'>
     <h2>panel d usuario</h2>
-    <input type="text" name="userame" disabled value="<?php echo $_SESSION['username'] ?>">
-    <input type="password" name="passwd"  disabled value = "<?php echo $_SESSION['passwd'] ?>">
+    <input type="text" name="username" disabled value="<?php echo $_SESSION['username'];?>">
+    <input type="password" name="passwd"  disabled value = "<?php echo $_SESSION['passwd'];?>">
 
     <div id="container_extra">
       <div class="extras">

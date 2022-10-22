@@ -918,10 +918,6 @@ margin-top: 8vh;
     border-radius: 3px;
 }
 
-
-
-
-
 #informacion #cantidad{
     border: none;
     font-family: 'Poppins', sans-serif;
@@ -950,7 +946,9 @@ margin-top: 8vh;
     font-size: 1.2em;
     font-weight: 600;
     border: none;
+    cursor:pointer;
 }
+
 
 
 

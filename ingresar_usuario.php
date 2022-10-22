@@ -18,6 +18,7 @@
         }else{
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['passwd'] = $passwd;
             if(!verificar_usuario_administrador($username)){
                header("location:index.php");            
             }else{
