@@ -107,7 +107,7 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
 }
 
 
-
+//ezeqiel puto.
 
 
 //funcion de verificacion.php
