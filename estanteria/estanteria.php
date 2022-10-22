@@ -5,7 +5,7 @@ session_start();
 include("../layout/header.php");
 include("../functions/conexion.php");
 ?>
-    
+  
     <div id="panel_estante">
           <h2>Estanteria / 2 libros</h2>
 
@@ -57,6 +57,9 @@ include("../functions/conexion.php");
         </table>
     
     </div>
+
+  
+
     <script>
         function calcular_total(){
             let total_div = document.getElementById("total");

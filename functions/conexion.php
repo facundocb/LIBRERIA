@@ -180,24 +180,28 @@ function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW
 
 function consulta_estanteria_activa($username){
     global $conn;
-    $query = $conn->query("SELECT COUNT(ID_ESTANTERIA) FROM ESTANTERIA WHERE USERNAME = '{$username}' AND ESTADO = '1' ");
-    $flag_exist = current($query);
+    $query = $conn->query("SELECT ID_ESTANTERIA FROM estanteria WHERE USERNAME = '{$username}' AND ESTADO = '1' ");
+    $flag_exist = $query->fetch();
+    return $flag_exist;
+    
+}
 
+function crear_estanteria($username){
+    global $conn;
+    $insert_estanteria = ("INSERT INTO estanteria (username, estado) VALUES (?, '1')");
+    $conn->prepare($insert_estanteria)->execute([$username]);
+}
+
+function consulta_tiene_libro($id_libro, $username){
+    global $conn;
+    $query = $conn->query("SELECT tiene.cantidad FROM tiene INNER JOIN libro ON tiene.ID_LIBRO = '$id_libro' AND tiene.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ID_ESTANTERIA = tiene.ID_ESTANTERIA AND estanteria.USERNAME = '$username';");
+    $flag_exist = $query->fetch();
     return $flag_exist;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+function actualizar_cantidad_libro($cantidad, $id_libro, $username){
+    global $conn;
+}
 
 
 

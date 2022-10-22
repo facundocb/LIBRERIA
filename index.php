@@ -44,7 +44,7 @@ if(isset($_SESSION['logued_as_admin'])){
 
 <div class="libros_largos">
 
-  <a href="libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
+  <a href="estanteria/libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
           <img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
   </a>
   <h4><?php echo $libro['NOM_LIBRO']; ?></h4>

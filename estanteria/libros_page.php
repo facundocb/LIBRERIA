@@ -1,6 +1,5 @@
 <?php 
-include("functions/conexion.php");
-
+include("../functions/conexion.php");
 
 $id_libro = $_REQUEST['ID_LIBRO'];
 
@@ -11,13 +10,13 @@ $result = $query->fetch();
 
 $title = $result['NOM_LIBRO'];
 
-include("layout/header.php");
+include("../layout/header.php");
 ?>
 
 <div id="contenedor_principal_libros">
 
     <div class="imagen">
-        <img src="<?php echo $result['DIRECCION_IMG'];?>" alt="">
+        <img src="../<?php echo $result['DIRECCION_IMG'];?>" alt="">
     </div>
 
     <div id="informacion">
@@ -29,7 +28,7 @@ include("layout/header.php");
         <div id="form_add_libro">
             <div>   
                 <label for="cantidad">Cantidad:</label>
-                <select name="cantidad" id="cantidad">
+                <select id="cantidad">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -42,7 +41,7 @@ include("layout/header.php");
                     <option value="10">10</option>
                 </select>
             </div>
-            <button type="submit" id="add_to_cart" name="add_to_cart">agregar al estante</button>
+            <button type="submit" id="add_to_cart" onclick="add_to_cart()" >agregar al estante</button>
         </div>
 
         <div id="otros">
@@ -66,3 +65,9 @@ include("layout/header.php");
         <h2>Descripción</h2>
         <P><?php echo $result['DESCRIPCION_LIBRO']; ?></P>
     </div>
+    
+    <script>
+        localStorage.setItem("id_libro", <?php echo $id_libro ?>)
+    </script>
+
+<script src="script_estanteria.js"></script>
