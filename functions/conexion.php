@@ -11,7 +11,7 @@ try{
     $conn = new PDO("mysql:host=$host;dbname=$db_name", $user_db, $pass_db);
     //se define una conexion pdo
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOEexception $e){
+}catch(PDOException $e){
     $error = $e->getMessage();
 }
 
