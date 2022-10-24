@@ -192,17 +192,28 @@ function crear_estanteria($username){
     $conn->prepare($insert_estanteria)->execute([$username]);
 }
 
-function consulta_tiene_libro($id_libro, $username){
+function consulta_tiene_libro($id_libro, $estante){
     global $conn;
-    $query = $conn->query("SELECT tiene.cantidad FROM tiene INNER JOIN libro ON tiene.ID_LIBRO = '$id_libro' AND tiene.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ID_ESTANTERIA = tiene.ID_ESTANTERIA AND estanteria.USERNAME = '$username';");
+    $query = $conn->query("SELECT CANTIDAD FROM tiene where id_libro={$id_libro} AND id_estanteria = {$estante};");
     $flag_exist = $query->fetch();
     return $flag_exist;
 }
 
-function actualizar_cantidad_libro($cantidad, $id_libro, $username){
+function actualizar_cantidad_libro($cantidad, $id_libro, $id_estante ){
     global $conn;
+
+    $query = "UPDATE tiene SET cantidad=? WHERE ID_LIBRO = ? AND ID_ESTANTERIA = ?";
+    $conn->prepare($query)->execute([$cantidad, $id_libro, $id_estante ]);
+
 }
 
+function insertar_libro($cantidad, $id_libro, $id_estante){
+    global $conn;
+    $query = "INSERT INTO tiene(CANTIDAD, ID_LIBRO, ID_ESTANTERIA) values(?,?,?)";
+    $conn->prepare($query)->execute([$cantidad,$id_libro,$id_estante]);
+
+
+}
 
 
 
