@@ -49,16 +49,8 @@ const cargar_tabla = () => {
     let table = document.getElementById('result_consulta');
     let busqueda = document.getElementById('buscar_libro_input').value
     const buscar_data = new FormData;
-
-    
-    if( busqueda == ''){
-        buscar_data.set("condicion", " ")
-    
-    }
-    else{
-        buscar_data.set("condicion", " WHERE NOM_LIBRO LIKE '%" + busqueda +"%'");
-    }
-
+    buscar_data.set("condicion", busqueda)
+       
    fetch("book_functions/cargar_tabla_libros.php", {
     
         method: 'POST',
@@ -80,12 +72,7 @@ const cargar_tabla = () => {
 
     })
 
-
-
-
-
-
-    }
+}
 
 window.onload = cargar_tabla();
 

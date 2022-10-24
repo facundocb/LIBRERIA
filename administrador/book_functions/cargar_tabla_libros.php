@@ -4,6 +4,13 @@
     
     $condicion = $_POST['condicion'];
 
+    if(!$condicion == ''){
+        $condicion = "WHERE NOM_LIBRO LIKE '%{$condicion}%'";
+    }
+
+
+
+
     $query_libros = $conn->query("SELECT * from libro {$condicion}");
     $resultado = $query_libros->fetchAll();
 

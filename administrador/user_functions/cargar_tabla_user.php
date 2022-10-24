@@ -3,10 +3,16 @@
 
     
     $condicion = $_POST['condicion'];
+    
 
+
+
+    if(!$condicion == ''){
+        $condicion = "AND usuario.ci LIKE '%{$condicion}%'";
+    }
+    
     $query_users = $conn->query("SELECT persona.ci, persona.nombre, persona.apellido, persona.localidad, persona.fecha_nacimiento, usuario.username from usuario inner join persona on usuario.ci = persona.ci {$condicion}");
     $resultado = $query_users->fetchAll();
-
     echo '<thead>';
     echo '<th>CI</th>';
     echo '<th>NOMBRE</th>';

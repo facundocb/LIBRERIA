@@ -187,15 +187,8 @@ const cargar_tabla = () => {
     let table = document.getElementById('result_consulta');
     let busqueda = document.getElementById('buscar_libro_input').value
     const buscar_data = new FormData;
+        buscar_data.set("condicion", busqueda)
 
-    
-    if( busqueda == ''){
-        buscar_data.set("condicion", " ")
-    
-    }
-    else{
-        buscar_data.set("condicion", " AND USUARIO.CI LIKE '%" + busqueda +"%'");
-    }
 
    fetch("user_functions/cargar_tabla_user.php", {
     
