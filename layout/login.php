@@ -23,7 +23,7 @@ if(isset($_SESSION['username'])){
       </div>
 
   <?php
-  }
+  }   
   else{
     ?>
 
@@ -42,10 +42,10 @@ if(isset($_SESSION['username'])){
       <a href="modificar_usuario.php">Cambiar contraseña</a>
       <p>¿No tenés una cuenta?</p>
       <a href="registrar_usuario.php">Crear cuenta</a>
-    </div>;
+    </div>
 
 
-  </div>;
+  </div>
   <?php
   }
 ?>

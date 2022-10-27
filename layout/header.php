@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/LIBRERIA/layout/mobil.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     <script src="/LIBRERIA/layout/script.js"></script>
     <script src="/LIBRERIA/layout/scriptmobil.js"></script>
@@ -30,7 +30,7 @@
     
         <header id="header">
             
-            <a href="/LIBRERIA/index.php"><img id="logo" src="/LIBRERIA/RECURSOS/logo.png" alt="Mi mundo" ></a>
+            <a href="/LIBRERIA/index.php"><img id="logo" src="/LIBRERIA/RECURSOS/logo.svg" alt="Mi mundo" ></a>
 
                 <form action="/LIBRERIA/busqueda_libros.php" method="get" id="formulario_busqueda">
                      <input id="buscador" type="text" placeholder="buscar libro" name="nombre_libro_buscado">
@@ -40,7 +40,7 @@
             <nav>
                 <ul>
                     <li>
-                        <i class="fa-solid fa-user-large"></i>
+                    <span class="material-icons">   person</span>
                         <p id="abridor_menu" onclick="abrir_menu()">&#9776;</p>
                         <button id="abridor" onclick="abrir_login()">
                         <?php 
@@ -52,10 +52,10 @@
                         </button>
                     </li> 
 
-                        <li>
-                        <i class="fa-solid fa-book"></i>
+                    <li>
+                        <span class="material-icons">shelves</span>
                         <button><a class='direccion_invisible' href="/LIBRERIA/estanteria/estanteria.php">Estanteria</a></button>
-                        </li>
+                    </li>
 
                 </ul>
                 <!-- nav del menu principal-->   

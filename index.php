@@ -66,7 +66,7 @@ if(isset($_SESSION['logued_as_admin'])){
 
       </div>
 
-    <div class="contenedores">
+    <div class="contenedores" >
       <!--segunda sección-->
         <div id="container_top">
           <h3 class="subtitulo">¡Para todos los gustos!</h3>
@@ -75,63 +75,66 @@ if(isset($_SESSION['logued_as_admin'])){
       <div class="contenedor_chico">
         <h5>Terror</h5>
 
+      <?php 
+        
+        $query_terror = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' limit 3")->fetchAll();
+
+        foreach($query_terror as $libro_terror){
+      ?>
           <div class="libros_anchos">
-            <img src="RECURSOS/libros/el-descubrimiento-de-las-brujas.jpg" alt="">
-            <h5>El resplandor</h5>
+            <img src="<?php echo $libro_terror['DIRECCION_IMG'] ?>" alt="">
+            <h5><?php echo $libro_terror['NOM_LIBRO'] ?> </h5>
           </div>
 
-        <?php 
-        
-    //     $query_terror = $conn->query("")
-
-        
+        <?php
+        }
         ?>
-
-
-
 
          <a class="ver_mas"href="">Ver más</a>
       </div>
 
+
+      
       <div class="contenedor_chico">
-        <h5>Infantiles</h5>
+        <h5>Ensayos</h5>
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/caperucita_roja.jpg" alt="">
-          <h5>Caperucita Roja</h5>
-        </div>
+        <?php 
+        
+        $query_ensayo = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' limit 3")->fetchAll();
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/los_3_chanchitos.jpg" alt="">
-          <h5>Los 3 cerditos</h5>
-        </div>
+        foreach($query_ensayo as $libro_ensayo){
+      ?>
+          <div class="libros_anchos">
+            <img src="<?php echo $libro_ensayo['DIRECCION_IMG'] ?>" alt="">
+            <h5><?php echo $libro_ensayo['NOM_LIBRO'] ?> </h5>
+          </div>
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/ricitos_d_oro.jpg" alt="">
-          <h5>Ricitos de oro y los 3 osos</h5>
-        </div>
+        <?php
+        }
+        ?>
+
         <a class="ver_mas"href="">Ver más</a>
 
       </div>
 
       <div class="contenedor_chico">
 
-        <h5>Filosofía</h5>
+        <h5>Romance</h5>
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/el_unico.jpg" alt="">
-           <h5>El único y su propiedad</h5>
-        </div>
+        <?php 
+        
+        $query_romance = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' limit 3")->fetchAll();
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/critica_de_la_razon.jpg" alt="">
-          <h5>Critica de la razón</h5>
-        </div>
+        foreach($query_romance as $libro_romance){
+      ?>
+          <div class="libros_anchos">
+            <img src="<?php echo $libro_romance['DIRECCION_IMG'] ?>" alt="">
+            <h5><?php echo $libro_romance['NOM_LIBRO'] ?> </h5>
+          </div>
 
-        <div class="libros_anchos">
-          <img src="RECURSOS/libros/anchos/zaratustra.jpg" alt="">
-          <h5>Así habló Zaratustra</h5>
-        </div>
+        <?php
+        }
+        ?>
         
         <a class="ver_mas"href="">Ver más</a>
       </div>
@@ -143,21 +146,24 @@ if(isset($_SESSION['logued_as_admin'])){
     <!--tercera sección-->
     <div class="contenedores">
       <div class="caracteristicas">
-        <i class="fa-solid fa-store"></i>
+      <span class="material-icons">store</span>
         <p>Recogido en librería gratis</p>
       </div>
 
       <div class="caracteristicas">
-        <i class="fa-regular fa-circle-check"></i>
-        <p>La compra es 100% segura</p>
+      <span class="material-icons">verified</span>
+
+      <p>La compra es 100% segura</p>
       </div>
 
       <div class="caracteristicas">
-        <i class="fa-solid fa-truck-fast"></i>
+      <span class="material-icons">local_shipping</span>
+
         <p>Envíos gratis a partir de $1100</p>
       </div>
       <div class="caracteristicas">
-        <i class="fa-solid fa-rotate"></i>
+      <span class="material-icons">loop</span>
+      
         <p>Devoluciones gratis hasta 7 días</p>
       </div>
     <!-- termina acá-->
