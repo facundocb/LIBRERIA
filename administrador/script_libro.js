@@ -5,6 +5,7 @@ const insertar_libro = () => {
     let img_imput = document.querySelector('#imagen_libro');
     const add_data = new FormData;
     
+    add_data.append('file', img_imput.files[0]);
     add_data.set("nom_libro", add_libros[0].value);
     add_data.set("descripcion_libro", add_libros[1].value);
     add_data.set("precio_libro", add_libros[2].value);
@@ -13,7 +14,6 @@ const insertar_libro = () => {
     add_data.set("genero_libro", add_libros[6].value);
     add_data.set("fecha_publicacion_libro", add_libros[7].value);
     add_data.set("editorial_libro", add_libros[8].value);
-    add_data.append('file', img_imput.files[0]);
     
 
 add_data.forEach(element => {

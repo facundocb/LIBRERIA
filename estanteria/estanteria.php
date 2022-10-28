@@ -2,10 +2,14 @@
 <?php 
 session_start();
 
+
 include("../layout/header.php");
 include("../functions/conexion.php");
 ?>
-  
+
+    <script src="script_estanteria.js"></script>
+
+
     <div id="panel_estante">
           <h2>Estanteria / 2 libros</h2>
 
@@ -59,7 +63,40 @@ include("../functions/conexion.php");
     </div>
 
   
+<div id="seccion_compra">
+    <div class="seccion">
+        <input type="text" disabled class="input_texto" id="cedula">
+        <input type="text" disabled class="input_texto" id="nombre">
+        <input type="text" disabled class="input_texto" id="apellido">
+        <input type="text" disabled class="input_texto" id="localidad">
+    </div>
 
+    <div class="seccion">
+        <h2 class="subtitulo">seleccione un metodo de pago</h2>
+
+        
+            <input type="radio" id="tarjeta"> <label for="tarjeta">Tarjeta de credito Visa, Mastercard u Oca</label>
+            <input type="radio" id="efectivo"> <label for="efectivo">Pago en efectivo</label>
+            <input type="radio" id="giro"> <label for="giro">Giro por redpagos</label>
+
+          
+
+    </div>
+    <div class="seccion">
+        <h2>Notas o solicitudes especiales</h2>
+        <input type="text" class="input_texto_largo">
+        <button id='comprar'>Confirmar compra</button>
+    </div>
+
+    
+</div>
+
+
+
+
+<?php if(isset($_SESSION['username'])){
+
+ ?>
     <script>
         function calcular_total(){
             let total_div = document.getElementById("total");
@@ -79,4 +116,14 @@ include("../functions/conexion.php");
     }
     calcular_total()
 
-    </script>
+    let user = '<?php echo $_SESSION['username'];?>'; 
+    localStorage.setItem("user", user);
+
+    
+</script>
+
+
+
+<?php 
+    }
+?>

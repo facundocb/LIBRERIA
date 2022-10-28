@@ -1,7 +1,7 @@
 <?php 
 include("../../functions/conexion.php");
 
-$ID = $_POST['ID'];
+    $ID = $_POST['ID'];
     $query_datos = $conn->query("SELECT NOM_LIBRO, DESCRIPCION_LIBRO, PRECIO_LIBRO, STOCK_LIBRO, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_PUBLICACION_LIBRO FROM LIBRO WHERE ID_LIBRO = '{$ID}';")->fetch();
 
     if($query_datos){

@@ -105,6 +105,12 @@ h2{
     width: 20vw;
 }
 
+#logo img{
+    width: 8vw;
+    height: 8vw;
+}
+
+
 #header p{
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
@@ -448,7 +454,7 @@ h2{
 
 #agregar_libro div input[type=file]{
     width: 30vw;
-    display: none;
+   display: none; 
 }
 
 label{

@@ -1,29 +1,36 @@
-function add_to_cart(){
-    let id = localStorage.getItem("id_libro");
-    let cantidad = document.getElementById("cantidad").value
 
-    const add_to_cart_Data = new FormData;
+function cargar_datos(){
+    
+    let user = localStorage.getItem("user");
 
-    add_to_cart_Data.set("id_libro", id);
-    add_to_cart_Data.set("cantidad", cantidad);
+    let cargar_data = new FormData;
+    cargar_data.set('user', user);
 
 
-    fetch("agregar_al_estante.php", {
-
+    fetch("../functions/cargar_info_user.php", {
         method: 'POST',
-        body: add_to_cart_Data
-
-    }).then(function(response){
+        body: cargar_data
+    })
+    .then(function(response){
+        
         if(response.ok){
             return response.text()
         }else{
-            throw "error"
+            throw 'error';
         }
-    }).then(function(respuesta_agregar_al_estante){
-        console.log(respuesta_agregar_al_estante);
+
     })
+    .then(function(respuesta_cargar_libros){
+        let arr_datos_user = new Array();
+        arr_datos_user = JSON.parse(respuesta_cargar_libros);
+        let inputs_user = document.querySelectorAll('.input_texto');
 
+        inputs_user[0].value = arr_datos_user['ci'];
+        inputs_user[1].value = arr_datos_user['nom'];
+        inputs_user[2].value = arr_datos_user['ape'];
+        inputs_user[3].value = arr_datos_user['loc'];
 
-
-
+    })
 }
+
+window.onload = cargar_datos();

@@ -13,7 +13,7 @@ $GENERO_LIBRO = $_POST['genero_libro'];
 $FECHA_PUBLICACION = $_POST['fecha_publicacion_libro'];
 $EDITORIAL_LIBRO = $_POST['editorial_libro'];
 $tipos_de_archivo_soportados = ['jpg', 'jpeg', 'png'];
-$carpeta_destino = "C:/xampp/htdocs/programas/LIBRERIA-main/RECURSOS/libros/";
+$carpeta_destino = "../../RECURSOS/libros/";
 $nombre_imagen = basename($_FILES['file']['name']);
 $ruta_destino = $carpeta_destino . $nombre_imagen;
 $tipo_imagen = pathinfo($ruta_destino,PATHINFO_EXTENSION);
@@ -78,7 +78,7 @@ if(isset($errors)){
 }
 
 else{
-    $sql = $conn->prepare('INSERT INTO libro(NOM_LIBRO, PRECIO_LIBRO, DESCRIPCION_LIBRO, STOCK_LIBRO, USERNAME, ESTADO, DIRECCION_IMG, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_SUBIDA_LIBRO, FECHA_PUBLICACION) VALUES 
+    $sql = $conn->prepare('INSERT INTO libro(NOM_LIBRO, PRECIO_LIBRO, DESCRIPCION_LIBRO, STOCK_LIBRO, USERNAME, ESTADO, DIRECCION_IMG, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_SUBIDA_LIBRO, FECHA_PUBLICACION_LIBRO) VALUES 
     (?,?,?,?,?,?,?,?,?,?,?,?)');
 
     $insersion_libro = $sql->execute([$NOM_LIBRO, $PRECIO_LIBRO, $DESCRIPCION_LIBRO, $STOCK_LIBRO, $user, '1', $ruta_destino, $AUTOR_LIBRO, $GENERO_LIBRO, $EDITORIAL_LIBRO,$fecha_subida, $FECHA_PUBLICACION ]);

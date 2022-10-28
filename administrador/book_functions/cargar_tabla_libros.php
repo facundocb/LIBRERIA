@@ -17,7 +17,7 @@
     echo '<thead>';
         echo '<th>ID</th>';
         echo '<th>NOMBRE</th>';
-        echo '<th>StOCK</th>';
+        echo '<th>STOCK</th>';
         echo '<th>ESTADO</th>';
         echo '<th>AUTOR</th>';
     echo '</thead>'; 

@@ -31,7 +31,7 @@ $title = "panel admin";
     <div id="header">
         <div id="logo">
 
-            <img src="../RECURSOS/logo.png" alt="">
+            <img src="../RECURSOS/logo.svg" alt="">
             <p>Mi mundo</p>            
         </div>
 
@@ -62,8 +62,8 @@ $title = "panel admin";
                 <input type="text" name="descripcion_libro" class="input_texto_descripcion" placeholder="Descripcion" >
                 <input type="text" name="precio_libro"  class="input_texto" placeholder="Precio" >
                 <input type="text" name="stock_libro" class="input_texto" placeholder="stock actual" >
+                <input type="file" id="imagen_libro"  accept="img/*" class="input_imagen">
                 <label for="imagen_libro"> Selecciona una imagen</label>
-                <input type="file" name="imagen_libro"  accept="img/*" class="input_imagen">
                 <input type="text" name="autor_libro"  class="input_texto" placeholder="autor">
                 <input type="text" name="genero_libro" class="input_texto" placeholder="genero">
                 <input type="date" name="fecha_publicacion" class="input_texto">
