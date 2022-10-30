@@ -5,22 +5,21 @@
 if(isset($_SESSION['username'])){
   ?>
     <div id='login'>
-    <h2>panel d usuario</h2>
-    <input type="text" name="username" disabled value="<?php echo $_SESSION['username'];?>">
-    <input type="password" name="passwd"  disabled value = "<?php echo $_SESSION['passwd'];?>">
+      <h2>panel de usuario</h2>
+      <input type="text" name="username" disabled value="<?php echo $_SESSION['username'];?>">
+      <input type="password" name="passwd"  disabled value = "<?php echo $_SESSION['passwd'];?>">
 
-    <div id="container_extra">
-      <div class="extras">
-        <button></button>
-        <p>primer boton</p>
+      <div id="container_extra">
+        <div class="extras">
+          <button></button>
+          <a class='a_login'  href="#">primer boton</a>
         </div>
         <div class="extras">
           <button></button>
-          <p>segundo boton</p>
+          <a class='a_login' href="#">segundo boton</a>
         </div>
-        </div>
-        <a id="logout_button" href='functions/cerrar_sesion.php'>Cerrar sesión</a>
       </div>
+      <a id="logout_button" href='functions/cerrar_sesion.php'>Cerrar sesión</a>
 
   <?php
   }   
@@ -37,11 +36,15 @@ if(isset($_SESSION['username'])){
     </form>
 
 
-    <div>
-      <p>¿Olvidaste tu contraseña?</p>
-      <a href="modificar_usuario.php">Cambiar contraseña</a>
-      <p>¿No tenés una cuenta?</p>
-      <a href="registrar_usuario.php">Crear cuenta</a>
+    <div id="container_extra">
+      <div class="extras">
+        <button></button>
+        <a class='a_login' href="validacion.php">Cambiar contraseña</a>
+      </div>
+      <div class="extras">
+        <button></button>
+        <a class = 'a_login' href="registrar_usuario.php">Registrarme</a>
+      </div>
     </div>
 
 

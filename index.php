@@ -1,6 +1,10 @@
 <?php $title="Página principal";
   session_start();
 
+if(isset($_REQUEST['error'])){
+  die();
+}
+
 
 if(isset($_SESSION['logued_as_admin'])){
   session_destroy();

@@ -24,6 +24,7 @@
             <?php 
             session_start();
             $username =  $_SESSION['username'];
+            $_SESSION['logued_as_admin'] = true;
             include('../functions/conexion.php');
 
             if(isset($_POST['Ingresar'])){
@@ -32,7 +33,6 @@
                 if(verificacion_extra_admin($ci, $clave_seguridad, $username)){
                     
                     session_start();
-                    $_SESSION['logued_as_admin'] = true;
                     $_SESSION['username'] = $username;
                     header("location:panel_admin_usuario.php");
                 }

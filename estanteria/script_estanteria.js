@@ -34,3 +34,19 @@ function cargar_datos(){
 }
 
 window.onload = cargar_datos();
+
+
+
+function comprar(){
+    let user = localStorage.getItem("user");
+    let datos_compra = new FormData;
+    let cantidades
+    datos_compra.set("cantidad")
+
+
+}
+
+
+
+
+
