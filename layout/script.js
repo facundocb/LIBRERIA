@@ -1,5 +1,6 @@
 let abierto =false;
 
+
 function abrir_login(){
    // const menu = document.getElementsByClassName("login");
    const container = document.getElementById("container");
@@ -7,28 +8,25 @@ function abrir_login(){
     const header = document.getElementById("header");
     const navegador = document.getElementById("navegador");
     const footer = document.getElementById("footer");
-    
-if(!abierto){
-    abridor.style.transform = "translateX(0vw)";
-    container.style.transform = "translateX(-20vw)";
-    navegador.style.transform = "translateX(-20vw)";
-    header.style.transform = "translateX(-20vw)";
-    footer.style.transform = "translateX(-20vw)";
-    abierto = true;
-    
-    container.addEventListener("click",abrir_login);
+    if(!abierto){
+        abridor.style.transform = "translateX(0vw)";
+        container.style.transform = "translateX(-20vw)";
+        navegador.style.transform = "translateX(-20vw)";
+        header.style.transform = "translateX(-20vw)";
+        footer.style.transform = "translateX(-20vw)";
+        abierto = true;
+        container.addEventListener("click",abrir_login);
+    }
 
-}
-
-else{
-    abierto = false;
-    container.removeEventListener("click", abrir_login);
-    abridor.style.transform = "translateX(20vw)";
-    container.style.transform = "translateX(0vw)";
-    navegador.style.transform = "translateX(0vw)";
-    header.style.transform = "translateX(0vw)";
-    footer.style.transform = "translateX(0vw)";
-}
+    else{
+        abierto = false;
+        container.removeEventListener("click", abrir_login);
+        abridor.style.transform = "translateX(20vw)";
+        container.style.transform = "translateX(0vw)";
+        navegador.style.transform = "translateX(0vw)";
+        header.style.transform = "translateX(0vw)";
+        footer.style.transform = "translateX(0vw)";
+    }
 
 
 }  

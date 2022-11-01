@@ -1,4 +1,4 @@
-<footer >
+<footer id='footer'>
   
   <img id="footer_logo" alt='imagen'  src="RECURSOS/logo.svg">
 

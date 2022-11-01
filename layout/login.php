@@ -12,11 +12,11 @@ if(isset($_SESSION['username'])){
       <div id="container_extra">
         <div class="extras">
           <button></button>
-          <a class='a_login'  href="#">primer boton</a>
+          <a class='a_login'  href="info_de_perfil.php">Mi perfil</a>
         </div>
         <div class="extras">
           <button></button>
-          <a class='a_login' href="#">segundo boton</a>
+          <a class='a_login' href="#">Historial de compras</a>
         </div>
       </div>
       <a id="logout_button" href='functions/cerrar_sesion.php'>Cerrar sesión</a>

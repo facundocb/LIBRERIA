@@ -30,7 +30,7 @@ if(isset($_SESSION['logued_as_admin'])){
         </section>
 
         <div id="minih2">
-          <h2>NOVEDADES</h2>
+          <h2 class="titulo">NOVEDADES</h2>
         </div>
 
 
@@ -73,7 +73,7 @@ if(isset($_SESSION['logued_as_admin'])){
     <div class="contenedores" >
       <!--segunda sección-->
         <div id="container_top">
-          <h3 class="subtitulo">¡Para todos los gustos!</h3>
+          <h2 class="titulo">¡Para todos los gustos!</h2>
         </div>
 
       <div class="contenedor_chico">
