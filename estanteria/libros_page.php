@@ -12,7 +12,6 @@ $title = $result['NOM_LIBRO'];
 
 include("../layout/header.php");
 ?>
-  <div id="result"></div>
 
 <div id="contenedor_principal_libros">
 
@@ -25,6 +24,7 @@ include("../layout/header.php");
         <div>
             <h2><?php echo $result['NOM_LIBRO'];?></h2>
             <h4>$ <?php echo $result['PRECIO_LIBRO'] ?></h4>
+            <div id="result"></div>
         </div>
 
         <div id="form_add_libro">
@@ -70,37 +70,6 @@ include("../layout/header.php");
     
     <script>
         localStorage.setItem("id_libro", <?php echo $id_libro ?>);
-
-        function add_to_cart(){
-            
-        let id = localStorage.getItem("id_libro");
-        let cantidad = document.getElementById("cantidad").value
-        let result = document.getElementById("result")
-        
-
-        const add_to_cart_Data = new FormData;
-
-        add_to_cart_Data.set("id_libro", id);
-        add_to_cart_Data.set("cantidad", cantidad);
-
-
-        fetch("agregar_al_estante.php", {
-
-            method: 'POST',
-            body: add_to_cart_Data
-
-        }).then(function(response){
-            if(response.ok){
-                return response.text()
-            }else{
-                throw "error"
-            }
-        }).then(function(respuesta_agregar_al_estante){
-            result.innerHTML = respuesta_agregar_al_estante;
-        })
-        
-    }
-
-
     </script>
 
+    <script src="script_agregar_al_carrito.js"></script>

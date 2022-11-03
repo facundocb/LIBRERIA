@@ -20,9 +20,9 @@ function cargar_datos(){
         }
 
     })
-    .then(function(respuesta_cargar_libros){
+    .then(function(respuesta_cargar_user){
         let arr_datos_user = new Array();
-        arr_datos_user = JSON.parse(respuesta_cargar_libros);
+        arr_datos_user = JSON.parse(respuesta_cargar_user);
         let inputs_user = document.querySelectorAll('.input_texto');
 
         inputs_user[0].value = arr_datos_user['ci'];
