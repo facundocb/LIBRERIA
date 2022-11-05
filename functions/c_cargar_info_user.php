@@ -9,6 +9,7 @@ $query_user = $conn->query("SELECT persona.CI, persona.NOMBRE, persona.APELLIDO,
 
 if($query_user){
     $datos_user = [
+        'estado' => 1,
         'ci' => $query_user['CI'],
         'nom' => $query_user['NOMBRE'],
         'ape' => $query_user['APELLIDO'],
@@ -19,7 +20,10 @@ if($query_user){
 
     echo json_encode($datos_user);
 }else{
-    echo 'aa';
+    $datos_user = [
+        'estado' => 0,
+    ];
+    echo json_encode($datos_user);
 }
 
 

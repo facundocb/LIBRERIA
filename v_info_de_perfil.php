@@ -11,9 +11,9 @@ include("layout/header.php");
     <div id="container_info_de_perfil">
         
         <div id="menu">
-            <a href="info_de_perfil.php"><h4 class='opcion selected'>Datos personales</h4></a>
-            <a href="historial_de_compras.php"><h4 class='opcion'>Historial de compras</h4></a>
-            <a href="functions/cerrar_sesion.php"><h4 class='opcion'>Salir</h4></a>
+            <a href="v_info_de_perfil.php"><h4 class='opcion selected'>Datos personales</h4></a>
+            <a href="v_historial_de_compras.php"><h4 class='opcion'>Historial de compras</h4></a>
+            <a href="/LIBRERIA/functions/c_cerrar_sesion.php"><h4 class='opcion'>Salir</h4></a>
         </div>
         
         <div id='datos_personales'>
@@ -51,4 +51,6 @@ include("layout/header.php");
 
     </div>
 
+
+    <script src="/LIBRERIA/layout/script.js"></script>
     <script src='info_de_perfil.js'></script>

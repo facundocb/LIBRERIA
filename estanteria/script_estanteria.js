@@ -38,10 +38,40 @@ window.onload = cargar_datos();
 
 
 function comprar(){
-    let user = localStorage.getItem("user");
-    let datos_compra = new FormData;
-    let cantidades
-    datos_compra.set("cantidad")
+    
+    let compra_data = new FormData;
+/*
+    console.log(metodos.checked);
+
+
+    for(let i = 0; i < metodos.length; i++){
+        if(metodos[i].checked){
+            metodo_elegido = metodos[i].value
+        }
+    }
+*/
+
+let metodo_elegido = document.querySelector('input[name="metodo"]:checked').value;
+console.log(metodo_elegido)
+
+    compra_data.set('metodo_de_pago', metodo_elegido);
+
+    fetch("c_compra.php",{
+        method: 'POST',
+        body: compra_data
+    })
+
+    .then(function(response){
+        if(response.ok){
+            return response.text();
+        }else{
+            throw 'error';
+        }
+    }).then(function(respuesta_compra){
+        console.log(respuesta_compra)
+    })
+
+
 
 
 }

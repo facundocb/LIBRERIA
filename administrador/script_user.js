@@ -29,7 +29,7 @@ const insertar_user = () => {
     add_data.set('password', add_inputs[6].value);
     
 
-    fetch('user_functions/add_user.php', 
+    fetch('user_functions/c_add_user.php', 
     {
         method: 'POST',
         body: add_data
@@ -60,7 +60,7 @@ const banear_user = () =>{
     ban_data.set('username', input_baneo.value);
 
 
-    fetch('user_functions/ban_user.php', {
+    fetch('user_functions/c_ban_user.php', {
         method: 'POST',
         body: ban_data
     })
@@ -92,7 +92,7 @@ const asign_admin = () =>{
     asign_data.set('clave_seguridad', inputs_asign_admin[2].value)
 
 
-    fetch('user_functions/asign_admin.php', {
+    fetch('user_functions/c_asign_admin.php', {
         method: 'POST',
         body: asign_data
     })
@@ -118,7 +118,7 @@ function enviar_ci()
     let envio = new FormData;
     envio.set('ci', input_ci.value);
 
-    fetch('user_functions/buscar_user.php', {
+    fetch('user_functions/c_buscar_user.php', {
         method: 'POST',
         body: envio
     })
@@ -158,7 +158,7 @@ const modificar_user = () => {
     mod_data.set("fecha_nacimiento", inputs_mod_user[4].value);
     mod_data.set("username", inputs_mod_user[5].value);
     
-    fetch('user_functions/mod_user.php', {
+    fetch('user_functions/c_mod_user.php', {
         method: 'POST',
         body: mod_data
         
@@ -190,7 +190,7 @@ const cargar_tabla = () => {
         buscar_data.set("condicion", busqueda)
 
 
-   fetch("user_functions/cargar_tabla_user.php", {
+   fetch("user_functions/c_cargar_tabla_user.php", {
     
         method: 'POST',
         body: buscar_data

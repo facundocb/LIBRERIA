@@ -215,8 +215,4 @@ function insertar_libro($cantidad, $id_libro, $id_estante){
 
 }
 
-
-
-
-
 ?>

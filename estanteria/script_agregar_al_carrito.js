@@ -12,7 +12,7 @@
             add_to_cart_Data.set("cantidad", cantidad);
     
     
-            fetch("agregar_al_estante.php", {
+            fetch("c_agregar_al_estante.php", {
     
                 method: 'POST',
                 body: add_to_cart_Data

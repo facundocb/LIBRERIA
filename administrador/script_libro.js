@@ -21,7 +21,7 @@ add_data.forEach(element => {
 });
 
 
-    fetch("book_functions/add_book.php",
+    fetch("book_functions/c_add_book.php",
     {
         method: 'POST',
         body: add_data
@@ -51,7 +51,7 @@ const cargar_tabla = () => {
     const buscar_data = new FormData;
     buscar_data.set("condicion", busqueda)
        
-   fetch("book_functions/cargar_tabla_libros.php", {
+   fetch("book_functions/c_cargar_tabla_libros.php", {
     
         method: 'POST',
         body: buscar_data
@@ -87,7 +87,7 @@ const enviar_ID = () =>{
     const buscar_libro_data = new FormData;
     buscar_libro_data.set("ID", ID_buscada.value);
 
-    fetch('book_functions/buscar_book.php',{ 
+    fetch('book_functions/c_buscar_book.php',{ 
     method: 'POST',
     body: buscar_libro_data
     
@@ -133,7 +133,7 @@ const modificar_libro = () =>{
     mod_libro_data.set("editorial_libro",inputs_mod_book[7].value)
     mod_libro_data.set("fecha_publicacion_libro",inputs_mod_book[8].value)
 
-    fetch('book_functions/mod_book.php', {
+    fetch('book_functions/c_mod_book.php', {
 
         method: 'POST',
         body: mod_libro_data
@@ -166,7 +166,7 @@ const banear_libro = () =>{
 
 
 
-    fetch('book_functions/ban_book.php', {
+    fetch('book_functions/c_ban_book.php', {
 
         method: 'POST',
         body: ban_libro_data
@@ -193,7 +193,7 @@ const desbanear_libro = () =>{
 
     habilitar_data.set("ID", ID_cambiar_estado.value);
 
-    fetch('book_functions/desban_book.php', {
+    fetch('book_functions/c_desban_book.php', {
         method:'POST',
         body: habilitar_data
     })

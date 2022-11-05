@@ -15,6 +15,8 @@
     width: auto;
     height: auto;
     transition: all ease 0.5s;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 body{
@@ -90,7 +92,7 @@ h5{
     margin-left: 1.5vw;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    font-size: 1.9em;
+    font-size: 2em;
     font-weight: 600;
     color: var(--color-tres);
 }
@@ -573,7 +575,7 @@ margin-top: 8vh;
 align-self: center;
 }
 
-#login input{
+.login_input{
     padding-left: 1vw;
     height: 2vw;
     margin-bottom: 2vh ;
@@ -586,7 +588,8 @@ align-self: center;
     align-self: center;
 }
 
-#login #boton{
+.boton{
+    border: none;
     width: 50%;
     height: 2.5vw;
     color:var(--color-cuatro);
@@ -599,57 +602,53 @@ align-self: center;
 }
 
 #container_extra{
+
     height: auto;
     margin-top: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 3vw;
-    transition: all ease 0.5s;
-    overflow: hidden;
+    color: var(--color-uno);
 }
 
-#container_extra:hover .extras{
-    width: 100%;
-
+#container_extra a{
+    text-decoration: none;
+    cursor: default;
+    color: var(--color-uno);
+    
 }
 
 
-.a_login{
+
+
+#container_extra a .texto_login{
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
     text-transform: uppercase;
-    font-size: 1vw;
+    font-size: 1em;
     font-weight: 600;
     color:var(--color-uno);
     text-decoration: none;
     margin-left: 1vw;
+    transform: translateX(20vw);
+    transition: all ease 0.5s;
+
 }
 
-
-
 .extras{
-    width: 1vw;
     display: flex;
     margin-top: auto;
     height: 5vh;
     align-items: center;
-    text-overflow:clip;
     transition: all ease 0.5s;
+    padding-left: 1vw;
     overflow: hidden;
 }
 
 
-.extras button{
-    width: 2vh;
-    height: 2vh ;
-    background-color: var(--color-tres);
-    border: none;
-    border-radius: 50%;
-    margin: 0;
-}
 
-
-#logout_button{
+.logout_button{
     width: 50%;
     height: 2.5vw;
     color:var(--color-cuatro);
@@ -755,10 +754,8 @@ align-self: center;
 
 /* sección de búsqueda */
 
-#contenedor_principal{
+#container_titulo{
     width: 100%;
-    display: flex;
-    border: solid 1px black;
 }
 
 
@@ -823,8 +820,10 @@ align-self: center;
     font-size: 1em;
 }   
 
+
 #contenedor_libros_result{
-    width: 80vw ;
+    width: 70vw ;
+    border: solid 1px black;
     margin:auto;
     display: flex;
     flex-direction: row;
@@ -930,7 +929,7 @@ align-self: center;
 
 
 #form_add_libro{
-    width: 30vw;
+    width: 32vw;
     height: 4vw;
     display: flex;
     flex-direction: row;
@@ -968,16 +967,16 @@ align-self: center;
 }
 
 #add_to_cart{
-    margin-left: 30px;
-    width: 20vw;
-    height: 100%;
+    margin-left: 10px;
+    width: 18vw;
+    height: 3.5vw;
     background-color: var(--color-uno);
     border-radius: 3px;
     color: var(--color-cuatro);
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    font-size: 1.2em;
-    font-weight: 600;
+    font-size: 1.1em;
+    font-weight: 500;
     border: none;
     cursor:pointer;
 }
@@ -1257,5 +1256,60 @@ align-self: center;
     font-weight: 500;
     color: var(--color-uno);
     margin-bottom: 1vh;
+}
+
+
+/* CAMBIAR CLAVE */
+
+#container_cambiar_clave{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#container_cambiar_clave p{
+    font-size: 1.2em;
+    margin: 1.5vw 0 1.5vw 1.5vw;
+}
+
+
+#form_cambiar_clave{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
+    align-items: flex-start;
+    margin-left: 1.5vw;
+}
+
+
+.input_cambiar_clave{
+    height: 3vw;
+    width: 20vw;
+    font-family: 'Poppins', sans-serif;
+    color:#555555;
+    margin: 0;
+    padding-left: 0.5vw;
+    border: none;
+    background-color: var(--color-cuatro);
+    outline: none;  
+    font-style: italic;  
+}
+
+.boton_cambiar_clave{
+    height: 3vw;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    background-color: var(--color-uno);
+    border: none;
+    color: var(--color-cuatro);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1em;
 }
 

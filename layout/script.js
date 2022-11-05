@@ -66,3 +66,18 @@ else{
     button.style.fontSize = "0em";
 }
 }
+
+function mostrar_opciones_login(){
+
+    
+    let x = document.getElementsByClassName('texto_login');
+    
+    //document.getElementsByClassName('texto_login')[0].style.transform = 'translateX(0)';
+    for(let i=0;i<=(x.length)-1;i++)
+    {
+        x[i].style.transform = 'translateX(0)';
+    }
+
+}
+
+//svega141@gmail.com

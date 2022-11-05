@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="/LIBRERIA/layout/mobil.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <script src="/LIBRERIA/layout/script.js"></script>
     <script src="/LIBRERIA/layout/scriptmobil.js"></script>
     <script src="https://kit.fontawesome.com/f085d53cce.js" crossorigin="anonymous"></script>
     <title><?php if(isset($title)){echo $title;} else{echo 'titulo';}?></title>
@@ -32,7 +31,7 @@
             
             <a href="/LIBRERIA/index.php"><img id="logo" src="/LIBRERIA/RECURSOS/logo.svg" alt="Mi mundo" ></a>
 
-                <form action="/LIBRERIA/busqueda_libros.php" method="get" id="formulario_busqueda">
+                <form action="/LIBRERIA/v_busqueda_libros.php" method="get" id="formulario_busqueda">
                      <input id="buscador" type="text" placeholder="buscar libro" name="nombre_libro_buscado">
                      <button id="boton_buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                      <button id="boton_buscar_input" type="button" onclick="abririnput()"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -54,7 +53,7 @@
 
                     <li>
                         <span class="material-icons">shelves</span>
-                        <button><a class='direccion_invisible' href="/LIBRERIA/estanteria/estanteria.php">Estanteria</a></button>
+                        <button><a class='direccion_invisible' href="/LIBRERIA/estanteria/v_estanteria.php">Estanteria</a></button>
                     </li>
 
                 </ul>
