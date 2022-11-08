@@ -38,7 +38,18 @@ function consulta_usuario($user){
     //current agarra el valor ACTUAL de un array, al tener 0 o 1 entonces actua como boolean
     return $flag_exist;
     }
-        
+ 
+    
+function actualizar_pass($ci, $pass){
+    global $conn;
+    $username = $conn->query("SELECT usuario_cliente.USERNAME FROM `usuario_cliente` INNER JOIN usuario ON usuario_cliente.USERNAME = usuario.USERNAME AND usuario.CI = '{$ci}';")->fetch();
+
+    $update_user = $conn->prepare("UPDATE usuario SET passwd = ? WHERE username = ?");
+    $update_user->execute([$pass, $username[0]]);
+
+}
+
+
 
 function verificar_ban($user){
     global $conn;
@@ -105,12 +116,6 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
 
 
 }
-
-
-//ezeqiel puto.
-//segunda prueba.
-//xd
-
 
 //funcion de verificacion.php
 
@@ -192,6 +197,14 @@ function crear_estanteria($username){
     $conn->prepare($insert_estanteria)->execute([$username]);
 }
 
+function inhabilitar_estante($id_estante){
+    global $conn;
+    $insert_estanteria = ("UPDATE estanteria SET ESTADO = 0 WHERE ID_ESTANTERIA = ?");
+    $conn->prepare($insert_estanteria)->execute([$id_estante]);
+}
+
+
+
 function consulta_tiene_libro($id_libro, $estante){
     global $conn;
     $query = $conn->query("SELECT CANTIDAD FROM tiene where id_libro={$id_libro} AND id_estanteria = {$estante};");
@@ -209,10 +222,58 @@ function actualizar_cantidad_libro($cantidad, $id_libro, $id_estante ){
 
 function insertar_libro($cantidad, $id_libro, $id_estante){
     global $conn;
-    $query = "INSERT INTO tiene(CANTIDAD, ID_LIBRO, ID_ESTANTERIA) values(?,?,?)";
-    $conn->prepare($query)->execute([$cantidad,$id_libro,$id_estante]);
+    $subtotal = calcular_subtotal($id_libro, $cantidad);
+
+    $query = "INSERT INTO tiene(CANTIDAD, ID_LIBRO, ID_ESTANTERIA, SUBTOTAL ) values(?,?,?,?)";
+    $conn->prepare($query)->execute([$cantidad,$id_libro,$id_estante, $subtotal]);
 
 
 }
+
+function calcular_subtotal($id_libro, $cantidad){
+    global $conn;
+    $precio_individual = $conn->query("SELECT PRECIO_LIBRO from libro where ID_LIBRO = {$id_libro}")->fetch();
+    $subtotal = $precio_individual[0] * $cantidad;
+    return $subtotal;
+
+}
+
+function compra($user, $estante, $metodo_pago){
+    global $conn;
+
+    $libros = $conn->query("SELECT ID_LIBRO from tiene WHERE tiene.ID_ESTANTERIA = '{$estante}'")->fetchAll();
+
+    foreach($libros as $libro){
+        $realiza_insert = "INSERT INTO realiza(ID_ESTANTERIA, ID_LIBRO, USERNAME, FECHA, METODO_DE_PAGO) VALUES (?,?,?,now(),?)";
+        $conn->prepare($realiza_insert)->execute([$estante, $libro['ID_LIBRO'], $user, $metodo_pago]);
+        quitar_stock($libro['ID_LIBRO'], $estante);
+    }
+    inhabilitar_estante($estante);
+}
+
+function quitar_stock($id_libro, $estante){
+    global $conn;
+
+    $query_cantidad = $conn->query("SELECT tiene.CANTIDAD FROM tiene WHERE id_libro= '{$id_libro}' AND id_estanteria = '{$estante}'")->fetch();
+
+    $query_stock = ver_stock($id_libro);
+
+    $cantidad_actualizada = $query_stock[0] - $query_cantidad[0];
+
+    $update_stock = "UPDATE libro SET stock_libro = ? WHERE id_libro = ?";
+  
+    $conn->prepare($update_stock)->execute([$cantidad_actualizada, $id_libro]);
+
+}
+
+function ver_stock($id_libro){
+    global $conn;
+
+    $query_stock = $conn->query("SELECT STOCK_LIBRO FROM libro WHERE id_libro= '{$id_libro}'")->fetch();
+    return $query_stock;
+}
+
+
+
 
 ?>

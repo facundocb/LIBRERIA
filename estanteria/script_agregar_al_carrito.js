@@ -18,9 +18,13 @@
                 body: add_to_cart_Data
     
             }).then(function(response){
+
                 if(response.ok){
+
                     return response.text()
+
                 }else{
+                    
                     throw "error"
                 }
             }).then(function(respuesta_agregar_al_estante){

@@ -19,7 +19,7 @@ if(isset($_SESSION['username'])){
           <a  href="v_historial_de_compras.php"> <p class='texto_login'> Historial de compras</p></a>
         </div>
       </div>
-      <a class="logout_button" href='/LIBRERIA/functions/c_cerrar_sesion.php'>Cerrar sesión</a>
+      <a id='salir' href='/LIBRERIA/functions/c_cerrar_sesion.php'> <button class="boton_general">Cerrar sesión</button></a>
 
   <?php
   }   

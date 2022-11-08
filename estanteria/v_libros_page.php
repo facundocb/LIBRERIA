@@ -43,7 +43,7 @@ include("../layout/header.php");
                         <option value="10">10</option>
                     </select>
                 </div>
-                <button type="submit" id="add_to_cart" onclick="add_to_cart()" >agregar al estante</button>
+                <button type="submit" id="add_to_cart" onclick="add_to_cart()">agregar al estante</button>
             </div>
 
             <div id="otros">

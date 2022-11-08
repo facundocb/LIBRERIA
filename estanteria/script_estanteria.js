@@ -7,7 +7,7 @@ function cargar_datos(){
     cargar_data.set('user', user);
 
 
-    fetch("../functions/cargar_info_user.php", {
+    fetch("../functions/c_cargar_info_user.php", {
         method: 'POST',
         body: cargar_data
     })
@@ -51,8 +51,8 @@ function comprar(){
     }
 */
 
-let metodo_elegido = document.querySelector('input[name="metodo"]:checked').value;
-console.log(metodo_elegido)
+let metodo_elegido = document.querySelector('input[name="metodo"]:checked').value ;
+
 
     compra_data.set('metodo_de_pago', metodo_elegido);
 
@@ -67,8 +67,8 @@ console.log(metodo_elegido)
         }else{
             throw 'error';
         }
-    }).then(function(respuesta_compra){
-        console.log(respuesta_compra)
+    }).then(function(){
+        location.reload();
     })
 
 

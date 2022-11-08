@@ -90,6 +90,8 @@ h5{
 
 .titulo{
     margin-left: 1.5vw;
+    margin-top: 0;
+    margin-bottom: 0;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-size: 2em;
@@ -314,17 +316,6 @@ header button{
 }
 
 
-
-
-
-
-
-/*fin banners*/
-
-
-
-
-
 /*primera seccion de libros */
 .contenedor_libros_largos{
     width: 90vw;
@@ -338,10 +329,10 @@ header button{
 }
 
 #minih2{
-width: 100%;
-display: flex;
-justify-content: center;
-align-items:center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
 
 .libros_largos{
@@ -378,29 +369,9 @@ align-items:center;
     cursor: pointer;
 }
 
-
-
-
-
-
-
 .libros_largos p {
     color:var(--color-uno);
 }
-
-/* aca termina */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .contenedores{
@@ -428,11 +399,6 @@ align-items:center;
 }
 
 /* aca arranca la segunda seccion */
-
-.subtitulo
-{
-    font-weight: 400;
-}
 
 .contenedor_chico{
     display: flex;
@@ -474,11 +440,8 @@ align-items:center;
     color:var(--color-uno);
 }
 
-/* y aca termina*/
-
-
-
 /* tercera sección */
+
 .caracteristicas{
     width: 18vw;
     display: inline-flex;
@@ -495,12 +458,6 @@ align-items:center;
     width:80%;
     margin-top: 1vw;
 }
-
-/* termina aca*/
-
-
-
-
 
 
 footer{
@@ -646,6 +603,10 @@ align-self: center;
     overflow: hidden;
 }
 
+#salir {
+    text-decoration: none;
+    align-self: center;
+}
 
 
 .logout_button{
@@ -667,87 +628,6 @@ align-self: center;
     font-weight: 600;
 }
 
-
-
-
-
-
-/* REGISTRO DE USUARIOS */
-
-#contenedor_login{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start ;
-
-}
-
-#form_registro{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 40vw;
-    height: 100vh;
-    border: solid 1px black;
-    margin-right: 0vw;
-
-}
-#form_registro input[type=text]{
-    width: 30vw;
-    margin-top: 2vh;
-    border: #cccccc 1px solid;
-    box-sizing: border-box;
-    height: 5vh;
-    border-radius: 7px;
-    font-family: 'Poppins', sans-serif;
-}
-
-#form_registro input[type="date" i] {
-    width: 30vw;
-    margin-top: 2vh;
-    border: #cccccc 1px solid;
-    box-sizing: border-box;
-    height: 5vh;
-    border-radius: 7px;
-    font-family: 'Poppins', sans-serif;
-}
-
-#form_registro input[type=date]:focus{
-    outline: none;
-    border: solid 1px black;
-}
-
-#form_registro input[type=text]:focus{
-    outline: none;
-    border: solid 1px black;
-}
-
-#form_registro input[type=submit]{
-    width: 10vw;
-    height: 6vh;
-    margin-top: 2vh;
-    font-family: 'Poppins', sans-serif;
-    background-color:var(--color-cuatro);
-    border-radius:7px;
-    border: 1px solid var(--color-uno);
-    cursor:pointer;
-    color:var(--color-uno);
-    font-size: 1em;
-    text-decoration:none;    
-}
-
-#form_registro input[type=submit]:hover{
-    color: var(--color-cuatro);
-    background-color: var(--color-uno);
-
-}
-
-.error_mensaje{
-    font-size: 0.7em;
-    color: var(--error_color);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-}
 
 
 
@@ -1273,6 +1153,15 @@ align-self: center;
     margin: 1.5vw 0 1.5vw 1.5vw;
 }
 
+.label_general{
+    font-size: 1.1em;
+    color: var(--color-uno);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+
+
 
 #form_cambiar_clave{
     width: 40vw;
@@ -1284,10 +1173,9 @@ align-self: center;
 }
 
 
-.input_cambiar_clave{
-    height: 3vw;
+.input_general{
+    height: 5vh;
     width: 20vw;
-    font-family: 'Poppins', sans-serif;
     color:#555555;
     margin: 0;
     padding-left: 0.5vw;
@@ -1295,11 +1183,16 @@ align-self: center;
     background-color: var(--color-cuatro);
     outline: none;  
     font-style: italic;  
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1vh;
 }
 
-.boton_cambiar_clave{
-    height: 3vw;
-    width: 6vw;
+
+
+
+
+.boton_general{
+    padding: 0.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1313,3 +1206,38 @@ align-self: center;
     font-size: 1em;
 }
 
+#form_actualizar_clave{
+    margin-top: 2vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
+    align-items: flex-start;
+    margin-left: 1.5vw;    
+}
+
+#RESULT{
+    width: 30vw;
+    height: 3vw;
+    margin-left: 1.5vw ;
+}
+
+
+
+/* Seccion de registro de usuarios */
+
+#registrar_container{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    width: 50vw;
+    margin-left: 1.5vw;
+    gap: 1vh;
+    align-items: flex-start;
+}
+
+.error_p{
+    color: var(--error_color);
+    font-size: 0.8em;
+    font-weight: 400;
+}

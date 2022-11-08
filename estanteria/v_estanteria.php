@@ -37,9 +37,10 @@ if(!isset($_SESSION['username'])){
 
 
 <?php 
+$total = 0;
 
     if(!$flag_vacio){
-        $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD FROM libro INNER JOIN tiene ON tiene.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = tiene.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
+        $sql = $conn->query("SELECT libro.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, tiene.CANTIDAD, tiene.SUBTOTAL FROM libro INNER JOIN tiene ON tiene.ID_LIBRO = libro.ID_LIBRO INNER JOIN estanteria ON estanteria.ESTADO = 1 AND estanteria.ID_ESTANTERIA = tiene.ID_ESTANTERIA INNER JOIN usuario_cliente ON usuario_cliente.USERNAME = '{$_SESSION['username']}' AND usuario_cliente.USERNAME = estanteria.USERNAME")->fetchAll();
     ?>
     <table id="listado_estante">
         <thead>
@@ -48,6 +49,8 @@ if(!isset($_SESSION['username'])){
                 <th>ID</th>
                 <th>Cantidad</th>
                 <th>Precio unitario</th>
+                <th>Subtotal</th>
+
             </tr>
 
         </thead>
@@ -59,17 +62,21 @@ if(!isset($_SESSION['username'])){
             echo '<td>' . $row["NOM_LIBRO"] . '</td>';
             echo '<td>' . $row["ID_LIBRO"] . '</td>';
             echo '<td class="cantidad">' . $row["CANTIDAD"] . '</td>';
-            echo '<td class="precio">' . $row["PRECIO_LIBRO"] . '</td>';
+            echo '<td class="precio"> $' . $row["PRECIO_LIBRO"] . '</td>';
+            echo '<td class="precio"> $' . $row["SUBTOTAL"] . '</td>';
+            
             echo '</tr>';
+            $total = $total + $row['SUBTOTAL'];
             }
+
 
     ?>
         </tbody>
 
         <tfoot>
             <tr id="sub">
-            <td align="left" colspan="3">TOTAL:</td>
-            <td id="total">$1500</td>
+            <td align="left" colspan="4">TOTAL:</td>
+            <td id="total">$<?php echo $total  ?></td>
             </tr>
         </tfoot>
 
@@ -89,9 +96,9 @@ if(!isset($_SESSION['username'])){
     <div class="seccion">
         <h2 class="subtitulo">seleccione un metodo de pago</h2>
             <div id="form_metodo_pago">
-                <label for="tarjeta"><input type="radio" name='metodo' id="tarjeta"> Tarjeta de credito Visa, Mastercard u Oca</label>
-                <label for="efectivo"><input type="radio" name='metodo' id="efectivo">Pago en efectivo</label>
-                <label for="giro"><input type="radio" name='metodo' id="giro">Giro por redpagos</label>
+                <label for="tarjeta"><input id='tarjeta' type="radio" name='metodo' value="tarjeta"> Tarjeta de credito Visa, Mastercard u Oca</label>
+                <label for="efectivo"><input id='efectivo' type="radio" name='metodo' value="efectivo">Pago en efectivo</label>
+                <label for="giro"><input id='giro' type="radio" name='metodo' value="giro">Giro por redpagos</label>
             </div>
     </div>
     <div class="seccion">
@@ -106,24 +113,6 @@ if(!isset($_SESSION['username'])){
     <?php } ?>
   
     <script>
-        function calcular_total(){
-            let total_div = document.getElementById("total");
-
-            let cantidades = document.getElementsByClassName('cantidad');
-            let precios = document.getElementsByClassName('precio');
-            let total = 0
-
-            for (i = 0; i < cantidades.length; i++){
-
-            let a = parseInt(cantidades[i].innerHTML);
-            let b = parseInt(precios[i].innerHTML)
-            
-            total+= a * b;
-            }
-            total_div.innerHTML = "$" + total;
-    }
-    calcular_total()
-
     let user = '<?php echo $_SESSION['username'];?>'; 
     localStorage.setItem("user", user);
 
