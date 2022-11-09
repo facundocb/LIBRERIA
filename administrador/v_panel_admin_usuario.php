@@ -30,14 +30,14 @@ session_start();
 <body>
     <div id="header">
         <div id="logo">
-        <img src="../RECURSOS/logo.png" alt="">
+        <img src="/LIBRERIA/RECURSOS/logo.svg" alt="">
             <p>Mi mundo</p>            
         </div>
 
         <p id="nombre_admin"><?php echo $_SESSION['username']?></p>
         <div id='container_botones'>
-            <a href="panel_admin_libro.php">Libros</a>
-            <a href="LIBRERIA/functions/c_cerrar_sesion.php">Cerrar sesion</a>
+            <a href="/LIBRERIA/administrador/v_panel_admin_libro.php">Libros</a>
+            <a href="/LIBRERIA/functions/c_cerrar_sesion.php">Cerrar sesion</a>
         </div>
     </div>
 

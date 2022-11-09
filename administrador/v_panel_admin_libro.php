@@ -37,7 +37,7 @@ $title = "panel admin";
 
         <p id="nombre_admin"><?php echo $_SESSION['username']?> </p>
         <div id='container_botones'>
-            <a href="panel_admin_usuario.php">Usuarios</a>
+            <a href="/LIBRERIA/administrador/v_panel_admin_usuario.php">Usuarios</a>
             <a href="../functions/cerrar_sesion.php">Cerrar sesion</a>
         </div>
     </div>
