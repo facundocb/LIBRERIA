@@ -1,14 +1,10 @@
-<?php $title="Pagina de registro"?>
-
-
-
-
-
-<?php require("layout/header.php");
+<?php
+    $title="Pagina de registro";
+    require("layout/header.php");
     require("functions/conexion.php");
 ?>
 
-<h2>Bienvenido, ingrese su información personal para registrarse</h2>
+<h2 class='titulo'>Bienvenido, ingrese su información personal para registrarse</h2>
 
 <?php
 

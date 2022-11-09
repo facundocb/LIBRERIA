@@ -22,7 +22,7 @@
     $stock = ver_stock($id_libro);
 
     if($stock[0] < $cantidad){
-        echo "<div class='error'> <span class='material-icons'>warning</span> <p class='error_texto'>  se supero el stock del producto, la cantidad maxima disponible es '{$stock[0]}'</p></div>"   ;
+        echo "<div class='error'> <span class='material-icons'>warning</span> <p class='error_texto'> la cantidad maxima disponible es '{$stock[0]}'</p></div>"   ;
 
     }
     else {    
