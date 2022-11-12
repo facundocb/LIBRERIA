@@ -1,26 +1,31 @@
 <?php
     include("functions/conexion.php");
-    $user = 'chito1212';
-    echo $user;
-
-    $id_estante = consulta_estanteria_activa($user);
 
 
 
-    $libros = $conn->query("SELECT ID_LIBRO from tiene WHERE tiene.ID_ESTANTERIA = '{$id_estante[0]}'")->fetchAll();
+    
+    $USERNAME = 'chito1212';
+    
+    
+    try{
+        $db = Conexion::abrir_conexion();
+        $query = $db->query("SELECT CLAVE_SEGURIDAD FROM usuario_admin INNER JOIN usuario ON usuario_admin.USERNAME = usuario.USERNAME AND usuario_admin.USERNAME = '{$USERNAME}'")->Fetch();
+    
+        
+        if($query){
+            foreach($query as $compra){
+                echo $compra['nom_libro'] . ' ' . $compra['fecha'] . $compra['subtotal'] . '<br>';
+            }
+            
 
-
-    foreach ($libros as $libro) {
-        echo '<br>';
-        echo 'id: ' . $libro['ID_LIBRO'] . ' ,';
-        echo '<br>';
-
-
-
-     //   $update_tiene = $conn->query("UPDATE tiene SET SUBTOTAL = '{$subtotal}' WHERE ID_LIBRO='{$id}' AND ID_ESTANTERIA = '{$id_estante[0]}'");
-
-
+        }
+        
+    } catch(PDOException $e){
+        echo 'error';
     }
+
+
+
 
 
 ?>

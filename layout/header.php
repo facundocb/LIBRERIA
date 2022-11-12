@@ -32,7 +32,7 @@
             <a href="/LIBRERIA/index.php"><img id="logo" src="/LIBRERIA/RECURSOS/logo.svg" alt="Mi mundo" ></a>
 
                 <form action="/LIBRERIA/v_busqueda_libros.php" method="get" id="formulario_busqueda">
-                     <input id="buscador" type="text" placeholder="buscar libro" name="nombre_libro_buscado">
+                     <input id="buscador" type="text" placeholder="buscar libro" name="nombre_busqueda">
                      <button id="boton_buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                      <button id="boton_buscar_input" type="button" onclick="abririnput()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>

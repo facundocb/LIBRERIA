@@ -4,7 +4,7 @@
 if(isset($_REQUEST['error'])){
   die();
 }
-
+  
 
 if(isset($_SESSION['logued_as_admin'])){
   session_destroy();
@@ -40,25 +40,33 @@ if(isset($_SESSION['logued_as_admin'])){
 
 
 <?php 
+  try{
+    $db = Conexion::abrir_conexion();
+    $sql = "SELECT DIRECCION_IMG, NOM_LIBRO, PRECIO_LIBRO, ID_LIBRO from libro WHERE STOCK_LIBRO >1 ORDER BY RAND() LIMIT 8";
+    $query_novedades = $db->query($sql);
+    $result = $query_novedades->fetchALl();
+    foreach($result as $libro){
+      ?>
+      
+        <div class="libros_largos">
+      
+          <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
+              <img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
+          </a>
+          <h4><?php echo $libro['NOM_LIBRO']; ?></h4>
+          <p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
+                      
+        </div>
+  
+    <?php
+    }
+  }catch(PDOException $e){
+    echo "error en la consulta";
+    die();
+  }  
+    ?>
 
-  $query_novedades = $conn->query("SELECT DIRECCION_IMG, NOM_LIBRO, PRECIO_LIBRO, ID_LIBRO from libro WHERE STOCK_LIBRO >1 LIMIT 8");
-  $result = $query_novedades->fetchALl();
-  foreach($result as $libro){
- ?>
-
-<div class="libros_largos">
-
-  <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
-          <img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
-  </a>
-  <h4><?php echo $libro['NOM_LIBRO']; ?></h4>
-  <p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
-                
-</div>
-
-<?php
-  }
-?>
+  
       <!-- aca termina-->  
     </div>
     
@@ -80,18 +88,23 @@ if(isset($_SESSION['logued_as_admin'])){
         <h5>Terror</h5>
 
       <?php 
-        
-        $query_terror = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' limit 3")->fetchAll();
+        try{
 
-        foreach($query_terror as $libro_terror){
-      ?>
-          <div class="libros_anchos">
-            <img src="<?php echo $libro_terror['DIRECCION_IMG'] ?>" alt="">
-            <h5><?php echo $libro_terror['NOM_LIBRO'] ?> </h5>
-          </div>
-
+          $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' limit 3")->fetchAll();
+  
+          foreach($query_terror as $libro_terror){
+        ?>
+            <div class="libros_anchos">
+              <img src="<?php echo $libro_terror['DIRECCION_IMG'] ?>" alt="">
+              <h5><?php echo $libro_terror['NOM_LIBRO'] ?> </h5>
+            </div>
+  
         <?php
-        }
+          }
+        }catch(PDOException $e){
+          echo "error en la consulta";
+          die();
+        }      
         ?>
 
          <a class="ver_mas"href="">Ver más</a>
@@ -103,19 +116,24 @@ if(isset($_SESSION['logued_as_admin'])){
         <h5>Ensayos</h5>
 
         <?php 
-        
-        $query_ensayo = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' limit 3")->fetchAll();
+        try{
 
-        foreach($query_ensayo as $libro_ensayo){
-      ?>
-          <div class="libros_anchos">
-            <img src="<?php echo $libro_ensayo['DIRECCION_IMG'] ?>" alt="">
-            <h5><?php echo $libro_ensayo['NOM_LIBRO'] ?> </h5>
-          </div>
-
-        <?php
-        }
+          $query_ensayo = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' limit 3")->fetchAll();
+  
+          foreach($query_ensayo as $libro_ensayo){
         ?>
+            <div class="libros_anchos">
+              <img src="<?php echo $libro_ensayo['DIRECCION_IMG'] ?>" alt="">
+              <h5><?php echo $libro_ensayo['NOM_LIBRO'] ?> </h5>
+            </div>
+  
+          <?php
+          }
+        }catch(PDOException $e){
+          echo "error en la consulta";
+          die();
+      }
+          ?>
 
         <a class="ver_mas"href="">Ver más</a>
 
@@ -126,18 +144,24 @@ if(isset($_SESSION['logued_as_admin'])){
         <h5>Romance</h5>
 
         <?php 
-        
-        $query_romance = $conn->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' limit 3")->fetchAll();
+        try{
 
-        foreach($query_romance as $libro_romance){
-      ?>
-          <div class="libros_anchos">
-            <img src="<?php echo $libro_romance['DIRECCION_IMG'] ?>" alt="">
-            <h5><?php echo $libro_romance['NOM_LIBRO'] ?> </h5>
-          </div>
-
-        <?php
-        }
+          $query_romance = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' limit 3")->fetchAll();
+  
+          foreach($query_romance as $libro_romance){
+        ?>
+            <div class="libros_anchos">
+              <img src="<?php echo $libro_romance['DIRECCION_IMG'] ?>" alt="">
+              <h5><?php echo $libro_romance['NOM_LIBRO'] ?> </h5>
+            </div>
+  
+          <?php
+          }
+        }catch(PDOException $e){
+          echo "error en la consulta";
+          die();
+      }
+      
         ?>
         
         <a class="ver_mas"href="">Ver más</a>

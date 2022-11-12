@@ -35,7 +35,6 @@
         }
         else{
             $existe_libro = consulta_tiene_libro($id_libro, $id_estante[0]);
-
             if($existe_libro){
                 actualizar_cantidad_libro($cantidad, $id_libro, $id_estante[0]);
                 echo "<div class='ok'> <span class='material-icons'>done</span> <p class='ok_texto'> Se actualizo la cantidad</p></div>";

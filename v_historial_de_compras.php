@@ -17,8 +17,8 @@ include("layout/header.php");
         </div>
 
         <div id="historial_de_compras">
-            <h2 class="titulo">Historial de compras</h2>
-            <p>No tienes ninguna compra realizada!</p>
+
+        
         </div>
 
 
@@ -28,6 +28,6 @@ include("layout/header.php");
 
 
         <script src="/LIBRERIA/layout/script.js"></script>
-
+        <script src="/LIBRERIA/historial_de_compras.js"></script>
     </div>
 

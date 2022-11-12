@@ -2,7 +2,7 @@
 
     include("functions/conexion.php");
 
-        global $conn;
+        $db = Conexion::abrir_conexion();
         //se conecta a la base de datos
 
         $username = $_POST['username'];
@@ -12,7 +12,7 @@
 
         //se guardan en variables locales los post de usuario y password
 
-        $sql = $conn->query("SELECT PASSWD FROM usuario WHERE USERNAME='{$username}'")->Fetch();
+        $sql = $db->query("SELECT PASSWD FROM usuario WHERE USERNAME='{$username}'")->Fetch();
         if(!$sql || !password_verify($passwd, $sql[0])){
             header("location:index.php");
         }else{

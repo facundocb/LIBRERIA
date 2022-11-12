@@ -3,9 +3,10 @@ include("../functions/conexion.php");
 
 $id_libro = $_REQUEST['ID_LIBRO'];
 
-global $conn;
 
-$query = $conn->query("SELECT * FROM libro WHERE ID_LIBRO = '$id_libro'");
+$db = Conexion::abrir_conexion();
+
+$query = $db->query("SELECT * FROM libro WHERE ID_LIBRO = '$id_libro'");
 $result = $query->fetch();
 
 $title = $result['NOM_LIBRO'];

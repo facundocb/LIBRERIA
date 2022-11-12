@@ -2,9 +2,9 @@
 <?php
     $title = "Resultados de la búsqueda"; //titulo de la pagina
     include("layout/header.php"); //invoca al header
-    $nombre_busqueda = strtoupper($_GET['nombre_libro_buscado']); //guarda en la variable 
+    $nombre_busqueda = strtoupper($_REQUEST['nombre_busqueda']); //guarda en la variable 
     //fortalecer acceso sin get
-    include("functions/conexion.php"); //incluye la conexión a la base de datos
+        include("functions/conexion.php"); //incluye la conexión a la base de datos
 ?>
 
 
@@ -17,38 +17,80 @@
 
 
 
-        <div id="filtros_busqueda">
-                <form method="post" action="busqueda_libros.php">
-                        <label for="filtro_genero" >Genero:</label><input type="text" name="filtro_genero" id="">     
-                        <label for="filtro_fecha_desde">Fecha desde</label><input type="date" name="filtro_fecha_desde" id="">
-                        <label for="filtro_fecha_hasta" >Hasta</label><input type="date" name="filtro_fecha_hasta" id="">
-                        <input type="submit" value="filtrar" name="filtrar" >
-                </form>
-        </div>
-        <div id="contenedor_libros_result">
-                <?php 
-                        $query_busqueda = $conn->query("SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE '%{$nombre_busqueda}%'");
-                        $resultado = $query_busqueda->fetchAll();
-                        if($resultado){
-                                foreach($resultado as $libro){
+<div id="filtros_busqueda">
+	<form method="post" action='v_busqueda_libros.php'>
+		<label for="filtro_genero" >Genero:</label>
+		<?php 
+		try{
 
-                ?>
-                                        <div class="libros_largos">
-                                                <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
-                                                        <img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
-                                                </a>
-                                                <h4><?php echo $libro['NOM_LIBRO']; ?></h4>
-                                                <p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
-                                        </div> 
-                <?php
-                                }    
-                        }else{
-                                echo 'no hay libros';
-                        }
-                ?>
-        </div>
-        
-        
+		$db = Conexion::abrir_conexion();
+
+		$query_filtro = $db->query("SELECT DISTINCT GENERO_LIBRO FROM libro ORDER BY GENERO_LIBRO ASC")->fetchAll();    
+		echo "<input type='hidden' value='{$nombre_busqueda}' name='nombre_busqueda'>";
+		echo "<select  name='filtro_genero'>";
+		foreach($query_filtro as $genero){
+		echo "<option name='genero' value='{$genero['GENERO_LIBRO']}'>{$genero['GENERO_LIBRO']}</option>";
+
+		}
+
+		}catch(PDOException $e){
+		echo "error en la consulta" . $e->getMessage();
+
+		}	
+		echo "</select>";
+
+		?>   
+		<label for="fecha_desde">Fecha desde</label><input type="date" name="fecha_desde" id="">
+		<label for="fecha_hasta" >Hasta</label><input type="date" name="fecha_hasta" id="">
+		<input type="submit" value="filtrar" name="filtrar" >
+		</form>
+	</div>
+	<div id="contenedor_libros_result">
+	<?php 
+
+
+	try{
+	$db = Conexion::abrir_conexion();
+	$condicion = '';
+
+	if(isset($_POST['filtro_genero'])){
+	$condicion = ' AND GENERO_LIBRO = "' . $_POST['filtro_genero'] . '"';
+	}
+	if(isset($_POST['fecha_desde'])){
+	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO >= ' . $_POST['fecha_desde'] . '"';
+	}
+	if(isset($_POST['fecha_hasta'])){
+	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO <=' . $_POST['fecha_hasta'] . '"';
+	}
+
+
+	$sql = "SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE '%{$nombre_busqueda}%' {$condicion}";
+	$query_busqueda = $db->query($sql);
+	$resultado = $query_busqueda->fetchAll();
+	if($resultado){
+	foreach($resultado as $libro){
+
+	?>
+	<div class="libros_largos">
+	<a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
+	<img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
+	</a>
+	<h4><?php echo $libro['NOM_LIBRO']; ?></h4>
+	<p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
+	</div> 
+	<?php
+		}    
+	}else{
+		echo 'no hay libros';
+	}
+	}catch(PDOException $e){
+	echo "error en la consulta";
+	die();
+	}
+	?>
+	</div>
+			
+			
         
 </div>
         
