@@ -6,8 +6,8 @@ $id_libro = $_REQUEST['ID_LIBRO'];
 
 $db = Conexion::abrir_conexion();
 
-$query = $db->query("SELECT * FROM libro WHERE ID_LIBRO = '$id_libro'");
-$result = $query->fetch();
+$consulta = $db->query("SELECT * FROM libro WHERE ID_LIBRO = '$id_libro'");
+$result = $consulta->fetch();
 
 $title = $result['NOM_LIBRO'];
 

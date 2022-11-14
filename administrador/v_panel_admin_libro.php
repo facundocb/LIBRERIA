@@ -22,7 +22,8 @@ $title = "panel admin";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet"> 
-   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <script src="https://kit.fontawesome.com/f085d53cce.js" crossorigin="anonymous"></script> 
     <title><?php if(isset($title)){echo $title;} else{echo 'titulo';}?></title>
 </head>
@@ -37,8 +38,8 @@ $title = "panel admin";
 
         <p id="nombre_admin"><?php echo $_SESSION['username']?> </p>
         <div id='container_botones'>
-            <a href="panel_admin_usuario.php">Usuarios</a>
-            <a href="../functions/cerrar_sesion.php">Cerrar sesion</a>
+            <a href="v_panel_admin_usuario.php">Usuarios</a>
+            <a href="../functions/c_cerrar_sesion.php">Cerrar sesion</a>
         </div>
     </div>
 
@@ -48,9 +49,9 @@ $title = "panel admin";
             <button id="boton_buscar" onclick="cargar_tabla()" ><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-    <div id="listado">
-        <table id="result_consulta"></table>
-    </div>
+   <div id="alerta"></div>
+
+    <div id="listado"></div>
 
     <div id="funciones">
 

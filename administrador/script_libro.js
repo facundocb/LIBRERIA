@@ -46,7 +46,7 @@ add_data.forEach(element => {
 
 
 const cargar_tabla = () => {
-    let table = document.getElementById('result_consulta');
+    let listado = document.getElementById('listado');
     let busqueda = document.getElementById('buscar_libro_input').value
     const buscar_data = new FormData;
     buscar_data.set("condicion", busqueda)
@@ -66,8 +66,8 @@ const cargar_tabla = () => {
 
     })
     .then(function(respuesta_busqueda_libros){
-        table.innerHTML = "";
-        table.innerHTML = respuesta_busqueda_libros;
+        listado.innerHTML = "";
+        listado.innerHTML = respuesta_busqueda_libros;
 
 
     })
@@ -76,7 +76,26 @@ const cargar_tabla = () => {
 
 window.onload = cargar_tabla();
 
-   
+const mostrar_alerta_stock = () =>{
+    alerta = document.getElementById('alerta');
+
+    fetch("book_functions/c_alerta_stock.php")
+
+    .then(function(response){
+        if(response.ok){
+            return response.text();
+        }else{
+            throw "error";
+        }
+    })
+    .then(function(alerta_stock){
+        console.log(alerta_stock)
+        alerta.innerHTML = alerta_stock;
+    })
+    
+}   
+
+window.onload = mostrar_alerta_stock();
 
 
 //esto es para buscar el libro y guardarlo en un array

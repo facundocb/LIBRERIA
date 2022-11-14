@@ -1,10 +1,13 @@
 :root{
     --color-uno:#155765;
-    --color-dos:#99D3DF;
+    --color-dos:#98D7E6;
     --color-tres:#333333;
     --color-cuatro: #ffffff;
-    --color-cinco: #e8e8e8;
-    --error_color: #ed4337;
+    --color-cinco: #ededed;
+    --error_color: #950e24;
+    --error_fondo_color: #e08493;
+    --ok_fondo_color:  #abc994;
+    --ok_color: #1b5e20;
     
 } 
 
@@ -157,6 +160,13 @@ h2{
 }
 
 
+#alerta{
+    width: 90vw;
+    height: 5vh;
+    align-self: center;
+    border: #131313 1px solid;
+}
+
 #listado{
     margin-left: 5vw;
     display: flex;
@@ -187,6 +197,11 @@ h2{
     padding: 0.7vw;
     font-family: 'Poppins',sans-serif;
 }
+
+#result_consulta .celda_error{
+    color: var(--error_color);
+}
+
 
 #result_consulta .result_fila{
     height: 4vw;

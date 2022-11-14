@@ -36,7 +36,7 @@ session_start();
 
         <p id="nombre_admin"><?php echo $_SESSION['username']?></p>
         <div id='container_botones'>
-            <a href="panel_admin_libro.php">Libros</a>
+            <a href="v_panel_admin_libro.php">Libros</a>
             <a href="/LIBRERIA/functions/c_cerrar_sesion.php">Cerrar sesion</a>
         </div>
     </div>
@@ -48,7 +48,7 @@ session_start();
         </div>
 
     <div id="listado">
-        <table id="result_consulta"></table>
+       
     </div>
 
 

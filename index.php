@@ -90,7 +90,7 @@ if(isset($_SESSION['logued_as_admin'])){
       <?php 
         try{
 
-          $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' limit 3")->fetchAll();
+          $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_terror as $libro_terror){
         ?>
@@ -118,7 +118,7 @@ if(isset($_SESSION['logued_as_admin'])){
         <?php 
         try{
 
-          $query_ensayo = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' limit 3")->fetchAll();
+          $query_ensayo = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_ensayo as $libro_ensayo){
         ?>
@@ -146,7 +146,7 @@ if(isset($_SESSION['logued_as_admin'])){
         <?php 
         try{
 
-          $query_romance = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' limit 3")->fetchAll();
+          $query_romance = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_romance as $libro_romance){
         ?>

@@ -10,28 +10,51 @@
 
 
 
-
-    $query_libros = $conn->query("SELECT * from libro {$condicion}");
-    $resultado = $query_libros->fetchAll();
-
-    echo '<thead>';
+    try{
+        $db = Conexion::abrir_conexion();
+        
+        $query_libros = $db->query("SELECT * from libro {$condicion}");
+        $resultado = $query_libros->fetchAll();
+        echo ' <table id="result_consulta">';
+        echo '<thead>';
         echo '<th>ID</th>';
-        echo '<th>NOMBRE</th>';
-        echo '<th>STOCK</th>';
-        echo '<th>ESTADO</th>';
-        echo '<th>AUTOR</th>';
-    echo '</thead>'; 
+            echo '<th>NOMBRE</th>';
+            echo '<th>STOCK</th>';
+            echo '<th>ESTADO</th>';
+            echo '<th>AUTOR</th>';
+        echo '</thead>'; 
+    
+        foreach($resultado as $libro){
 
-    foreach($resultado as $libro){
-        echo "<tr class='result_fila'>";
-            echo "<td>" . $libro['ID_LIBRO'] . "</td>";
-            echo "<td>" . $libro['NOM_LIBRO'] . "</td>";
-            echo "<td>" . $libro['STOCK_LIBRO'] . "</td>";
-            echo "<td>" . $libro['ESTADO'] . "</td>";
-            echo "<td>" . $libro['AUTOR_LIBRO'] . "</td>";
-        echo "</tr>";
+            
+
+            if($libro['STOCK_LIBRO'] <= 0){
+                echo "<tr class='result_fila_error'>";
+                    echo "<td class='celda_error'>" . $libro['ID_LIBRO'] . "</td>";
+                    echo "<td class='celda_error'>" . $libro['NOM_LIBRO'] . "</td>";
+                    echo "<td class='celda_error'>" . $libro['STOCK_LIBRO'] . "</td>";
+                    echo "<td class='celda_error'>" . $libro['ESTADO'] . "</td>";
+                    echo "<td class='celda_error'>" . $libro['AUTOR_LIBRO'] . "</td>";
+                echo "</tr>";
+            }else{
+
+                echo "<tr class='result_fila'>";
+                    echo "<td>" . $libro['ID_LIBRO'] . "</td>";
+                    echo "<td>" . $libro['NOM_LIBRO'] . "</td>";
+                    echo "<td>" . $libro['STOCK_LIBRO'] . "</td>";
+                    echo "<td>" . $libro['ESTADO'] . "</td>";
+                    echo "<td>" . $libro['AUTOR_LIBRO'] . "</td>";
+                echo "</tr>";
+            }
+        }
+
+        echo '</table>';
+
+    }catch(PDOException $e){
+        echo 'hubo un error al conectarse a la bd';
     }
 
 
 
 ?>
+
