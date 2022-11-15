@@ -25,7 +25,7 @@ try{
     <script src="script_estanteria.js"></script>
 
 
-<div id="panel_estante">
+
 <h2> <?php echo $texto_estante; ?></h2>
 
 
@@ -76,42 +76,43 @@ $total = 0;
             </tfoot>
 
         </table>
-</div>
-
-
-<div id="seccion_compra">
-    <div class="seccion">
-        <h2 class="subtitulo">Informacion personal</h2>
-        <input type="text" disabled class="input_texto" id="cedula">
-        <input type="text" disabled class="input_texto" id="nombre">
-        <input type="text" disabled class="input_texto" id="apellido">
-        <input type="text" disabled class="input_texto" id="localidad">
-    </div>
-
-    <div class="seccion">
-        <h2 class="subtitulo">seleccione un metodo de pago</h2>
-            <div id="form_metodo_pago">
-                <label for="tarjeta"><input id='tarjeta' type="radio" name='metodo' value="tarjeta"> Tarjeta de credito Visa, Mastercard u Oca</label>
-                <label for="efectivo"><input id='efectivo' type="radio" name='metodo' value="efectivo">Pago en efectivo</label>
-                <label for="giro"><input id='giro' type="radio" name='metodo' value="giro">Giro por redpagos</label>
-            </div>
-    </div>
-    <div class="seccion">
-        <h2 class='subtitulo'>Notas o solicitudes especiales</h2>
-        <input type="text" id="input_texto_largo">
-        <button id='comprar' onclick='comprar()'>Confirmar compra</button>
-    </div>
-
     
-</div>
 
-    <?php } ?>
-  
+
+    <div id="seccion_compra">
+        <div class="seccion">
+            <h2 class="subtitulo">Informacion personal</h2>
+            <input type="text" disabled class="input_texto" id="cedula">
+
+            <input type="text" disabled class="input_texto" id="nombre">
+            <input type="text" disabled class="input_texto" id="apellido">
+            <input type="text" disabled class="input_texto" id="localidad">
+        </div>
+        <div class="seccion">
+            <h2 class="subtitulo">seleccione un metodo de pago</h2>
+                <div id="form_metodo_pago">
+                    <label for="tarjeta"><input id='tarjeta' type="radio" name='metodo' value="tarjeta"> Tarjeta de credito Visa, Mastercard u Oca</label>
+                    <label for="efectivo"><input id='efectivo' type="radio" name='metodo' value="efectivo">Pago en efectivo</label>
+                    <label for="giro"><input id='giro' type="radio" name='metodo' value="giro">Giro por redpagos</label>
+                </div>
+        </div>
+        <div class="seccion">
+            <h2 class='subtitulo'>Notas o solicitudes especiales</h2>
+            <input type="text" id="input_texto_largo">
+            <button id='comprar' onclick='comprar()'>Confirmar compra</button>
+        </div>
+    </div>
+
     <script>
-    let user = '<?php echo $_SESSION['username'];?>'; 
-    localStorage.setItem("user", user);
+        let user = '<?php echo $_SESSION['username'];?>'; 
+        localStorage.setItem("user", user);
+    </script>
 
-    
-</script>
+    <?php
+        }else{
+            echo 'hola';
+        }
+    ?>
+  
 
 

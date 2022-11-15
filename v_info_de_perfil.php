@@ -19,32 +19,36 @@ include("layout/header.php");
         <div id='datos_personales'>
             <div class="titulo_container">
                 <h2 class='titulo'>Datos</h2>
-                <button id='edit'><span class="material-icons">edit</span></button>
+                <button id='edit' onclick="modificar_datos()"><span class="material-icons">edit</span></button>
             </div>
                 
             <div class="content">
                 <p class="subtitulo">Nombre: </p>
-                <p class="datos"></p>
+                <input type="text" disabled class="input_general" name='datos'>
             </div>
             <div class="content">
                 <p class="subtitulo">Apellido: </p>
-                <p class="datos"></p>
+                <input type="text" disabled class="input_general" name='datos'>
             </div>
             <div class="content">
                 <p class="subtitulo">Localidad: </p>
-                <p class="datos"></p>
+                <input type="text" disabled class="input_general" name='datos'>
             </div>
             <div class="content">
-                <p class="subtitulo">Cedula de Identidad: </p>
-                <p class="datos"></p>
+                <p class="subtitulo">Cedula </p>
+                <input type="text" disabled class="input_general" name='datos'>
             </div>
             <div class="content">
-                <p class="subtitulo">Nombre de usuario: </p>
-                <p class="datos"></p>
+                <p class="subtitulo">Nacimiento: </p>
+                <input type="text" disabled class="input_general" name='datos'>
             </div>
             <div class="content">
-                <p class="subtitulo">clave: </p>
-                <p class="datos">*********</p>
+                <p class="subtitulo">Username: </p>
+                <input type="text" disabled class="input_general" name='datos'>
+            </div>
+            <div class="content">
+                <p class="subtitulo" id='pass'>clave: </p>
+                <input type="text" disabled class="input_general" name='datos' value='**********'>
             </div>
 
         </div>

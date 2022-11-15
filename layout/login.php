@@ -16,7 +16,7 @@ if(isset($_SESSION['username'])){
         </div>
         <div class="extras">
           <span class="material-icons">history</span>
-          <a  href="v_historial_de_compras.php"> <p class='texto_login'> Historial de compras</p></a>
+          <a  href="/LIBRERIA/v_historial_de_compras.php"> <p class='texto_login'> Historial de compras</p></a>
         </div>
       </div>
       <a id='salir' href='/LIBRERIA/functions/c_cerrar_sesion.php'> <button class="boton_general">Cerrar sesión</button></a>
