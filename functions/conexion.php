@@ -197,7 +197,7 @@ function verificacion_extra_admin($CLAVE_SEGURIDAD, $CI, $USERNAME){
                 $flag_exist = true;    
             }     
         }
-    Conexion::cerrar_conexion();
+        Conexion::cerrar_conexion();
         return $flag_exist;
     }catch(PDOException $e){
     Conexion::cerrar_conexion();

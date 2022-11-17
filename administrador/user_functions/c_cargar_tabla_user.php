@@ -15,21 +15,21 @@
     $resultado = $query_users->fetchAll();
     echo '<thead>';
     echo '<th>CI</th>';
-    echo '<th>NOMBRE</th>';
     echo '<th >APELLIDO</th>';
+    echo '<th>NOMBRE</th>';
     echo '<th>LOCALIDAD</th>';
-    echo '<th>FECHA DE NACIMIENTO</th>';
     echo '<th>USUARIO</th>';
+    echo '<th>FECHA DE NACIMIENTO</th>';
     echo '</thead>'; 
 
     foreach($resultado as $user){
         echo "<tr class='result_fila'>";
             echo "<td>" . $user['ci'] . "</td>";
-            echo "<td>" . $user['nombre'] . "</td>";
             echo "<td>" . $user['apellido'] . "</td>";
+            echo "<td>" . $user['nombre'] . "</td>";
             echo "<td>" . $user['localidad'] . "</td>";
-            echo "<td>" . $user['fecha_nacimiento'] . "</td>";
             echo "<td>" . $user['username'] . "</td>";
+            echo "<td>" . $user['fecha_nacimiento'] . "</td>";
             echo "</tr>";
     }
 

@@ -1,0 +1,286 @@
+:root {
+    --color-uno: #155765;
+    --color-dos: #98d7e6;
+    --color-tres: #333333;
+    --color-cuatro: #ffffff;
+    --color-cinco: #ededed;
+    --error_color: #950e24;
+    --error_fondo_color: #e08493;
+    --ok_fondo_color: #abc994;
+    --ok_color: #1b5e20;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-cinco);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  
+@media (max-width: 740px){
+
+    #header{
+        min-width: 10vh;
+
+    }
+
+    #logo p{
+        display: none;
+    }
+
+    #logo img{
+        width: 30vw;
+        height: 30vw;
+    }
+
+
+    #buscador{
+        height: 10vw;
+        margin-bottom: 4vw;
+    }
+
+    #boton_buscar{
+        width: 10vw;
+        height: auto;
+    }
+
+    #buscar_libro_input{
+        width: 70vw;
+        height: auto;
+    }
+
+    #alerta{
+        width: 80vw;
+        margin-left: 10vw;
+    }
+
+    #result_consulta_libros{
+        width: 80vw;
+    }
+
+    #result_consulta_libros thead th:nth-child(2n){
+        display: none;
+    }
+
+
+    #result_consulta_libros tr td:nth-child(2n){
+        display: none;
+    }
+
+    #result_consulta_usuario thead th:nth-child(6){
+        display: none;
+    }
+
+    #result_consulta_usuario tr td:nth-child(6){
+        display: none;
+    }
+
+    #result_consulta_usuario thead th:nth-child(4){
+        display: none;
+    }
+
+    #result_consulta_usuario tr td:nth-child(4){
+        display: none;
+    }
+
+    #result_consulta_usuario thead th:nth-child(3){
+        display: none;
+    }
+
+    #result_consulta_usuario tr td:nth-child(3){
+        display: none;
+    }
+
+    #result_consulta_usuario thead th:nth-child(2){
+        display: none;
+    }
+
+    #result_consulta_usuario tr td:nth-child(2){
+        display: none;
+    }
+
+
+    /* generalidades */
+
+    .input_texto{
+        width: 90vw;
+        height: 11vw;
+        border-radius: 7px;
+        align-self: flex-start;
+        margin-left: 5vw;
+    }
+
+    .input_texto_descripcion{
+        width: 90vw;
+        align-self: flex-start;
+        margin-left: 5vw;
+        height: 30vw;
+    }
+
+    .label_imagen{
+        width: 50vw;
+        margin-left: 5vw;
+        height: 11vw;
+    }
+
+    .input_boton{
+        width: 42vw;
+        margin-left: 5vw;
+        height: 11vw;
+    }
+
+
+
+
+
+
+
+    #funciones{
+        flex-direction: column;
+    }
+
+    #contenedor_grande{
+        width: 100vw;
+    }
+
+    #agregar_libro h2{
+        margin-left: 5vw;
+    }
+
+    #form_agregar_libro{
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+
+    #form_agregar_libro label{
+        margin-top: 1.5vw;
+        margin-left: 5vw;
+    }
+
+
+    #cambiar_estado_libro{
+        width: 100vw;
+    }
+    #form_cambiar_estado_libro{
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #cambiar_estado_libro h2{
+        margin-left: 5vw;
+    } 
+
+    #cambiar_estado_libro h4{
+        margin-left: 5vw;
+    }
+
+
+    #modificar_libro{
+        width: 100vw;
+    }
+
+
+    #modificar_libro .titulo{
+        width: 100%;
+    }
+
+    #form_buscar_libro_mod h4{
+        margin-left: 5vw;
+        width: 100%;
+    }
+
+    #form_modificar_datos_libro{
+     width: 100%;   
+    }
+
+    #form_modificar_datos_libro h4{
+        margin-left: 5vw;
+    }
+
+
+
+    /* Esto es para el panel de usuarios */
+
+
+    #insertar_usuario{
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    #insertar_usuario div{
+        margin: 0;
+        height: auto;
+    }
+    #insertar_usuario h2{
+        margin-left: 5vw;
+    }
+
+    #insertar_usuario h4{
+        margin-left: 5vw;
+    }
+
+
+    #funciones_chicas{
+        width: 100%;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    #banear_usuario{
+        width: 100%;
+        height: auto;
+    }
+
+    #banear_usuario h2{
+        margin-left: 5vw;
+    }
+
+    #banear_usuario h4{
+        margin-left: 5vw;
+    }
+
+    #banear_usuario div{
+        margin: 0;
+        height: auto;
+    }
+
+    #agregar_administrador{
+        width: 100%;
+        height: auto;
+    }
+
+    #agregar_administrador h2{
+        margin-left: 5vw;
+    }
+
+    #agregar_administrador div{
+        width: 100%;
+        margin: 0;
+        height: auto;
+    }
+
+    #actualizar_usuario{
+        width: 100%;
+    }
+
+    #actualizar_usuario h2{
+        height: auto;
+        margin-left: 5vw;
+    }
+
+    #actualizar_usuario h4{
+        margin-left: 5vw;
+    }
+
+
+
+}

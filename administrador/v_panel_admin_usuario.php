@@ -18,6 +18,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos_admin.css">
+    <link rel="stylesheet" href="estilos_admin_mobile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +49,7 @@ session_start();
         </div>
 
     <div id="listado">
-       <table id="result_consulta"></table>
+       <table id="result_consulta_usuario"></table>
     </div>
 
 
@@ -89,7 +90,7 @@ session_start();
             </div>
 
             <div id="agregar_administrador">
-                <h2 class="titulo">asignar administrador</h2>
+                <h2 class="titulo">asignar admin</h2>
 
                 <div id="form_asign_admin">
                     <input class="input_texto"  type="text" name="asign_CI" id="asign_CI" placeholder="cedula del usuario">

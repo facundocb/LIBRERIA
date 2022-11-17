@@ -17,6 +17,7 @@ $title = "panel admin";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos_admin.css">
+    <link rel="stylesheet" href="estilos_admin_mobile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +56,7 @@ $title = "panel admin";
 
     <div id="funciones">
 
-        <div id="agregar_libro">
+        <div id="contenedor_grande">
             <h2 class="titulo">Agregar libro</h2>
             <div id="form_agregar_libro">
 
@@ -64,9 +65,10 @@ $title = "panel admin";
                 <input type="text" name="precio_libro"  class="input_texto" placeholder="Precio" >
                 <input type="text" name="stock_libro" class="input_texto" placeholder="stock actual" >
                 <input type="file" id="imagen_libro"  accept="img/*" class="input_imagen">
-                <label for="imagen_libro"> Selecciona una imagen</label>
+                <label class='label_imagen' for="imagen_libro"> Selecciona una imagen</label>
                 <input type="text" name="autor_libro"  class="input_texto" placeholder="autor">
                 <input type="text" name="genero_libro" class="input_texto" placeholder="genero">
+                <label for="fecha_publicacion" class='subtitulo'>Fecha de publicacion:</label>
                 <input type="date" name="fecha_publicacion" class="input_texto">
                 <input type="text" name="editorial_libro" class="input_texto" placeholder="editorial">
                <button class="input_boton" onclick="insertar_libro()">Agregar libro</button>
@@ -74,8 +76,8 @@ $title = "panel admin";
             
             <div id="cambiar_estado_libro">
                 <h2 class="titulo">Estado del libro</h2>
+                <h4 class="subtitulo">ID del libro </h4>    
                 <div id="form_cambiar_estado_libro">
-                    <h4 class="subtitulo">ID del libro </h4>    
                     <input class="input_texto" type="text" name="ID_cambiar_estado" id="ID_cambiar_estado">
                     <button class="input_boton" onclick="banear_libro()">Inhabilitar Libro</button>
                     <button class="input_boton" onclick="desbanear_libro()">Habilitar libro</button>

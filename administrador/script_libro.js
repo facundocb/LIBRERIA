@@ -89,7 +89,6 @@ const mostrar_alerta_stock = () =>{
         }
     })
     .then(function(alerta_stock){
-        console.log(alerta_stock)
         alerta.innerHTML = alerta_stock;
     })
     
@@ -230,4 +229,3 @@ const desbanear_libro = () =>{
 
 
 }
-

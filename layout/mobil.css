@@ -1,300 +1,255 @@
 @media only screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
 
+  header {
+    justify-content: end;
+    height: 6vh;
+  }
 
-    body{
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
+  /* letras*/
 
+  p {
+    font-size: 0.7em;
+  }
+
+  h4 {
+    font-size: 0.65em;
+  }
+
+  /* aca terminan las letras */
+
+  #cont-logo {
+    width: auto;
+    height: auto;
+    margin-right: calc(100% / 2 - 22vw);
+  }
+  #logo {
+    width: 20vw;
+    height: 10vw;
+    margin: 0;
+  }
+
+  #boton_buscar {
+    display: none;
+  }
+  #boton_buscar_input {
+    height: auto;
+    width: 3vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--color-cuatro);
+    font-size: 0.6em;
+    margin: 0;
+    padding: 0;
+    display: contents;
+  }
+
+  #buscador {
+    height: 4vw;
+    display: none;
+  }
+
+  nav {
+    margin-left: 4vw;
+  }
+
+  /* parte del menu */
+  #cont-abridor-mobil {
+    overflow: hidden;
+    top: 0vw;
+    left: 6vw;
+    margin: 0;
+    margin-right: 2vw;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
+  #abridor-mobil {
+    display: block;
+  }
+
+  header button {
+    display: none;
+  }
+  header form i {
+    color: var(--color-uno);
+  }
+  header nav i {
+    display: none !important;
+  }
+
+  #navegador {
+    z-index: 1;
+    position: fixed;
+    display: none;
+    left: 100vw;
+    top: 80vw;
+    width: 100vw;
+    height: 1fr;
+  }
+  #navegador a {
+    font-size: 0.8em;
+    font-weight: 100;
+  }
+  #navegador ul {
+    margin-left: calc(100% / 2 - 10vw);
+    padding: 0;
+  }
+
+  /*banners*/
+
+  @keyframes animacion_slider {
+    0% {
+      transform: translateX(0);
     }
-
-    header{
-        justify-content: end;
-        height: 6vh;
+    20% {
+      transform: translateX(-0vw);
     }
-
-
-
-    /* letras*/
-
-    p{
-        font-size: 0.7em;
+    40% {
+      transform: translateX(-99vw);
     }
-
-
-    h4
-    {
-        font-size: 0.65em;
+    60% {
+      transform: translateX(-198vw);
     }
-
-    /* aca terminan las letras */
-
-    #cont-logo{
-        width: auto;
-        height: auto;
-        margin-right: calc(100% / 2 - 22vw);
+    80% {
+      transform: translateX(-297vw);
     }
-    #logo{
-        width: 20vw;
-        height: 10vw;
-        margin: 0;
+    100% {
+      transform: translateX(-396vw);
     }
-
-
-    #boton_buscar{
-        display: none;
-    }
-    #boton_buscar_input{
-        height: auto;
-        width: 3vw;
-        height: 3vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0;
-        background-color: transparent;
-        border: none;
-        color: var(--color-cuatro);
-        font-size: 0.6em;
-        margin: 0;
-        padding: 0;
-        display: contents;
-    }
-
-    #buscador{
-        height: 4vw;
-        display: none;
-    }
-
-
-    nav {
-        margin-left: 4vw;
-    }
-
-    
-/* parte del menu */
-    #cont-abridor-mobil
-    {
-        overflow: hidden;
-        top: 0vw;
-        left: 6vw;
-        margin: 0;
-        margin-right: 2vw;
-        padding: 0;
-        width: auto;
-        height: auto;
-    }
-    #abridor-mobil{
-        display: block;
-    }
-
-    header button{
-        display: none;
-    }
-    header form i{
-        color: var(--color-uno);
-    }
-    header nav i {
-        
-        display: none !important;
-    }
-    
-    #navegador{
-
-        z-index: 1;
-        position: fixed  ;
-        display: none;
-        left: 100vw;
-        top: 80vw;
-        width: 100vw;
-        height: 1fr;
- 
-    }
-    #navegador a{
-        font-size: 0.8em;
-        font-weight: 100;
-    }
-    #navegador ul{
-
-        margin-left: calc(100% / 2 - 10vw);
-        padding: 0;
-    }
-
-
-
-    /*banners*/
-
-
-    @keyframes animacion_slider
-    {
-      0%{transform:translateX(0)}
-      20%{transform:translateX(-0vw)}
-      40%{transform:translateX(-99vw)}
-      60%{transform:translateX(-198vw)}
-      80%{transform:translateX(-297vw)}
-      100%{transform:translateX(-396vw)}
-    }
-    
-    #slider
-    {
-        width:99vw;
-        height: 20vw;
-        margin-left: calc((100% - 99vw) * 0.5);
-    }
-
-    #slider section
-    {
-    width: calc(99vw * 4); 
-    height:100%;
-
-    }
-
-    #slider section div 
-    { 
-    width:99vw;
-    height:100%;
-    }
-    
-
-
-
-    .banner2{
-        width: 100%;
-        display:block;
-        background-color: var(--color-uno);
-        height: 55vh;
-        display:none;
-    }
-
-
-
-
-
-
-
-    /*fin banners*/
-
-
-
-
-
-    /*primera seccion de libros */
-    .contenedor_libros_largos{
-        display: grid;
-        grid-template-columns: 40vw 40vw;
-        grid-gap: 10vw;
-    }
-
-    .libros_largos{
-        
-        width: 35vw;
-        height: 65vw;
-
-    }
-
-    /* aca termina */
-
-
-    /* aca arranca la segunda seccion */
-
-
-
-
-    .libros_anchos{
-        width: 80vw;
-        height: 40vh;
-    }
-
-    /* y aca termina*/
-
-
-
-    /* tercera sección */
-    #cont-caracteristicas{
-        margin: auto;
-        margin-top: 10vw;
-        margin-bottom: 2vw;
-        display: grid !important;
-        grid-template-columns: 28vw 28vw;
-        grid-template-rows: 30vw 30vw;
-
-    }
-
-    .caracteristicas p{
-        font-size: 0.5em;
-    }
-
-    /* termina aca*/
-
-    /* pseudo footer, para suscribirse*/
-
-    #suscripcion{
-        font-size: 0.5em;
-    }
-
-
-    #suscripcion div:nth-child(1){
-        width: 35vw;
-
-
-    }
-
-
-    #suscripcion input{
-
-        height: 5vw;  
-        width:40vw;
-        margin-left: 5vw;
-    }
-
-    #contenedor-sub{
-        width: auto;
-        height: 5.3vw;
-    }
-
-
-
-
-
-
-    /* ESTO ES TODO DEL LOGIN */
-    #login{
-        transition: all ease 0s;
-        transform: translateX(100vw); 
-        width: 100vw;
-        height: 80vw;
-    }
-
-
-    #login p {
-        font-size: 0.8em;
-    }
-
-    #login h2{
-        font-size: 0.9em;
-    }
-
-    #login h3{
-        font-size: 1em;
-    }
-
-
-    #login form{
+  }
+
+  #slider {
+    width: 99vw;
+    height: 20vw;
+    margin-left: calc((100% - 99vw) * 0.5);
+  }
+
+  #slider section {
+    width: calc(99vw * 4);
+    height: 100%;
+  }
+
+  #slider section div {
+    width: 99vw;
+    height: 100%;
+  }
+
+  .banner2 {
+    width: 100%;
+    display: block;
+    background-color: var(--color-uno);
+    height: 55vh;
+    display: none;
+  }
+
+  /*fin banners*/
+
+  /*primera seccion de libros */
+  .contenedor_libros_largos {
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    grid-gap: 10vw;
+  }
+
+  .libros_largos {
+    width: 35vw;
+    height: 65vw;
+  }
+
+  /* aca termina */
+
+  /* aca arranca la segunda seccion */
+
+  .libros_anchos {
+    width: 80vw;
+    height: 40vh;
+  }
+
+  /* y aca termina*/
+
+  /* tercera sección */
+  #cont-caracteristicas {
+    margin: auto;
+    margin-top: 10vw;
+    margin-bottom: 2vw;
+    display: grid !important;
+    grid-template-columns: 28vw 28vw;
+    grid-template-rows: 30vw 30vw;
+  }
+
+  .caracteristicas p {
+    font-size: 0.5em;
+  }
+
+  /* termina aca*/
+
+  /* pseudo footer, para suscribirse*/
+
+  #suscripcion {
+    font-size: 0.5em;
+  }
+
+  #suscripcion div:nth-child(1) {
+    width: 35vw;
+  }
+
+  #suscripcion input {
+    height: 5vw;
+    width: 40vw;
+    margin-left: 5vw;
+  }
+
+  #contenedor-sub {
+    width: auto;
+    height: 5.3vw;
+  }
+
+  /* ESTO ES TODO DEL LOGIN */
+  #login {
+    transition: all ease 0s;
+    transform: translateX(100vw);
+    width: 100vw;
+    height: 80vw;
+  }
+
+  #login p {
+    font-size: 0.8em;
+  }
+
+  #login h2 {
+    font-size: 0.9em;
+  }
+
+  #login h3 {
+    font-size: 1em;
+  }
+
+  #login form {
     padding-left: calc(100% / 2 - 12vw);
-    }
-    #login input{
-        height: 8vw;
-        width:23vw;
-    }
+  }
+  #login input {
+    height: 8vw;
+    width: 23vw;
+  }
 
-    #login #boton{
-        width: 50vw;
-        height: 8vw;
-    }
+  #login #boton {
+    width: 50vw;
+    height: 8vw;
+  }
 
-    /* REGISTRO DE USUARIOS */
+  /* REGISTRO DE USUARIOS */
 
-    /* sección de búsqueda */
+  /* sección de búsqueda */
 
-    /* PAGINA DE LOS LIBROS */
+  /* PAGINA DE LOS LIBROS */
 }

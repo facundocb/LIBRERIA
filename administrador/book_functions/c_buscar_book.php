@@ -5,7 +5,7 @@
     try{
         $db = Conexion::abrir_conexion();
 
-        $query_datos = $db->query("SELECT NOM_LIBRO, DESCRIPCION_LIBRO, PRECIO_LIBRO, STOCK_LIBRO, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_PUBLICACION_LIBRO FROM LIBRO WHERE ID_LIBRO = '{$ID}';")->fetch();
+        $query_datos = $db->query("SELECT NOM_LIBRO, DESCRIPCION_LIBRO, PRECIO_LIBRO, STOCK_LIBRO, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_PUBLICACION_LIBRO FROM libro WHERE ID_LIBRO = '{$ID}';")->fetch();
     
         if($query_datos){
             $datos_libro = [

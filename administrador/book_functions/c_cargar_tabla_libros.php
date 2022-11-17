@@ -15,13 +15,13 @@
         
         $query_libros = $db->query("SELECT * from libro {$condicion}");
         $resultado = $query_libros->fetchAll();
-        echo ' <table id="result_consulta">';
+        echo ' <table id="result_consulta_libros">';
         echo '<thead>';
-        echo '<th>ID</th>';
+            echo '<th>ID</th>';
             echo '<th>NOMBRE</th>';
             echo '<th>STOCK</th>';
-            echo '<th>ESTADO</th>';
             echo '<th>AUTOR</th>';
+            echo '<th>ESTADO</th>';
         echo '</thead>'; 
     
         foreach($resultado as $libro){
@@ -33,8 +33,8 @@
                     echo "<td class='celda_error'>" . $libro['ID_LIBRO'] . "</td>";
                     echo "<td class='celda_error'>" . $libro['NOM_LIBRO'] . "</td>";
                     echo "<td class='celda_error'>" . $libro['STOCK_LIBRO'] . "</td>";
-                    echo "<td class='celda_error'>" . $libro['ESTADO'] . "</td>";
                     echo "<td class='celda_error'>" . $libro['AUTOR_LIBRO'] . "</td>";
+                    echo "<td class='celda_error'>" . $libro['ESTADO'] . "</td>";
                 echo "</tr>";
             }else{
 
@@ -42,8 +42,8 @@
                     echo "<td>" . $libro['ID_LIBRO'] . "</td>";
                     echo "<td>" . $libro['NOM_LIBRO'] . "</td>";
                     echo "<td>" . $libro['STOCK_LIBRO'] . "</td>";
-                    echo "<td>" . $libro['ESTADO'] . "</td>";
                     echo "<td>" . $libro['AUTOR_LIBRO'] . "</td>";
+                    echo "<td>" . $libro['ESTADO'] . "</td>";
                 echo "</tr>";
             }
         }
