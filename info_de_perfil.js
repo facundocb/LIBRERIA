@@ -36,6 +36,33 @@ window.onload = mostrar_datos;
 
 
 let flag = 0
+let p = document.getElementById('pass');
+let datos_personales_cont = document.getElementById('datos_personales');
+
+
+function mostrar_nueva_pass(){
+
+    let nuevo_div = document.createElement('div');
+    let nuevo_p = document.createElement('p');
+    let nuevo_input = document.createElement('input');
+
+    nuevo_div.classList.add('content');
+    nuevo_div.setAttribute("id", 'new_pass');
+    nuevo_p.classList.add('subtitulo');
+    nuevo_input.classList.add('input_general');
+
+    if(!flag){
+
+        datos_personales_cont.appendChild(nuevo_div);
+        nuevo_div.appendChild(nuevo_p);
+        nuevo_div.appendChild(nuevo_input);
+        nuevo_p.innerHTML = "Nueva Clave:";
+    }else{
+        let new_pass = document.getElementById('new_pass');
+        new_pass.remove()
+    }
+}
+
 
 function modificar_datos(){
 
@@ -44,14 +71,17 @@ function modificar_datos(){
             input_datos[i].disabled = false;
         
         }
-        let p = document.getElementById('pass');
-            remove(p);
+            p.innerHTML = "Clave vieja:";
+        mostrar_nueva_pass();
+        
     flag = 1;
     }else{
         for (let i = 0; i < input_datos.length; i++) {
             input_datos[i].disabled = true;
             
         }
+        p.innerHTML = 'Clave:'
+        mostrar_nueva_pass();
     flag = 0
     }
 

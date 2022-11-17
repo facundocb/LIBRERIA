@@ -1,6 +1,6 @@
 <footer id='footer'>
   
-  <img id="footer_logo" alt='imagen'  src="/LIBRERIA/RECURSOS/logo.svg">
+  <img id="footer_logo" alt='imagen'  src="<?php echo $ruta ?>/RECURSOS/logo.svg">
 
   <section>
     <p>Telefono: 4646 2902</p>

@@ -161,10 +161,23 @@ h2{
 
 
 #alerta{
+    margin-left: 5vw;
     width: 90vw;
     height: 5vh;
     align-self: center;
-    border: #131313 1px solid;
+    
+}
+
+.alerta_stock{
+    color: var(--error_color);
+    background-color: var(--error_fondo_color);
+    padding-left: 2vw;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    gap: 1vw;
 }
 
 #listado{

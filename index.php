@@ -207,7 +207,7 @@ if(isset($_SESSION['logued_as_admin'])){
 
 
       
-<script src="/LIBRERIA/layout/script.js"></script>
+<script src="layout/script.js"></script>
  
   
 

@@ -100,4 +100,4 @@
         include("layout/login.php");
         ?>
 
-<script src="/LIBRERIA/layout/script.js"></script>
+<script src="<?php echo $ruta ?>/layout/script.js"></script>
