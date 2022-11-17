@@ -4,7 +4,6 @@ session_start();
 
 $title="Estanteria";
 include("../layout/header.php");
-
 $flag_vacio;
 $texto_estante;
 ?>

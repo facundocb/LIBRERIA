@@ -12,14 +12,14 @@ if(isset($_SESSION['username'])){
       <div id="container_extra" onmouseenter='mostrar_opciones_login()'>
         <div class="extras">
           <span class="material-icons">person</span>
-          <a href="/LIBRERIA/v_info_de_perfil.php"> <p class='texto_login'>Mi perfil</p></a>
+          <a href="<?php echo $_SESSION['ruta'] ;  ?>/v_info_de_perfil.php"> <p class='texto_login'>Mi perfil</p></a>
         </div>
         <div class="extras">
           <span class="material-icons">history</span>
-          <a  href="/LIBRERIA/v_historial_de_compras.php"> <p class='texto_login'> Historial de compras</p></a>
+          <a  href="<?php echo $_SESSION['ruta'] ;  ?>/v_historial_de_compras.php"> <p class='texto_login'> Historial de compras</p></a>
         </div>
       </div>
-      <a id='salir' href='/LIBRERIA/functions/c_cerrar_sesion.php'> <button class="boton_general">Cerrar sesión</button></a>
+      <a id='salir' href='<?php echo $_SESSION['ruta'] ;  ?>/functions/c_cerrar_sesion.php'> <button class="boton_general">Cerrar sesión</button></a>
 
   <?php
   }   
@@ -29,7 +29,7 @@ if(isset($_SESSION['username'])){
     <div id="login">
     <p id="abridor_menu">&#9776;</p>
       
-    <form id="formulario" action="/LIBRERIA/c_ingresar_usuario.php" autocomplete="off" method="POST">
+    <form id="formulario" action="<?php echo $_SESSION['ruta'] ;  ?>/c_ingresar_usuario.php" autocomplete="off" method="POST">
       <input class='login_input'  type="text" placeholder="User" name="username">
       <input class='login_input'  type="password" placeholder="Password" name="passwd">
       <input class="boton" type="submit" name="ingresar" value="Login">

@@ -1,6 +1,8 @@
 <?php $title="Página principal";
   session_start();
 
+  $_SESSION['ruta'] = "/LIBRERIA/";
+
 if(isset($_REQUEST['error'])){
   die();
 }
