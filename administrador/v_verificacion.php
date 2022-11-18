@@ -14,8 +14,8 @@
            
             <form action="" method="post" id="verificacion" autocomplete="off">
                 <h2>Verificá tu identidad</h2>
-                <input type="text" name="clave_seguridad" placeholder="cédula de identidad">
-                <input type="text" name="CI" id="ci" placeholder="ingresá la clave de seguridad">
+                <input type="text" name="CI" placeholder="cédula de identidad">
+                <input type="text" name="clave_seguridad" placeholder="ingresá la clave de seguridad">
                 <input id="boton" type="submit" value="Ingresar" name="Ingresar">
                 
             </form> 
@@ -30,8 +30,7 @@
             if(isset($_POST['Ingresar'])){
                 $clave_seguridad = $_POST['clave_seguridad'];
                 $ci = $_POST['CI'];
-
-                if(verificacion_extra_admin( 'intento_de_clave','55054034',  'Super_root')){
+                if(verificacion_extra_admin( $clave_seguridad, $ci, $username)){
                     
                     session_start();
                     $_SESSION['username'] = $username;

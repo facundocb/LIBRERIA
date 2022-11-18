@@ -3,6 +3,7 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+    $_SESSION['ruta'] = "/LIBRERIA/";
 
 ?>
 <!DOCTYPE html>
@@ -89,7 +90,7 @@
 
           <ul>
             <li>
-                <a href="">Recomendados</a>
+                <a href="<?php echo $_SESSION['ruta']?>/v_about_us.php">Nosotros</a>
             </li>
           </ul>
           <!-- barra d navegacion-->   

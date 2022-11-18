@@ -1,8 +1,7 @@
 <?php $title="Página principal";
   session_start();
 
-  $_SESSION['ruta'] = "/LIBRERIA/";
-
+  
 if(isset($_REQUEST['error'])){
   die();
 }
@@ -44,7 +43,7 @@ if(isset($_SESSION['logued_as_admin'])){
 <?php 
   try{
     $db = Conexion::abrir_conexion();
-    $sql = "SELECT DIRECCION_IMG, NOM_LIBRO, PRECIO_LIBRO, ID_LIBRO from libro WHERE STOCK_LIBRO >1 ORDER BY RAND() LIMIT 8";
+    $sql = "SELECT COUNT(realiza.ID_LIBRO) AS CANTIDAD, realiza.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, libro.DIRECCION_IMG FROM realiza INNER JOIN libro ON libro.ID_LIBRO = realiza.ID_LIBRO AND libro.STOCK_LIBRO > 0 group by ID_LIBRO ORDER BY CANTIDAD DESC LIMIT 8";
     $query_novedades = $db->query($sql);
     $result = $query_novedades->fetchALl();
     foreach($result as $libro){

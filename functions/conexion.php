@@ -11,7 +11,7 @@ class Conexion
 
     public static function abrir_conexion(){
         try{
-            self::$bd = new PDO("mysql:host=localhost;dbname=bdemt3grp02",self:: $user_db,self:: $pass_db);
+            self::$bd = new PDO("mysql:host=" . self:: $host . ";dbname=" . self:: $db_name, self:: $user_db,self:: $pass_db);
             self::$bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return self::$bd;
 
@@ -192,9 +192,10 @@ function verificacion_extra_admin($CLAVE_SEGURIDAD, $CI, $USERNAME){
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT CLAVE_SEGURIDAD FROM usuario_admin INNER JOIN usuario ON usuario_admin.USERNAME = usuario.USERNAME INNER JOIN persona on persona.CI = '{$CI}' AND usuario_admin.USERNAME = '{$USERNAME}'")->fetch();
         $flag_exist = false;
+      
         if($query){
             if(password_verify($CLAVE_SEGURIDAD, $query['CLAVE_SEGURIDAD'])){
-                $flag_exist = true;    
+                $flag_exist = true;         
             }     
         }
         Conexion::cerrar_conexion();
