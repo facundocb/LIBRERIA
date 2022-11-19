@@ -88,7 +88,7 @@ if(isset($_SESSION['logued_as_admin'])){
       <div class="contenedor_chico">
         <h5>Terror</h5>
 
-      <?php 
+      <?php   
         try{
 
           $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' ORDER BY RAND() limit 3")->fetchAll();

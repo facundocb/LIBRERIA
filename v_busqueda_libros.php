@@ -18,7 +18,7 @@
 
 
 <div id="filtros_busqueda">
-	<form method="post" action='v_busqueda_libros.php'>
+	<form method="get" action='v_busqueda_libros.php'>
 		<label for="filtro_genero" >Genero:</label>
 		<?php 
 		try{
@@ -53,14 +53,14 @@
 	$db = Conexion::abrir_conexion();
 	$condicion = '';
 
-	if(isset($_POST['filtro_genero'])){
-	$condicion = ' AND GENERO_LIBRO = "' . $_POST['filtro_genero'] . '"';
+	if(isset($_REQUEST['filtro_genero'])){
+	$condicion = ' AND GENERO_LIBRO = "' . $_REQUEST['filtro_genero'] . '"';
 	}
-	if(isset($_POST['fecha_desde'])){
-	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO >= ' . $_POST['fecha_desde'] . '"';
+	if(isset($_REQUEST['fecha_desde'])){
+	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO >= ' . $_REQUEST['fecha_desde'] . '"';
 	}
-	if(isset($_POST['fecha_hasta'])){
-	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO <=' . $_POST['fecha_hasta'] . '"';
+	if(isset($_REQUEST['fecha_hasta'])){
+	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO <=' . $_REQUEST['fecha_hasta'] . '"';
 	}
 
 

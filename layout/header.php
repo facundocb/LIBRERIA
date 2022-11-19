@@ -72,13 +72,13 @@
 
           <ul>
             <li>
-                <a href="">Infantil y juvenil</a>
+                <a href="<?php echo $_SESSION['ruta'] ; ?>/v_busqueda_libros.php?nombre_busqueda=&filtro_genero=JUVENIL">Infantil y juvenil</a>
             </li>
           </ul>
 
           <ul>
             <li>
-                <a href="">Novedades</a>
+                <a href="#<?php echo $_SESSION['ruta']?>/index.php#novedades">Novedades</a>
             </li>
           </ul>
 

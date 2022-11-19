@@ -23,6 +23,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/f085d53cce.js" crossorigin="anonymous"></script> 
     <title><?php if(isset($title)){echo $title;} else{echo 'titulo';}?></title>
@@ -36,12 +37,18 @@ session_start();
         </div>
 
         <p id="nombre_admin"><?php echo $_SESSION['username']?></p>
+
+          <p id='abrir_menu' onclick='abrir_menu()'><span class="material-icons">menu</span></p>
         <div id='container_botones'>
-            <a href="<?php echo $_SESSION['ruta'] ;  ?>/administrador/v_panel_admin_libro.php">Libros</a>
-            <a href="<?php echo $_SESSION['ruta'] ;  ?>/functions/c_cerrar_sesion.php">Cerrar sesion</a>
+            <a href="<?php echo $_SESSION['ruta'] ;?>/administrador/v_panel_admin_libro.php">Libros</a>
+            <a href="<?php echo $_SESSION['ruta'] ;?>/functions/c_cerrar_sesion.php">Cerrar sesion</a>
         </div>
     </div>
 
+    <div id='menu_botones'>
+            <a href="<?php echo $_SESSION['ruta'] ;  ?>/administrador/v_panel_admin_libro.php">Libros</a>
+            <a href="<?php echo $_SESSION['ruta'] ;  ?>/functions/c_cerrar_sesion.php">Cerrar sesion</a>
+        </div>
 
     <div id="buscador">
             <input type="text" id="buscar_libro_input" name="buscar_libro" placeholder="ingresá el nombre del libro">

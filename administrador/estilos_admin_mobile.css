@@ -38,6 +38,28 @@
         height: 30vw;
     }
 
+    #container_botones{
+        display: none;
+    }
+
+    #abrir_menu{
+        display: block !important;
+    }
+    #menu_botones{
+        width: 100%;
+        display: flex;
+        gap: 5vw;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-dos);
+        transform: translateX(100vw);
+        transition: all 0.5s ease;
+    }
+
+    a{
+        width: 35vw;
+        height: 8vh;
+    }
 
     #buscador{
         height: 10vw;

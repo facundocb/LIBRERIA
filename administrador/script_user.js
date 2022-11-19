@@ -12,6 +12,23 @@ const regex = {
 }
 */
 
+let menu_abierto = false;
+
+function abrir_menu(){
+  let menu = document.getElementById('menu_botones');
+  if(!menu_abierto){
+    menu.style.transform = 'translateX(0)';
+    menu_abierto = true;
+  }else{
+    menu.style.transform = 'translateX(100vw)';
+    menu_abierto = false;
+
+  }
+
+}
+
+
+
 let regex = /^[a-zA-Z]\s$/;
 
 const insertar_user = () => {
