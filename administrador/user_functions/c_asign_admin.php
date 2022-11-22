@@ -36,15 +36,12 @@ if(consulta_cedula_administrador($ci)){
 
      if(!isset($errors)){
         insertar_admin($ci, $sucursal, $clave_seguridad);
-        $msj_return = 'usuario ingresado';
+        $result[0] = 'usuario asignado correctamente';
+        $result['estado'] = 1;
+        echo json_encode($errors);
      }else{
-        $msj_return = 'no se pudo agregar';
-  
-        
+        $errors['estado'] = 0;
+        $errors[3] = 'El usuario no se pudo asignar';
+        echo json_encode($errors);   
     }
-
-
-
-     echo $msj_return;
-
 ?>

@@ -173,7 +173,7 @@ if(isset($_SESSION['logued_as_admin'])){
     </div>
 
     <!--tercera sección-->
-    <div class="contenedores">
+    <div id="cont-caracteristicas">
       <div class="caracteristicas">
       <span class="material-icons">store</span>
         <p>Recogido en librería gratis</p>

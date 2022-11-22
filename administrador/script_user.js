@@ -14,22 +14,16 @@ const regex = {
 
 let menu_abierto = false;
 
-function abrir_menu(){
-  let menu = document.getElementById('menu_botones');
-  if(!menu_abierto){
-    menu.style.transform = 'translateX(0)';
+function abrir_menu() {
+  let menu = document.getElementById("menu_botones");
+  if (!menu_abierto) {
+    menu.style.transform = "translateX(0)";
     menu_abierto = true;
-  }else{
-    menu.style.transform = 'translateX(100vw)';
+  } else {
+    menu.style.transform = "translateX(100vw)";
     menu_abierto = false;
-
   }
-
 }
-
-
-
-let regex = /^[a-zA-Z]\s$/;
 
 const insertar_user = () => {
   let add_inputs = document.querySelectorAll("#form_insertar_usuario input");
@@ -53,8 +47,38 @@ const insertar_user = () => {
         throw "error";
       }
     })
-    .then(function (respuesta) {
-      console.log(respuesta);
+    .then(function (respuesta_add) {
+      let resultado = new Array();
+      resultado = JSON.parse(respuesta_add);
+
+      let alerta_add = document.getElementById("alerta_add");
+      let error_add = document.getElementsByClassName("error_add");
+
+      for (let iterator of error_add) {
+        if (iterator.classList.contains("div_error")) {
+          iterator.classList.remove("div_error");
+          iterator.innerHTML = "";
+        }
+      }
+
+      if (resultado["estado"] == 0) {
+        alerta_add.innerHTML =
+          '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No se agrego el usuario</p> </div>';
+
+        for (const key in resultado) {
+          if (key != "estado") {
+            
+            error_add[key].classList.add("div_error");
+            error_add[key].innerHTML = "";
+
+            error_add[key].innerHTML =
+              '<p class="error_p">' + resultado[key] + "</p>";
+          }
+        }
+      } else {
+        alerta_add.innerHTML =
+          '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se agrego el usuario</p> </div>';
+      }
     });
 };
 
@@ -63,8 +87,8 @@ const insertar_user = () => {
 const banear_user = () => {
   let input_baneo = document.getElementById("ban_username");
 
-  const ban_data = new FormData();
-  ban_data.set("username", input_baneo.value);
+    const ban_data = new FormData();
+   ban_data.set("username", input_baneo.value);
 
   fetch("user_functions/c_ban_user.php", {
     method: "POST",
@@ -78,7 +102,21 @@ const banear_user = () => {
       }
     })
     .then(function (respuesta_baneo) {
-      console.log(respuesta_baneo);
+      let alerta = document.getElementById('alerta_ban');
+      let resultado = new Array()
+      resultado = JSON.parse(respuesta_baneo);
+
+      if(resultado['estado'] == 1){
+        alerta.innerHTML=
+        '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>' + resultado[0] + '</p> </div>';
+        
+      }else{
+        alerta.innerHTML=
+        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>'+ resultado[0]  +'</p> </div>';
+
+      }
+
+      
     });
 };
 
@@ -104,10 +142,26 @@ const asign_admin = () => {
       }
     })
     .then(function (respuesta_asign) {
-      console.log(respuesta_asign);
-    });
-};
+      let alerta = document.getElementById('alert_asign_adm');
+      let error_asign_adm = Document.getElementsByClassName('erros')
+      let resultado = new Array();
+      resultado = JSON.parse(respuesta_asign)
 
+
+      if(resultado['estado'] == 1){
+        alerta.innerHTML = 
+        '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>' + resultado[0] + '</p> </div>';
+      }else{
+        alerta.innerHTML =
+        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>'+ resultado[3]  +'</p> </div>';
+
+
+
+      }
+
+    });
+  };
+  
 //SCRIPT PARA BUSCAR USUARIO PARA MODIFICAR
 let inputs_mod_user = document.querySelectorAll("#form_modificar_user input");
 
@@ -128,22 +182,31 @@ function enviar_ci() {
       }
     })
     .then(function (respuesta_buscar) {
-      //console.log(respuesta_buscar);
+      let alerta = document.getElementById('alerta_buscar');
       let arr_datos = new Array();
       arr_datos = JSON.parse(respuesta_buscar);
+      let inputs_mod_user = document.querySelectorAll("#form_modificar_user input");
 
-      inputs_mod_user[0].value = arr_datos["nombre"];
-      inputs_mod_user[1].value = arr_datos["cedula"];
-      inputs_mod_user[2].value = arr_datos["apellido"];
-      inputs_mod_user[3].value = arr_datos["localidad"];
-      inputs_mod_user[4].value = arr_datos["fecha_nacimiento"];
-      inputs_mod_user[5].value = arr_datos["username"];
+
+
+      if(arr_datos['estado'] == 0){
+        alerta.innerHTML =
+        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>'+ arr_datos[0]  +'</p> </div>';
+      }else{
+
+      for (const key in arr_datos) {
+        if(key != 'estado'){
+          inputs_mod_user[key].value = arr_datos[key];
+        }
+
+
+        }
+      }
     });
 }
 // SCRIPT PARA MODIFICAR LOS DATOS DEL USUARIO
 
 const modificar_user = () => {
-  let inputs_mod_user = document.querySelectorAll("#form_modificar_user input");
   const mod_data = new FormData();
 
   mod_data.set("nombre", inputs_mod_user[0].value);
@@ -165,9 +228,50 @@ const modificar_user = () => {
       }
     })
     .then(function (respuesta_mod_user) {
-      console.log(respuesta_mod_user);
+      let alerta = document.getElementById('alerta_upd');
+      resultado = new Array();
+      resultado = JSON.parse(respuesta_mod_user);
+      let error_upd = document.getElementsByClassName('error_upd');
+
+
+      for (const iterador of error_upd) {
+        if(iterador.classList.contains('div_error')){
+          iterador.classList.remove('div_error');
+          iterador.innerHTML = '';
+        }
+      }
+
+
+
+      if(resultado['estado'] == 1){
+
+        alerta.innerHTML =
+        '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Usuario modificado correctamente </p> </div>';
+      }else{
+        alerta.innerHTML = 
+        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No se pudo modificar el usuario</p> </div>';
+
+        for (const key in resultado) {
+
+            if(key != 'estado'){
+              error_upd[key].innerHTML = resultado[key];
+              error_upd[key].classList.add('div_error');
+            }
+            console.log(resultado[key]);
+            
+          }
+        }
+
+
+      
+      
     });
 };
+
+
+
+
+
 
 //script de la tabla
 

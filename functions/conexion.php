@@ -16,7 +16,7 @@ class Conexion
             return self::$bd;
 
         }catch(PDOException $e){
-            echo 'hubo un error al conectarse a la bd';
+            echo 'hubo un error al conectarse a la bd', $e->getMessage();
         }
     }
 

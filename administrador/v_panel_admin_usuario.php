@@ -67,19 +67,26 @@ session_start();
     <div id="funciones">
         <div id="insertar_usuario">
             <h2 class="titulo">agregar usuarios</h2>
-     
+            <div class="alerta" id="alerta_add"></div>
             <div id="form_insertar_usuario">
                 <h4 class="subtitulo"   >Información Personal</h4>
                 <input class="input_texto" type="text" name="add_nombre" id="add_nombre" placeholder="nombre">
+                <div class="error_add"></div>
                 <input class="input_texto" type="text" name="add_apellido" id="add_apellido" placeholder="apellido">
+                <div class="error_add"></div>
                 <input class="input_texto" type="text" name="add_ci" id="add_ci" placeholder="Cedula de identidad">
+                <div class="error_add"></div>
                 <input class="input_texto" type="text" name="add_localidad" id="add_localidad" placeholder="localidad">
+                <div class="error_add"></div>
                 <input class="input_texto" type="date" name="add_fecha_nacimiento" id="add_fecha_nacimiento" placeholder="fecha de nacimiento">
 
+                <div class="error_add"></div>
                 <h4 class="subtitulo"   >Informacion del usuario</h4>
 
                 <input class="input_texto" type="text" name="add_username" id="add_username" placeholder="Nombre de usuario">
+                <div class="error_add"></div>
                 <input class="input_texto" type="password" name="add_password" id="add_password" placeholder="Clave">
+                <div class="error_add"></div>
 
                 <button class="input_boton" id="insert_user_boton" onclick="insertar_user()">Ingresar usuario</button>
             </div>
@@ -89,6 +96,7 @@ session_start();
 
         <div id="banear_usuario">
             <h2 class="titulo">banear usuarios</h2>
+            <div class="alerta" id='alerta_ban'></div>
                 <div id="form_baneo_usuario">
                     <h4 class="subtitulo">Username del cliente a banear</h4>
                     <input class="input_texto" type="text" name="ban_username" id="ban_username" placeholder="Username">
@@ -98,11 +106,14 @@ session_start();
 
             <div id="agregar_administrador">
                 <h2 class="titulo">asignar admin</h2>
-
+                <div class="alerta" id="alerta_asign_adm"></div>
                 <div id="form_asign_admin">
                     <input class="input_texto"  type="text" name="asign_CI" id="asign_CI" placeholder="cedula del usuario">
+                    <div class="error_asign_adm"></div>
                     <input class="input_texto"  type="text" name="asign_sucursal" id="asign_sucursal" placeholder="sucursal">
+                    <div class="error_asign_adm"></div>
                     <input class="input_texto"  type="text" name="asign_clave_seguridad" id="asign_clave_seguridad" placeholder="clave de seguridad">
+                    <div class="error_asign_adm"></div>
                     <button class="input_boton" id="asign_admin_boton" onclick="asign_admin()">Asignar</button>
                 </div>
             </div>
@@ -112,6 +123,7 @@ session_start();
         <div id="actualizar_usuario">
             <h2 class="titulo">actualizar informacion del usuario</h2>
                 <div id="form_buscar_user_mod">
+                        <div class="alerta" id="alerta_buscar"></div>
                         <h4 class="subtitulo">Cedula a buscar</h4>
                         <input class="input_texto"  type="text" name="CI_buscar" id="CI_buscar" placeholder="CI">
                         <button onclick="enviar_ci();" class="input_boton" >BUSCAR</button>
@@ -120,14 +132,23 @@ session_start();
                 
                 <div id="form_modificar_user">
                     <h4 class="subtitulo" >Información Personal</h4>
-                    <input class="input_texto"  type="text" name="update_nombre" id="update_nombre" placeholder="nombre">
-                    <input class="input_texto"  type="text" name="update_ci" id="update_ci" placeholder="Cedula de identidad" disabled>
-                    <input class="input_texto"  type="text" name="update_apellido" id="update_apellido" placeholder="apellido">
-                    <input class="input_texto"  type="text" name="update_localidad" id="update_localidad" placeholder="localidad">
-                    <input class="input_texto"  type="date" name="update_fecha_nacimiento" id="update_fecha_nacimiento" placeholder="fecha de nacimiento">
+                    <div class="alerta" id="alerta_upd"></div>
 
+
+                    <input class="input_texto"  type="text" name="update_nombre" id="update_nombre" placeholder="nombre">
+                    <div class="error_upd"></div>
+                    <input class="input_texto"  type="text" name="update_ci" id="update_ci" placeholder="Cedula de identidad" disabled>
+                    <div class="error_upd"></div>
+                    <input class="input_texto"  type="text" name="update_apellido" id="update_apellido" placeholder="apellido">
+                    <div class="error_upd"></div>
+                    <input class="input_texto"  type="text" name="update_localidad" id="update_localidad" placeholder="localidad">
+                    <div class="error_upd"></div>
+                    <input class="input_texto"  type="date" name="update_fecha_nacimiento" id="update_fecha_nacimiento" placeholder="fecha de nacimiento">
+                    <div class="error_upd"></div>
+                    
                     <h4 class="subtitulo" >Informacion del usuario</h4>
                     <input class="input_texto"   type="text" name="update_username" id="update_username" placeholder="Nombre de usuario">
+                    <div class="error_upd"></div>
                     <button class="input_boton" onclick="modificar_user();">Actualizar</button>
 
                 </div>

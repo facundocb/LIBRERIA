@@ -1,4 +1,6 @@
 <?php 
+
+session_start();
 include("../../functions/conexion.php");
 
     $username = $_POST['username'];
@@ -6,26 +8,34 @@ include("../../functions/conexion.php");
 
 
     if(!consulta_usuario($username)){
-        $msj_return = 'el usuario que se buscaba en el sistema no existe'; 
+        $resultado['estado'] = 0;
+        $resultado[0] = 'el usuario que se buscaba en el sistema no existe'; 
+        echo json_encode($resultado);
     }
     else{
         if(verificar_usuario_administrador($username)){
-            $msj_return = 'el usuario que se intentó eliminar era administrador.';
+            $resultado['estado'] = 0;
+            $resultado[0] = 'el usuario que se intentó eliminar era administrador.';
+            echo json_encode($resultado);
         }
         else{
             if(verificar_ban($username)){
-                $msj_return = 'el usuario YA ESTABA BANEADO';
+                $resultado['estado'] = 0;
+                $resultado[0] = 'el usuario ya estaba baneado';
+                echo json_encode($resultado);
             }
             else{
                 banear_cliente($username);
-            $msj_return = 'usuario BANEADO, ELIMINADO, DESINTEGRADO, ANIQUILADO, DESTRUIDO, PULVERIZADO, REDUCIDO';  
+                $resultado['estado'] = 1;
+                $resultado[0] = 'usuario baneado correctamente';  
+                echo json_encode($resultado);
             }
+
         }
         
     }
     
 
-    echo $msj_return;
 
 
 ?>

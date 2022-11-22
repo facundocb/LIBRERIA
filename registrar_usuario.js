@@ -30,20 +30,20 @@ function registrar_usuario() {
       resultado = JSON.parse(respuesta_registro);
 
       for (const key in cont_errors) {
-        cont_errors[key].innerHTML = "";
+          cont_errors[key].innerHTML = "";
       }
 
       if (resultado["estado"] == 0) {
-        result.innerHTML =
-          '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No se agrego el usuario</p> </div>';
+          result.innerHTML =
+            '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No se agrego el usuario</p> </div>';
 
-        for (const key in resultado) {
-          cont_errors[key].innerHTML = "";
-          cont_errors[key].innerHTML =
-            '<p class="error_p">' + resultado[key] + "</p>";
-        }
+          for (const key in resultado) {
+              cont_errors[key].innerHTML = "";
+              cont_errors[key].innerHTML =
+              '<p class="error_p">' + resultado[key] + "</p>";
+          }
       } else {
-        result.innerHTML =
+          result.innerHTML =
           '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se agrego el usuario</p> </div>';
       }
     });

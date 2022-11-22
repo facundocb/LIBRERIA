@@ -330,7 +330,6 @@ a {
   height: 5vh;
   border-radius: 7px;
   font-family: "Poppins", sans-serif;
-  align-self: center;
   outline: none;
 }
 
@@ -386,22 +385,91 @@ a {
   margin-bottom: 1vh;
 }
 
+.error{
+  margin: 0 0 0 1.5vw;
+  width: 30vw;
+  height: 8vh;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: var(--error_color);
+  font-weight: 600;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #ff9cac, #f39b9b);
+  border: solid 1px #ed6e6e;
+  border-radius: 0.6vw;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 1px 2px 8px 3px var(--error_fondo_color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error p {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.ok{
+  color: var(--ok_color);
+  width: 30vw;
+  background: var(--ok_fondo_color);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 0 1.5vw;
+}
+
+.ok p {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 100%;
+}
+
+
+.div_error{
+    margin: 1vw 0 0 0;
+    width: 30vw;
+    height: 8vh;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    color: var(--error_color);
+    font-weight: 600;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #ff9cac, #f39b9b);
+    border: solid 1px #ed6e6e;
+    border-radius: 0.6vw;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 1px 2px 8px 3px var(--error_fondo_color);
+
+}
+
+
 /* seccion de insertar_usuario */
 
 #insertar_usuario {
   width: 45vw;
-  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#insertar_usuario div {
+#form_insertar_usuario{
   margin-left: 1.5vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 80vh;
   justify-content: center;
 }
 
@@ -417,13 +485,12 @@ a {
 /* seccion de banear usuarios*/
 #banear_usuario {
   width: 45vw;
-  height: 40vh;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
 }
 
-#banear_usuario div {
+#form_baneo_usuario{
   margin-left: 1.5vw;
   height: 30vh;
   display: flex;
@@ -441,9 +508,8 @@ a {
   flex-direction: column;
 }
 
-#agregar_administrador div {
+#form_asign_admin{
   margin-left: 1.5vw;
-  height: 35vh;
   width: 30vw;
   display: flex;
   flex-direction: column;

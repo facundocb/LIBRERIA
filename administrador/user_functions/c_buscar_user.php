@@ -15,23 +15,28 @@ try{
         if(!verificar_usuario_administrador($query_datos['USERNAME'])){
     
             $datos = [ 
-                'cedula' => $ci,
-                'nombre' => $query_datos['NOMBRE'],
-                'apellido' => $query_datos['APELLIDO'],
-                'localidad' => $query_datos['LOCALIDAD'],
-                'fecha_nacimiento' => $query_datos['FECHA_NACIMIENTO'],
-                'username' =>$query_datos['USERNAME']
+                'estado' => 1,
+                0 => $ci,
+                1 => $query_datos['NOMBRE'],
+                2 => $query_datos['APELLIDO'],
+                3 => $query_datos['LOCALIDAD'],
+                4 => $query_datos['FECHA_NACIMIENTO'],
+                5 =>$query_datos['USERNAME']
             ];    
             echo json_encode($datos);
     
         }else{
-            echo 'es administrador'; 
+            $datos['estado']= 0;
+            $datos[0] = 'es un administrador';
+            echo json_encode($datos);
         }
     
     
     }else{
-        echo ' no existe en la base de datos.';
-        }
+        $datos['estado']= 0;
+        $datos[0] = 'no existe en la base de datos';
+        echo json_encode($datos);
+    }
 
 }catch(PDOException $e){
     echo "error en la consulta";

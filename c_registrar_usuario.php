@@ -4,11 +4,15 @@
     $APELLIDO = $_POST['ape'];
     $LOCALIDAD = $_POST['local'];
     $CI = $_POST['ci'];
-    $FECHA_NACIMIENTO = $_POST['fecha_nac'];
+    if(!isset($_POST['fecha_nac'])){
+
+        $FECHA_NACIMIENTO = $_POST['fecha_nac'];
+    }else{
+        $errors[4] = 'fecha no valida';        
+    }
     $USERNAME = $_POST['user'];
     $PASSWORD = $_POST['pass'];
     $CONFIRMAR_PASSWORD = $_POST['conf_pass'];
-    $errors;
 
 
 
@@ -36,38 +40,34 @@
         }
     }
 
+    
+
     if(strlen($USERNAME) < 4 || preg_match("/\s/", $USERNAME)){
-        $errors[4]='EL NOMBRE DE USUARIO no puede contener espacios ni ser inferior a 4 carácteres';
+        $errors[5]='EL NOMBRE DE USUARIO no puede contener espacios ni ser inferior a 4 carácteres';
 
     }else{
         if(consulta_usuario($USERNAME)){
-            $errors[4]='el user ya está en uso, elegí otro';
+            $errors[5]='el user ya está en uso, elegí otro';
         }
     }
 
     if(strlen($PASSWORD) < 8 || preg_match("/\s/", $PASSWORD)){
-        $errors[5]='La contraseña no puede tener menos de 8 caracteres , y no puede tener espacios';
+        $errors[6]='La contraseña no puede tener menos de 8 caracteres , y no puede tener espacios';
  
     }
     
     if(!$PASSWORD == $CONFIRMAR_PASSWORD){
-        $errors[6]='las contraseñas no coinciden';
+        $errors[7]='las contraseñas no coinciden';
     }
 
 
     if(isset($errors)){
-  
-    $errors['estado'] = 0;
-
-    
-
-
-    echo json_encode($errors);
-
+        $errors['estado'] = 0;
+        echo json_encode($errors);
     }
     else{
-        $result['estado'] = 1;
-        echo json_encode($result);
+        $errors['estado'] = 1;
+        echo json_encode($errors);
     }
 
 

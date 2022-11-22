@@ -179,40 +179,25 @@
 
   /* tercera sección */
   #cont-caracteristicas {
-    margin: auto;
-    margin-top: 10vw;
-    margin-bottom: 2vw;
-    display: grid !important;
-    grid-template-columns: 28vw 28vw;
-    grid-template-rows: 30vw 30vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   }
 
-  .caracteristicas p {
-    font-size: 0.5em;
+  .caracteristicas{
+    width: 80%;
+    font-size: 2em;
+    padding: 0;
   }
+
+  .caracteristicas span{
+    font-size: 30px;
+  }
+
+
+
 
   /* termina aca*/
-
-  /* pseudo footer, para suscribirse*/
-
-  #suscripcion {
-    font-size: 0.5em;
-  }
-
-  #suscripcion div:nth-child(1) {
-    width: 35vw;
-  }
-
-  #suscripcion input {
-    height: 5vw;
-    width: 40vw;
-    margin-left: 5vw;
-  }
-
-  #contenedor-sub {
-    width: auto;
-    height: 5.3vw;
-  }
 
   /* ESTO ES TODO DEL LOGIN */
   #login {

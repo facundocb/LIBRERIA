@@ -446,9 +446,17 @@ header button {
 
 /* tercera sección */
 
+#cont-caracteristicas{
+  display: flex;
+  width: 100vw;
+  height: auto;
+  justify-content: space-around;
+
+}
+
 .caracteristicas {
   width: 18vw;
-  display: inline-flex;
+  display: flex;
   margin: 2vw;
   height: 25vh;
   align-items: center;
@@ -459,7 +467,7 @@ header button {
 }
 
 .caracteristicas p {
-  width: 80%;
+  width: 75%;
   margin-top: 1vw;
 }
 
