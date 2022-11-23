@@ -75,6 +75,9 @@ const insertar_user = () => {
               '<p class="error_p">' + resultado[key] + "</p>";
           }
         }
+
+      
+
       } else {
         alerta_add.innerHTML =
           '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se agrego el usuario</p> </div>';

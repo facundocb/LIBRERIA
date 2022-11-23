@@ -30,6 +30,9 @@ session_start();
 </head>
 
 <body>
+
+
+
     <div id="header">
         <div id="logo">
         <img src="<?php echo $_SESSION['ruta'] ;  ?>/RECURSOS/logo.svg" alt="">

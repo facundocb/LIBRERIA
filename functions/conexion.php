@@ -252,7 +252,7 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
         echo 'libro modificado';
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
-        echo "error en la consulta";
+        echo "error en la consulta" . $e->getMessage();
         die();
     }
 

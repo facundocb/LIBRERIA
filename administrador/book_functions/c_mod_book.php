@@ -41,15 +41,12 @@
 
     if(!isset($errors)){
         modificar_libro($NOM_LIBRO, $PRECIO_LIBRO, $DESCRIPCION_LIBRO, $STOCK_LIBRO, $AUTOR_LIBRO, $GENERO_LIBRO, $FECHA_PUBLICACION,$EDITORIAL_LIBRO,  $ID_LIBRO);
-        echo 'libro modificado';
+        $result['estado'] = 1;
+        echo json_encode($result);
     }else{
         
-        foreach ($errors as $error) {
-            echo '   ';
-            echo $error; 
-        }
-        echo '  ,no se pudo ingresar el libro';
-
+        $errors['estado'] = 0;
+        echo json_encode($errors);
 
     }
 ?>

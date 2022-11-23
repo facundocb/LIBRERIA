@@ -1,13 +1,52 @@
 @media only screen and (max-width: 768px) {
+
+  :root{
+    --color-uno: #155765;
+    --color-dos: #98d7e6;
+    --color-tres: #333333;
+    --color-cuatro: #ffffff;
+    --color-cinco: #ededed;
+    --error_color: #950e24;
+    --error_fondo_color: #e08493;
+    --ok_fondo_color: #abc994;
+    --ok_color: #1b5e20;
+  }
+
+
+
+
+
+
   body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
+  #container{overflow-x: hidden;}
 
   header {
-    justify-content: end;
-    height: 6vh;
+    justify-content: space-between !important;
+    height: 13vh;
+  }
+  header form {
+    height: 100% !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7vw;
+  }
+  header nav{
+    margin: 0;
+  }
+  li{
+    font-size: 8em !important;
+  }
+
+
+  header ul {
+    padding: 0;
+    margin: 0;
+    display: flex ;
+  
   }
 
   /* letras*/
@@ -28,8 +67,8 @@
     margin-right: calc(100% / 2 - 22vw);
   }
   #logo {
-    width: 20vw;
-    height: 10vw;
+    width: 15vw;
+    height: 15vw;
     margin: 0;
   }
 
@@ -37,9 +76,8 @@
     display: none;
   }
   #boton_buscar_input {
-    height: auto;
-    width: 3vw;
-    height: 3vw;
+    width: 5vw;
+    height: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,36 +85,28 @@
     background-color: transparent;
     border: none;
     color: var(--color-cuatro);
-    font-size: 0.6em;
+    font-size: 0.8em;
     margin: 0;
     padding: 0;
-    display: contents;
   }
 
   #buscador {
-    height: 4vw;
-    display: none;
+    width: 0vw;
+    height: 0vw;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius: 7px;
+    transition: all ease 0.5s;  
   }
 
-  nav {
-    margin-left: 4vw;
-  }
+#buscador::placeholder{text-align: center;}
 
   /* parte del menu */
-  #cont-abridor-mobil {
-    overflow: hidden;
-    top: 0vw;
-    left: 6vw;
-    margin: 0;
-    margin-right: 2vw;
-    padding: 0;
-    width: auto;
-    height: auto;
-  }
-  #abridor-mobil {
-    display: block;
-  }
 
+header span{
+  font-size: 0.25em !important;
+}
   header button {
     display: none;
   }
@@ -86,24 +116,8 @@
   header nav i {
     display: none !important;
   }
-
-  #navegador {
-    z-index: 1;
-    position: fixed;
-    display: none;
-    left: 100vw;
-    top: 80vw;
-    width: 100vw;
-    height: 1fr;
-  }
-  #navegador a {
-    font-size: 0.8em;
-    font-weight: 100;
-  }
-  #navegador ul {
-    margin-left: calc(100% / 2 - 10vw);
-    padding: 0;
-  }
+#navegador{display: none;}
+#navegador ul {display: none;}
 
   /*banners*/
 
@@ -201,10 +215,11 @@
 
   /* ESTO ES TODO DEL LOGIN */
   #login {
-    transition: all ease 0s;
+    transition: all ease 1s;
     transform: translateX(100vw);
     width: 100vw;
-    height: 80vw;
+    height: 100%;
+    
   }
 
   #login p {
@@ -212,26 +227,52 @@
   }
 
   #login h2 {
-    font-size: 0.9em;
+    font-size: 1.4em;
+    align-self: center;
   }
 
   #login h3 {
     font-size: 1em;
   }
 
+  .cerrar{
+    width: 20vw;
+    background-color: var(--color-dos);
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--color-tres);
+    font-family: 'Poppins', sans-serif;
+    align-self:flex-end ;
+  }
+
+  .cerrar:active{
+    color:var(--error_color);
+  }
+  
   #login form {
-    padding-left: calc(100% / 2 - 12vw);
-  }
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+
+}
   #login input {
-    height: 8vw;
-    width: 23vw;
+    height: 10vw;
+    width: 70vw;
+    padding: 0;
   }
+
+  #login_input::placeholder{margin-left: 10vw !important ; }
 
   #login #boton {
-    width: 50vw;
-    height: 8vw;
+    width: 70vw;
+    height: 10vw;
   }
 
+
+
+
+
+  #redes{display: none;}
   /* REGISTRO DE USUARIOS */
 
   /* sección de búsqueda */

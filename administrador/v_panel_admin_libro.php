@@ -58,19 +58,29 @@ $title = "panel admin";
 
         <div id="contenedor_grande">
             <h2 class="titulo">Agregar libro</h2>
+            <div class="alerta" id="alerta_add"></div>
             <div id="form_agregar_libro">
 
                 <input type="text" name="nom_libro"  class="input_texto" placeholder="Nombre del libro" >
+                <div class="error_add"></div>
                 <input type="text" name="descripcion_libro" class="input_texto_descripcion" placeholder="Descripcion" >
+                <div class="error_add"></div>
                 <input type="text" name="precio_libro"  class="input_texto" placeholder="Precio" >
+                <div class="error_add"></div>
                 <input type="text" name="stock_libro" class="input_texto" placeholder="stock actual" >
+                <div class="error_add"></div>
                 <input type="file" id="imagen_libro"  accept="img/*" class="input_imagen">
                 <label class='label_imagen' for="imagen_libro"> Selecciona una imagen</label>
+                <div class="error_add"></div>
                 <input type="text" name="autor_libro"  class="input_texto" placeholder="autor">
+                <div class="error_add"></div>
                 <input type="text" name="genero_libro" class="input_texto" placeholder="genero">
+                <div class="error_add"></div>
                 <label for="fecha_publicacion" class='subtitulo'>Fecha de publicacion:</label>
                 <input type="date" name="fecha_publicacion" class="input_texto">
+                <div class="error_add"></div>
                 <input type="text" name="editorial_libro" class="input_texto" placeholder="editorial">
+                <div class="error_add"></div>
                <button class="input_boton" onclick="insertar_libro()">Agregar libro</button>
             </div>
             
@@ -93,21 +103,33 @@ $title = "panel admin";
 
             <div id="form_buscar_libro_mod">
                 <h4 class='subtitulo'>ID del libro</h4>
+                <div class="alerta" id='alerta_buscar'></div>
                 <input type="text" name="buscarID" id="buscarID" class="input_texto">
+
                 <button class="input_boton" onclick="enviar_ID()">buscar libro</button>
             </div>
 
             <div id="form_modificar_datos_libro">
+
+                <div class="alerta" id="alerta_mod"></div>
                 <h4 class="subtitulo">Datos del libro</h4>
                 <input type="text" name="id_libro" class="input_texto" placeholder="ID del libro" disabled>
                 <input type="text" name="nom_libro" class="input_texto" placeholder="Nombre del libro" >
+                <div class="error_mod"></div>
                 <input type="text" name="descripcion_libro" class="input_texto_descripcion" placeholder="Descripcion" >
+                <div class="error_mod"></div>
                 <input type="text" name="precio_libro" class="input_texto" placeholder="Precio" >
+                <div class="error_mod"></div>
                 <input type="text" name="stock_libro" class="input_texto" placeholder="stock actual" >
+                <div class="error_mod"></div>
                 <input type="text" name="autor_libro" class="input_texto" placeholder="autor">
+                <div class="error_mod"></div>
                 <input type="text" name="genero_libro" class="input_texto" placeholder="genero">   
+                <div class="error_mod"></div>
                 <input type="text" name="editorial_libro" class="input_texto" placeholder="editorial">
+                <div class="error_mod"></div>
                 <input type="date" name="fecha_publicacion" class="input_texto" placeholder="fecha_publicacion">
+                <div class="error_mod"></div>
                 <button class="input_boton" onclick="modificar_libro()">Modificar libro</button>
             </div>
 

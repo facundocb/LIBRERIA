@@ -34,15 +34,15 @@
             <a href="<?php echo $_SESSION['ruta'] ;  ?>/index.php"><img id="logo" src="<?php echo $_SESSION['ruta'] ;  ?>/RECURSOS/logo.svg" alt="Mi mundo" ></a>
 
                 <form action="<?php echo $_SESSION['ruta'] ;  ?>/v_busqueda_libros.php" method="get" id="formulario_busqueda">
-                     <input id="buscador" type="text" placeholder="buscar libro" name="nombre_busqueda">
+                     <input id="buscador" type="text" placeholder="Buscar libro" name="nombre_busqueda">
                      <button id="boton_buscar" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                      <button id="boton_buscar_input" type="button" onclick="abririnput()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             <nav>
                 <ul>
                     <li>
-                    <span class="material-icons">   person</span>
-                        <p id="abridor_menu" onclick="abrir_menu()">&#9776;</p>
+                    <span class="material-icons" onclick="abrir_menu()">   person</span>
+                        
                         <button id="abridor" onclick="abrir_login()">
                         <?php 
                         if(isset($_SESSION['username']))

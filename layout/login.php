@@ -27,8 +27,8 @@ if(isset($_SESSION['username'])){
     ?>
 
     <div id="login">
-    <p id="abridor_menu">&#9776;</p>
-      
+    <button class="cerrar" onclick="abrir_menu()">X</button>
+    <h2>panel de usuario</h2>
     <form id="formulario" action="<?php echo $_SESSION['ruta'] ;  ?>/c_ingresar_usuario.php" autocomplete="off" method="POST">
       <input class='login_input'  type="text" placeholder="User" name="username">
       <input class='login_input'  type="password" placeholder="Password" name="passwd">

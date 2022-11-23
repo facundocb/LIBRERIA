@@ -2,6 +2,15 @@
     include("../../functions/conexion.php");
 
     $ID = $_POST['ID'];
+
+    if( !preg_match("/^\d{0,900}$/",$ID || $ID = '')){
+        $result['estado'] = 0;
+        $result[0] ='id no valida';
+        
+        echo json_encode($result);
+        die();
+    }
+
     try{
         $db = Conexion::abrir_conexion();
 
@@ -9,20 +18,23 @@
     
         if($query_datos){
             $datos_libro = [
-                'id_libro' => $ID,
-                'nom_libro' => $query_datos['NOM_LIBRO'],
-                'descripcion_libro' => $query_datos['DESCRIPCION_LIBRO'],
-                'precio_libro' => $query_datos['PRECIO_LIBRO'],
-                'stock_libro' => $query_datos['STOCK_LIBRO'],
-                'autor_libro' => $query_datos['AUTOR_LIBRO'],
-                'genero_libro' => $query_datos['GENERO_LIBRO'],
-                'editorial_libro' => $query_datos['EDITORIAL_LIBRO'],
-                'fecha_publicacion_libro' => $query_datos['FECHA_PUBLICACION_LIBRO']
+                'estado' => 1,
+                0 => $ID,
+                1 => $query_datos['NOM_LIBRO'],
+                2 => $query_datos['DESCRIPCION_LIBRO'],
+                3 => $query_datos['PRECIO_LIBRO'],
+                4 => $query_datos['STOCK_LIBRO'],
+                5 => $query_datos['AUTOR_LIBRO'],
+                6 => $query_datos['GENERO_LIBRO'],
+                7 => $query_datos['EDITORIAL_LIBRO'],
+                8 => $query_datos['FECHA_PUBLICACION_LIBRO']
     
             ];
             echo json_encode($datos_libro);
         }else{
-            echo 'no se encontraron libros';
+         $result['estado'] = 0;
+         $result[0] = 'no se encontro en la bd';
+         echo json_encode($result); 
         }
     }catch(PDOException $e){
         echo "error en la consulta";
