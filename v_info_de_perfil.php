@@ -13,13 +13,16 @@ include("layout/header.php");
         <div id="menu">
             <a href="v_info_de_perfil.php"><h4 class='opcion selected'>Datos personales</h4></a>
             <a href="v_historial_de_compras.php"><h4 class='opcion'>Historial de compras</h4></a>
-            <a href="<?php echo $ruta ?>/functions/c_cerrar_sesion.php"><h4 class='opcion'>Salir</h4></a>
+            <a href="<?php echo $_SESSION['ruta'] ?>/functions/c_cerrar_sesion.php"><h4 class='opcion'>Salir</h4></a>
         </div>
         
         <div id='datos_personales'>
             <div class="titulo_container">
                 <h2 class='titulo'>Datos</h2>
-                <button id='edit' onclick="modificar_datos()"><span class="material-icons">edit</span></button>
+                <div id="botones">
+                    <button id='edit' onclick="modificar_datos()"><span class="material-icons">edit</span></button>
+                    <button id="cancel" onclick="cancelar()"></button>
+                </div>
             </div>
                 
             <div class="content">
@@ -56,5 +59,5 @@ include("layout/header.php");
     </div>
 
 
-    <script src="<?php echo $ruta ?>/layout/script.js"></script>
+    <script src="<?php echo $_SESSION['ruta'] ?>/layout/script.js"></script>
     <script src='info_de_perfil.js'></script>

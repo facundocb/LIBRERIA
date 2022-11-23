@@ -1009,6 +1009,7 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 1.5vw;
 }
 
 #menu a {
@@ -1095,6 +1096,7 @@ footer p {
 
 .content input {
   margin-right: 28vw;
+  margin-bottom: 0;
 }
 
 .content input:enabled {

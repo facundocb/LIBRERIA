@@ -27,7 +27,7 @@ include("layout/header.php");
 
 
 
-        <script src="<?php echo $ruta ?>/layout/script.js"></script>
-        <script src="<?php echo $ruta ?>/historial_de_compras.js"></script>
+        <script src="<?php echo $_SESSION['ruta'] ?>/layout/script.js"></script>
+        <script src="<?php echo $_SESSION['ruta'] ?>/historial_de_compras.js"></script>
     </div>
 
