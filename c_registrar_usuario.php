@@ -1,5 +1,8 @@
 <?php
 
+    session_start();
+    include("{$_SESSION['ruta']}/functions/conexion.php");
+
     $NOMBRE = $_POST['nom'];
     $APELLIDO = $_POST['ape'];
     $LOCALIDAD = $_POST['local'];

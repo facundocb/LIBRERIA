@@ -67,8 +67,8 @@
     margin-right: calc(100% / 2 - 22vw);
   }
   #logo {
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
     margin: 0;
   }
 
@@ -116,6 +116,15 @@ header span{
   header nav i {
     display: none !important;
   }
+ 
+header ul{
+  gap: 4vw;
+}  
+
+header nav{
+  margin-right: 2vw;
+}
+
 #navegador{display: none;}
 #navegador ul {display: none;}
 
@@ -178,6 +187,11 @@ header span{
   .libros_largos {
     width: 35vw;
     height: 65vw;
+    font-size: 1.2em;
+  }
+
+  .libros_largos p{
+    margin: 0;
   }
 
   /* aca termina */
@@ -215,7 +229,7 @@ header span{
 
   /* ESTO ES TODO DEL LOGIN */
   #login {
-    transition: all ease 1s;
+    transition: all ease 0.5s;
     transform: translateX(100vw);
     width: 100vw;
     height: 100%;
@@ -236,9 +250,9 @@ header span{
   }
 
   .cerrar{
-    width: 20vw;
+    width: 10vw;
     background-color: var(--color-dos);
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
     color: var(--color-tres);
     font-family: 'Poppins', sans-serif;
@@ -255,15 +269,13 @@ header span{
   flex-direction: column;
 
 }
-  #login input {
+  .login_input{
     height: 10vw;
-    width: 70vw;
-    padding: 0;
+    width: 67vw;
+    padding-left: 3vw;
   }
 
-  #login_input::placeholder{margin-left: 10vw !important ; }
-
-  #login #boton {
+  .boton {
     width: 70vw;
     height: 10vw;
   }
