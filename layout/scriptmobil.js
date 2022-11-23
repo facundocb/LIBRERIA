@@ -12,7 +12,7 @@ function abrir_menu() {
 
   }
 }
-
+// aa
 function abririnput() {
   const container = document.getElementById("container");
   const inputmobil = document.getElementById("buscador");
