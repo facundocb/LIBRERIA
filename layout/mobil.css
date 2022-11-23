@@ -186,8 +186,8 @@ header nav{
 
   .libros_largos {
     width: 35vw;
-    height: 65vw;
-    font-size: 1.2em;
+    height: auto;
+    font-size: 0.8em;
   }
 
   .libros_largos p{
@@ -200,7 +200,7 @@ header nav{
 
   .libros_anchos {
     width: 80vw;
-    height: 40vh;
+    height: 55vw;
   }
 
   /* y aca termina*/
@@ -214,7 +214,7 @@ header nav{
 
   .caracteristicas{
     width: 80%;
-    font-size: 2em;
+    font-size: 1em;
     padding: 0;
   }
 
@@ -285,7 +285,7 @@ header nav{
 
 
 
-  #redes{display: none;}
+
   /* REGISTRO DE USUARIOS */
 
   /* sección de búsqueda */
@@ -308,7 +308,7 @@ header nav{
 
 
 #informacion{
-  border: solid 1px black;
+
   width: 100%;
   height: 60vh;
   justify-content: flex-start;
@@ -365,9 +365,63 @@ header nav{
   width: 90%;
 }
 
+/* Empieza el footer */
+
+footer {
+  width: 100vw;
+  height: auto;
+  transition: all ease 0.5s;
+  background-color: var(--color-uno);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 0;
+}
+#footer_logo {
+  
+  width: 50vw;
+  height: 50vw;
+}
+footer section {text-align: center;}
+footer p {
+  color: var(--color-cinco);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7em;
+  font-weight: 500;
+}
+footer a {color: var(--color-cinco); font-family: "Poppins", sans-serif; text-decoration-line: underline;}
+footer a:hover{color:var(--color-dos);}
+.titulofooter{
+  font-size: 0.9em !important;
+  margin: 0;
+  margin-top: 8vw;
+}
+.logoredes{display: flex; flex-direction: row; gap: 10vw;}
+#redes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#redes i {
+
+}
+
+#redes i::before{ font-size: 2.3em; color: black;}
 
 
+#subfooter{
+  background-color: var( --color-tres);
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vw;
+}
 
+#subfooter img{width: 15vw; height: 15vw;}
 
-
+/* termina el footer */
 }

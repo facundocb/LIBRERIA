@@ -13,14 +13,20 @@
   <p class="titulofooter" >Nuestra ubicacion.</p><br>
   <p>www.mimundo.com.uy</p>
   <p>Direccion: Acevedo Diaz esq. Francisco Canaro</p>
+
 </section>
+<a class="titulofooter" href="v_about_us.php">SOBRE NOSOTROS</a>
+<div id="redes" > 
+  <p class="titulofooter" >seguinos en nuestras redes!</p>
+    <div class="logoredes">
+      <i class="fa-brands fa-facebook">mimundo fb</i>
+      <i class="fa-brands fa-instagram">mimundo ig</i>
+      <i class="fa-brands fa-twitter">mimundo tw</i>
+    </div>
 
-<div id="redes"> 
-  <p>seguinos en nuestras redes!</p>
-  <i class="fa-brands fa-facebook">mimundo fb</i>
-  <i class="fa-brands fa-instagram">mimundo ig</i>
-  <i class="fa-brands fa-twitter">mimundo tw</i>
 </div>
-
+<div id="subfooter">
+  <p>Desarrollado por: </p> <img src="/LIBRERIA/RECURSOS/LOGOCALM5.png">
+</div> 
 
 </footer>

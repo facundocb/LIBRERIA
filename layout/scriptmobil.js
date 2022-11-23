@@ -30,3 +30,16 @@ function abririnput() {
     inputmobil.style.backgroundColor = "transparent";
   }
 }
+
+window.onload = function redesyabout(){
+  if (screen.width<=768){
+   const all = document.querySelectorAll('#redes i');
+
+for( const e in all ){
+    all[e].innerHTML = "";
+}
+
+
+
+
+} }

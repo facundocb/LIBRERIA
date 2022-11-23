@@ -499,9 +499,8 @@ footer p {
 }
 #footer_logo {
   
-  width: 12vw;
-  height: 12vw;
-  margin-left: 3vw;
+  width: 13vw;
+  height: 13vw;
 }
 
 
@@ -510,14 +509,14 @@ footer p {
   flex-direction: column;
   gap: 0.7vw;
 }
-#redes i {
+.logoredes i {
   width: 11vw;
   font-size: 0.7em;
   color: var(--color-cinco);
   text-align: left;
   letter-spacing: 0.2vw;
-
 }
+.logoredes{display: flex; flex-direction: column; width: auto; gap: 1vw;}
 #redes i::before{ font-size: 2.3em; color: black;}
 
 /* ESTO ES TODO DEL LOGIN */
