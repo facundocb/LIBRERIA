@@ -484,19 +484,41 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
   gap: 2vw;
 }
 
 footer p {
   color: var(--color-cinco);
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
 }
-
+.titulofooter{
+  font-size: 1.2em !important;
+}
 #footer_logo {
-  border: solid 1px black;
+  
   width: 12vw;
   height: 12vw;
   margin-left: 3vw;
 }
+
+
+#redes{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7vw;
+}
+#redes i {
+  width: 11vw;
+  font-size: 0.7em;
+  color: var(--color-cinco);
+  text-align: left;
+  letter-spacing: 0.2vw;
+
+}
+#redes i::before{ font-size: 2.3em; color: black;}
 
 /* ESTO ES TODO DEL LOGIN */
 #login {
