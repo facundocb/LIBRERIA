@@ -731,7 +731,7 @@ footer p {
 
 #informacion {
   width: 40vw;
-  height: 70vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -803,9 +803,9 @@ footer p {
   height: 4vw;
   display: flex;
   flex-direction: row;
+  font-size: 1em;
   align-items: center;
   justify-content: space-evenly;
-  font-size: 1em;
 }
 
 #cantidad_container {

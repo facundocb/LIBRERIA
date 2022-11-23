@@ -74,7 +74,6 @@
 			while($libro = $query_busqueda->fetch_array()){
 			
 				?>
-				<h4><?php echo $query_busqueda ; ?></h4>
 					<div class="libros_largos">
 						<a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
 							<img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">

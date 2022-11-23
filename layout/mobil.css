@@ -310,6 +310,8 @@ header nav{
 #informacion{
   border: solid 1px black;
   width: 100%;
+  height: 60vh;
+  justify-content: flex-start;
 }
  
 #informacion h2{
@@ -334,7 +336,9 @@ header nav{
 }
 
 #result{
-  height: 4vh;
+  width: 100%;
+  height: 6vh;
+  margin-bottom: 3vw;
 }
 
 #add_to_cart{
@@ -342,7 +346,24 @@ header nav{
   height: 10vh;
 }
 
+#otros{
+  width: 100%;
+  text-align: center;
 
+}
+
+
+
+
+
+
+#descripcion{
+  max-height: none;
+}
+
+#descripcion p{
+  width: 90%;
+}
 
 
 
