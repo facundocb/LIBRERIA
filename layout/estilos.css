@@ -10,6 +10,7 @@
   --ok_color: #1b5e20;
 }
 
+
 #container {
   width: auto;
   height: auto;
@@ -40,7 +41,10 @@ header {
 
 button {
   border: none;
+
 }
+
+.cerrar{ display: none !important; }
 
 /* letras*/
 
@@ -1209,3 +1213,4 @@ footer p {
   text-align: justify;
   width: 80vw;
 }
+
