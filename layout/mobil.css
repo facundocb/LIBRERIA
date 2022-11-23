@@ -250,6 +250,7 @@ header nav{
   }
 
   .cerrar{
+    display: inline-block;
     width: 10vw;
     background-color: var(--color-dos);
     font-size: 1.5em;

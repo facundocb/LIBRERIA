@@ -1,7 +1,7 @@
 function abrir_menu() {
   const abridor = document.getElementById("login");
 
-  if (!abierto) {
+  if (!abierto && screen.width<=768) {
     abridor.style.transform = "translateX(0vw)";
     abierto = true;
     container.addEventListener("click", abrir_menu);
