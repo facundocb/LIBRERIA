@@ -690,13 +690,22 @@ footer p {
 #contenedor_libros_result {
   width: 70vw;
   border: solid 1px black;
-  margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin:0;
+
 }
+
+#contenedor_libros_result .error{
+  height: 5vw;
+  width: 100%;
+  align-self: flex-start;
+  margin: 0;
+}
+
 
 /* PAGINA DE LOS LIBROS */
 

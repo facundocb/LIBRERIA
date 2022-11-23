@@ -52,11 +52,11 @@
   /* letras*/
 
   p {
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
 
   h4 {
-    font-size: 0.65em;
+    font-size: 1em;
   }
 
   /* aca terminan las letras */
@@ -302,8 +302,8 @@ header nav{
 
 .imagen{
   align-self: center;
-  width: 45%;
-  height: 45vh;
+  width: 40%;
+  height: 55vh;
 }
 
 

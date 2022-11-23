@@ -3,7 +3,7 @@
 class Conexion 
 {
     public static $bd;
-
+    public static $mysqli;
     private static $host = "localhost";
     private static $user_db = "root";
     private static $pass_db = "";
@@ -23,6 +23,17 @@ class Conexion
     public static function cerrar_conexion(){
         self::$bd = null;
     }
+
+    public static function abrir_mysqli(){
+        self::$mysqli = new mysqli(self:: $host, self:: $user_db, self:: $pass_db, self:: $db_name);
+        if(self::$mysqli){
+            return self::$mysqli;
+        }else{
+            echo 'error';
+        }
+    }
+
+
 
 }
 

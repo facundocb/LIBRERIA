@@ -18,7 +18,7 @@
 
 
 <div id="filtros_busqueda">
-	<form method="get" action='v_busqueda_libros.php'>
+	<form method="GET" action='v_busqueda_libros.php'>
 		<label for="filtro_genero" >Genero:</label>
 		<?php 
 		try{
@@ -40,8 +40,8 @@
 		echo "</select>";
 
 		?>   
-		<label for="fecha_desde">Fecha desde</label><input type="date" name="fecha_desde" id="">
-		<label for="fecha_hasta" >Hasta</label><input type="date" name="fecha_hasta" id="">
+		<label for="fecha_desde">Fecha desde</label><input type="date" name="fecha_desde" >
+		<label for="fecha_hasta" >Hasta</label><input type="date" name="fecha_hasta">
 		<input type="submit" value="filtrar" name="filtrar" >
 		</form>
 	</div>
@@ -50,28 +50,31 @@
 
 
 	try{
-		$db = Conexion::abrir_conexion();
+		$db = Conexion::abrir_mysqli();
 		$condicion = '';
 
 		if(isset($_REQUEST['filtro_genero'])){
 			$condicion = " AND GENERO_LIBRO = '{$_REQUEST['filtro_genero']}'";
 		}
-		if(isset($_REQUEST['fecha_desde'])){
-			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO >= '{$_REQUEST['fecha_desde']}'";
+		if(isset($_REQUEST['fecha_desde']) && $_REQUEST['fecha_desde'] != ''){
+			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO >= {$_REQUEST['fecha_desde']}";
 		}
-		if(isset($_REQUEST['fecha_hasta'])){
-			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO <=' {$_REQUEST['fecha_hasta']}'";
+		if( isset($_REQUEST['fecha_hasta']) && $_REQUEST['fecha_hasta'] != ''){
+			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO <= {$_REQUEST['fecha_hasta']}";
 		}
 
 
-		$sql = "SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE CONCAT('%',?,'%') ?";
-		$query_busqueda = $db->prepare($sql);
+		$nombre_busqueda = $db->real_escape_string($nombre_busqueda);
+		$sql = "SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE '%{$nombre_busqueda}%' {$condicion} " ;
+
+		$query_busqueda = $db->query($sql);
 		//$resultado = $query_busqueda->fetchAll();
-		if($query_busqueda->execute([$nombre_busqueda, $condicion])){
-			$resultado = $query_busqueda->fetchAll();	
-			foreach($resultado as $libro){
-
+		if(mysqli_num_rows($query_busqueda) > 0){
+			
+			while($libro = $query_busqueda->fetch_array()){
+			
 				?>
+				<h4><?php echo $query_busqueda ; ?></h4>
 					<div class="libros_largos">
 						<a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
 							<img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
@@ -80,12 +83,14 @@
 						<p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
 					</div> 
 				<?php
-			}    
-			}else{
-				echo 'no hay libros';
 			}
-	}catch(PDOException $e){
-	echo "error en la consulta" . $e->getMessage();
+
+
+			}else{
+				echo "<p class='error'><span class='material-icons'>warning</span> No hay libros con las condiciones que se solicitaron:(</p>";
+			}
+	}catch(Exception $e){
+	echo "<p class='error'><span class='material-icons'>warning</span> Algo salió mal.</p>";
 	die();
 	}
 	?>

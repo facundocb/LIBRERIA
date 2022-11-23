@@ -3,11 +3,12 @@ include("../functions/conexion.php");
 
 $id_libro = $_REQUEST['ID_LIBRO'];
 
+$db = Conexion::abrir_mysqli();
+$id_libro = $db->real_escape_string($id_libro);
 
-$db = Conexion::abrir_conexion();
 
 $consulta = $db->query("SELECT * FROM libro WHERE ID_LIBRO = '$id_libro'");
-$result = $consulta->fetch();
+$result = $consulta->fetch_assoc();
 
 $title = $result['NOM_LIBRO'];
 
