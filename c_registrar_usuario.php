@@ -7,11 +7,10 @@
     $APELLIDO = $_POST['ape'];
     $LOCALIDAD = $_POST['local'];
     $CI = $_POST['ci'];
-    if(!isset($_POST['fecha_nac'])){
-
-        $FECHA_NACIMIENTO = $_POST['fecha_nac'];
-    }else{
+    if($_POST['fecha_nac'] = ''){
         $errors[4] = 'fecha no valida';        
+    }else{
+        $FECHA_NACIMIENTO = $_POST['fecha_nac'];
     }
     $USERNAME = $_POST['user'];
     $PASSWORD = $_POST['pass'];

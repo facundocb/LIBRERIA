@@ -34,7 +34,7 @@
 		}
 
 		}catch(PDOException $e){
-		echo "error en la consulta" . $e->getMessage();
+		echo "error en la consulta";
 
 		}	
 		echo "</select>";
@@ -50,41 +50,42 @@
 
 
 	try{
-	$db = Conexion::abrir_conexion();
-	$condicion = '';
+		$db = Conexion::abrir_conexion();
+		$condicion = '';
 
-	if(isset($_REQUEST['filtro_genero'])){
-	$condicion = ' AND GENERO_LIBRO = "' . $_REQUEST['filtro_genero'] . '"';
-	}
-	if(isset($_REQUEST['fecha_desde'])){
-	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO >= ' . $_REQUEST['fecha_desde'] . '"';
-	}
-	if(isset($_REQUEST['fecha_hasta'])){
-	$condicion = $condicion . ' AND FECHA_PUBLICACION_LIBRO <=' . $_REQUEST['fecha_hasta'] . '"';
-	}
+		if(isset($_REQUEST['filtro_genero'])){
+			$condicion = " AND GENERO_LIBRO = '{$_REQUEST['filtro_genero']}'";
+		}
+		if(isset($_REQUEST['fecha_desde'])){
+			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO >= '{$_REQUEST['fecha_desde']}'";
+		}
+		if(isset($_REQUEST['fecha_hasta'])){
+			$condicion = $condicion . " AND FECHA_PUBLICACION_LIBRO <=' {$_REQUEST['fecha_hasta']}'";
+		}
 
 
-	$sql = "SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE '%{$nombre_busqueda}%' {$condicion}";
-	$query_busqueda = $db->query($sql);
-	$resultado = $query_busqueda->fetchAll();
-	if($resultado){
-	foreach($resultado as $libro){
+		$sql = "SELECT NOM_LIBRO,PRECIO_LIBRO,ID_LIBRO, DIRECCION_IMG FROM libro WHERE NOM_LIBRO  LIKE CONCAT('%',?,'%') ?";
+		$query_busqueda = $db->prepare($sql);
+		//$resultado = $query_busqueda->fetchAll();
+		if($query_busqueda->execute([$nombre_busqueda, $condicion])){
+			$resultado = $query_busqueda->fetchAll();	
+			foreach($resultado as $libro){
 
-	?>
-	<div class="libros_largos">
-	<a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
-	<img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
-	</a>
-	<h4><?php echo $libro['NOM_LIBRO']; ?></h4>
-	<p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
-	</div> 
-	<?php
-		}    
-	}else{
-		echo 'no hay libros';
-	}
+				?>
+					<div class="libros_largos">
+						<a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro['ID_LIBRO'];?>">
+							<img src="<?php echo $libro['DIRECCION_IMG']; ?>" alt="hola">
+						</a>
+						<h4><?php echo $libro['NOM_LIBRO']; ?></h4>
+						<p>$ <?php echo $libro['PRECIO_LIBRO'];  ?></p>
+					</div> 
+				<?php
+			}    
+			}else{
+				echo 'no hay libros';
+			}
 	}catch(PDOException $e){
-	echo "error en la consulta";
+	echo "error en la consulta" . $e->getMessage();
 	die();
 	}
 	?>
@@ -100,4 +101,4 @@
         include("layout/login.php");
         ?>
 
-<script src="<?php echo $ruta ?>/layout/script.js"></script>
+<script src="<?php echo $_SESSION['ruta'] ?>/layout/script.js"></script>
