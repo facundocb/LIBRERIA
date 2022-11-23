@@ -17,7 +17,7 @@ function abririnput() {
   const container = document.getElementById("container");
   const inputmobil = document.getElementById("buscador");
   if (!abierto) {
-    inputmobil.style.width = "50vw";
+    inputmobil.style.width = "45vw";
     inputmobil.style.height = "50%";
     inputmobil.style.backgroundColor = "var(--color-cuatro)";
     abierto = true;

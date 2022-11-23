@@ -38,9 +38,11 @@ function registrar_usuario() {
             '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No se agrego el usuario</p> </div>';
 
           for (const key in resultado) {
+            if(key != 'estado'){
               cont_errors[key].innerHTML = "";
               cont_errors[key].innerHTML =
               '<p class="error_p">' + resultado[key] + "</p>";
+            }
           }
       } else {
           result.innerHTML =
