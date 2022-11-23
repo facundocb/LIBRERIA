@@ -1,7 +1,7 @@
 function abrir_menu() {
   const abridor = document.getElementById("login");
-
-  if (!abierto && screen.width<=768) {
+if (screen.width<=768){
+  if (!abierto) {
     abridor.style.transform = "translateX(0vw)";
     abierto = true;
     container.addEventListener("click", abrir_menu);
@@ -11,7 +11,7 @@ function abrir_menu() {
     abridor.style.transform = "translateX(100vw)";
 
   }
-}
+}}
 // aa
 function abririnput() {
   const container = document.getElementById("container");
