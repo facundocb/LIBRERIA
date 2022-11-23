@@ -320,6 +320,7 @@ header nav{
   margin-top: 1vw;
   font-size: 1.2em;
   text-align: center;
+  height: auto;
 }
 
 #form_add_libro{
@@ -329,6 +330,10 @@ header nav{
 
 #cantidad{
   width: 10vw;
+}
+
+#result{
+  height: 4vh;
 }
 
 #add_to_cart{
