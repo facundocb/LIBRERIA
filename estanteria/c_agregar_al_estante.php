@@ -20,7 +20,7 @@
     $user = $_SESSION['username'];
     $id_libro = $_POST['id_libro'];
     $stock = ver_stock($id_libro);
-
+    
     if($stock[0] < $cantidad){
         echo "<div class='error'> <span class='material-icons'>warning</span> <p class='error_texto'> la cantidad maxima disponible es '{$stock[0]}'</p></div>"   ;
 

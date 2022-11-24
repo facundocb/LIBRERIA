@@ -8,6 +8,10 @@
   --error_fondo_color: #e08493;
   --ok_fondo_color: #abc994;
   --ok_color: #1b5e20;
+  --warning-color:#ffc107;
+  --warning-fondo-color:
+
+
 }
 
 
@@ -1085,9 +1089,11 @@ display: none;
   display: flex;
   flex-direction: column;
   width: 60vw;
-  height: 50vh;
+  height: 110vh;
   gap: 1vw;
 }
+
+
 
 .titulo_container {
   width: 100%;
@@ -1103,8 +1109,33 @@ display: none;
   margin: 0;
 }
 
+#botones{
+  display: flex;
+  gap: 1vw;
+}
+
+
 #edit {
-  border: solid 1px var(--color-uno);
+  border: none;
+  width: 6vh;
+  border-radius: 3px;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-tres);
+  background-color: var(--warning-color);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#edit:hover {
+  background-color: var(--color-cinco);
+  color: var(--warning-color);
+}
+
+#cancel{
+  border: none;
   width: 6vh;
   border-radius: 3px;
   height: 6vh;
@@ -1112,16 +1143,39 @@ display: none;
   align-items: center;
   justify-content: center;
   color: var(--color-cuatro);
-  background-color: var(--color-uno);
+  background-color: var(--error_color);
   cursor: pointer;
   transition: all 0.4s;
 }
 
-#edit:hover {
-  background-color: var(--color-dos);
-  color: var(--color-tres);
-  border: solid 1px var(--color-dos);
+#cancel:hover{
+  background-color: var(--color-cinco);
+  color: var(--error_color);
 }
+
+#done{
+  border: none;
+  width: 6vh;
+  border-radius: 3px;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cuatro);
+  background-color: var(--ok_color);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#done:hover{
+  background-color: var(--color-cinco);
+  color: var(--ok_color);
+}
+
+
+
+
+
 
 .content {
   display: flex;

@@ -55,6 +55,21 @@ function consulta_CI($ci){
     
 }
 
+
+
+function consulta_CI_con_user($user){
+    try{
+        $db = Conexion::abrir_conexion();
+        $query = $db->query("SELECT CI FROM usuario WHERE USERNAME = '{$user}'");
+        $result = $query->fetch();
+        Conexion::cerrar_conexion();
+        return $result;
+    } catch(PDOException $e){
+        echo "Error en la query" . $e;
+    }
+}
+
+
 //funcion de registrar usuario.php
 function consulta_usuario($user){
     
@@ -106,7 +121,6 @@ function verificar_ban($user){
     }
 }
 
-
 function banear_cliente($user){
     try{
         $db = Conexion::abrir_conexion();
@@ -120,12 +134,6 @@ function banear_cliente($user){
     } 
 }
 
-
-
-
-
-
-//funcion de ingresar_usuario.php
 function verificar_usuario_administrador($USERNAME){
     
     try{
@@ -270,7 +278,7 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
 }
 
 //funcion para mod_user.php
-function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $NEW_USERNAME){
+function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $NEW_USERNAME, $NEW_PASSWORD){
     
     try{
         $db = Conexion::abrir_conexion();
@@ -278,11 +286,10 @@ function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW
         $consulta_persona->execute([$NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $CI]);
         //la consulta se prepara y se ejecuta con los parametros correspondientes
     
-        $consulta_usuario = $db->prepare("UPDATE usuario SET USERNAME=? WHERE CI =?");
-        $consulta_usuario->execute([$NEW_USERNAME,$CI]);
+        $consulta_usuario = $db->prepare("UPDATE usuario SET USERNAME=?, PASSWD=? WHERE CI =?");
+        $consulta_usuario->execute([$NEW_USERNAME, $NEW_PASSWORD, $CI]);
         //aca hace lo mismo que arriba
         Conexion::cerrar_conexion();
-        echo 'usuario ingresado';
     }catch(PDOException $e){
     Conexion::cerrar_conexion();
         echo "error en la consulta";
