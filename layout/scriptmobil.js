@@ -12,7 +12,13 @@ if (screen.width<=768){
 
   }
 }}
-// aa
+
+function abrir_estanteria(){
+  if (screen.width<=768){
+    location.href = ("../estanteria/v_estanteria.php");
+  }
+}
+
 function abririnput() {
   const container = document.getElementById("container");
   const inputmobil = document.getElementById("buscador");
@@ -31,10 +37,9 @@ function abririnput() {
   }
 }
 
-window.onload = function redesyabout(){
+onload = function redesyabout(){
   if (screen.width<=768){
    const all = document.querySelectorAll('#redes i');
-
 for( const e in all ){
     all[e].innerHTML = "";
 }

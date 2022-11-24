@@ -494,8 +494,14 @@ footer p {
   font-size: 1em;
   font-weight: 500;
 }
+footer a {
+display: none;
+}
 .titulofooter{
   font-size: 1.2em !important;
+}
+.titulofooter a{ 
+  display: none;
 }
 #footer_logo {
   
@@ -508,6 +514,7 @@ footer p {
   display: flex;
   flex-direction: column;
   gap: 0.7vw;
+
 }
 .logoredes i {
   width: 11vw;
@@ -519,6 +526,17 @@ footer p {
 .logoredes{display: flex; flex-direction: column; width: auto; gap: 1vw;}
 #redes i::before{ font-size: 2.3em; color: black;}
 
+#subfooter{
+  background-color: var( --color-tres);
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+}#subfooter img{width: 4vw; height: 3vw;}
+#subfooter p{color: var(--color-cuatro); font-size: 0.8em; font-family: "Poppins", sans-serif;}
 /* ESTO ES TODO DEL LOGIN */
 #login {
   position: fixed;
@@ -660,7 +678,6 @@ footer p {
   display: flex;
   margin: 1vw 4vw 1vw 1vw;
   padding: 1vw 1vw 0vw 1vw;
-  border: solid 1px black;
 }
 
 #filtros_busqueda form {
@@ -710,7 +727,7 @@ footer p {
 
 #contenedor_libros_result {
   width: 70vw;
-  border: solid 1px black;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

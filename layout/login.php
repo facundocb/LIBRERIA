@@ -5,6 +5,7 @@
 if(isset($_SESSION['username'])){
   ?>
     <div id='login'>
+    <button class="cerrar" onclick="abrir_menu()">X</button>
       <h2>panel de usuario</h2>
       <input class="login_input" type="text" name="username" disabled value="<?php echo $_SESSION['username'];?>">
       <input class="login_input" type="password" name="passwd"  disabled value = "<?php echo $_SESSION['passwd'];?>">

@@ -15,7 +15,7 @@
   <p>Direccion: Acevedo Diaz esq. Francisco Canaro</p>
 
 </section>
-<a class="titulofooter" href="v_about_us.php">SOBRE NOSOTROS</a>
+<a class="titulofooter" href="<?php echo $_SESSION['ruta']?>/v_about_us.php">SOBRE NOSOTROS</a>
 <div id="redes" > 
   <p class="titulofooter" >seguinos en nuestras redes!</p>
     <div class="logoredes">
@@ -25,8 +25,9 @@
     </div>
 
 </div>
+</footer>
+
 <div id="subfooter">
-  <p>Desarrollado por: </p> <img src="/LIBRERIA/RECURSOS/LOGOCALM5.png">
+  <p>Desarrollado por: </p> <img src="<?php echo $_SESSION['ruta']?>RECURSOS/LOGOCALM5.png">
 </div> 
 
-</footer>

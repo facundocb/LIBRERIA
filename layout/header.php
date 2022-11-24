@@ -12,13 +12,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo $_SESSION['ruta']?>/layout/estilos.css">
+    <link rel="stylesheet" href="<?php echo $_SESSION['ruta']?>/layout/estilos.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo $_SESSION['ruta'] ;  ?>/layout/mobil.css">
+    <link rel="stylesheet" href="<?php echo $_SESSION['ruta'] ;  ?>/layout/mobil.css" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     <script src="<?php echo $_SESSION['ruta'] ;  ?>/layout/scriptmobil.js"></script>
@@ -54,7 +54,7 @@
                     </li> 
 
                     <li>
-                        <span class="material-icons">shelves</span>
+                        <span class="material-icons" onclick="abrir_estanteria()">shelves</span>
                         <button><a class='direccion_invisible' href="<?php echo $_SESSION['ruta'] ;  ?>estanteria/v_estanteria.php">Estanteria</a></button>
                     </li>
 

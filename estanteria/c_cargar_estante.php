@@ -97,8 +97,6 @@ $total = 0;
                 </div>
         </div>
         <div class="seccion">
-            <h2 class='subtitulo'>Notas o solicitudes especiales</h2>
-            <input type="text" id="input_texto_largo">
             <button id='comprar' onclick='comprar()'>Confirmar compra</button>
         </div>
     </div>
