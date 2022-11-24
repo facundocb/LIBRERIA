@@ -91,6 +91,7 @@ $title = "panel admin";
                 <h2 class="titulo">Estado del libro</h2>
                 <h4 class="subtitulo">ID del libro </h4>    
                 <div id="form_cambiar_estado_libro">
+                    <div id="alerta_estado_libro"></div>
                     <input class="input_texto" type="text" name="ID_cambiar_estado" id="ID_cambiar_estado">
                     <button class="input_boton" onclick="banear_libro()">Inhabilitar Libro</button>
                     <button class="input_boton" onclick="desbanear_libro()">Habilitar libro</button>

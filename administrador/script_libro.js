@@ -270,7 +270,7 @@ const modificar_libro = () =>{
 
 
 
-
+let alerta_estado_libro = document.getElementById('alerta_estado_libro');
 
 const banear_libro = () =>{
     
@@ -293,8 +293,17 @@ const banear_libro = () =>{
             throw "ERROR";
         }
     }).then(function(respuesta_ban_book){
+        result = new Array();
+        result = JSON.parse(respuesta_ban_book)
 
-        console.log(respuesta_ban_book);
+        if(result['estado'] ==1){
+            alerta_estado_libro.innerHTML = 
+            '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se deshabilitó el libro</p> </div>';
+        }else{
+            alerta_estado_libro.innerHTML = 
+            '<div class="error"> <p class="error_texto">No existe el libro</p> </div>';
+        }
+
 
     })
 }
@@ -320,7 +329,16 @@ const desbanear_libro = () =>{
             throw "ERROR";
         }
     }).then(function(respuesta_desban_book){
-        console.log(respuesta_desban_book)
+        result = new Array();
+        result = JSON.parse(respuesta_desban_book)
+
+        if(result['estado'] ==1){
+            alerta_estado_libro.innerHTML = 
+            '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se habilitó el libro</p> </div>';
+        }else{
+            alerta_estado_libro.innerHTML = 
+            '<div class="error"> <p class="error_texto">No existe el libro</p> </div>';
+        }
     })
 
 

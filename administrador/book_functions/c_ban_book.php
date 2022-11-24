@@ -7,15 +7,17 @@
         $db = Conexion::abrir_conexion();
         $query_existe_libro = $db->query("SELECT * FROM libro WHERE ID_LIBRO = {$ID}")->fetch();
         if($query_existe_libro){
-            
-            $query_ban_libro = $conn->query("UPDATE libro SET ESTADO = '0' WHERE ID_LIBRO = {$ID}");
-            echo 'el libro fue baneado.';
-        Conexion::cerrar_conexion();
-        } else{
-            echo 'el libro no existe';
+            $query_ban_libro = $db->query("UPDATE libro SET ESTADO = '0' WHERE ID_LIBRO = {$ID}");
+            $result['estado'] = 1;
+            echo json_encode($result);
+            Conexion::cerrar_conexion();
+        }else{
+            $result['estado'] = 0;
+            echo json_encode($result);
         }
     }catch(PDOException $e){
-        echo "Error";
+        $result['estado'] = 0;
+        echo json_encode($result);
     }
 
 
