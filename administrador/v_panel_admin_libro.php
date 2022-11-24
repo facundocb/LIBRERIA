@@ -128,7 +128,7 @@ $title = "panel admin";
                 <div class="error_mod"></div>
                 <input type="text" name="editorial_libro" class="input_texto" placeholder="editorial">
                 <div class="error_mod"></div>
-                <input type="date" name="fecha_publicacion" class="input_texto" placeholder="fecha_publicacion">
+                <input type="date" value="2000-01-01"name="fecha_publicacion" class="input_texto" placeholder="fecha_publicacion">
                 <div class="error_mod"></div>
                 <button class="input_boton" onclick="modificar_libro()">Modificar libro</button>
             </div>

@@ -305,4 +305,17 @@
 
 
 
+
+    .error{
+        width: 100%;
+    }
+
+    .error p{
+        font-size: 12px;
+    }
+
+    .ok{
+        width: 100%;
+    }
+
 }

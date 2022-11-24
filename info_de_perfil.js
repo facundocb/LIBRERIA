@@ -74,7 +74,7 @@ function cargar_botones() {
     datos_personales_cont.appendChild(nuevo_div);
     nuevo_div.appendChild(nuevo_p);
     nuevo_div.appendChild(nuevo_input);
-    nuevo_p.innerHTML = "Nueva Clave:";
+    nuevo_p.innerHTML = "Confirmar clave:";
     datos_personales_cont.appendChild(nuevo_cont_error);
 
 
@@ -111,7 +111,7 @@ function modificar_inputs() {
         input_datos[i].disabled = false;
       }
     }
-    p.innerHTML = "Clave vieja:";
+    p.innerHTML = "Clave:";
     cargar_botones();
     mostrar_datos();
     alerta.innerHTML = '';
