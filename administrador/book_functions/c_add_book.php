@@ -60,7 +60,7 @@ if(preg_match('/^\D{0,10000}$/', $PRECIO_LIBRO)){
     $errors[2] = 'el precio del libro no es valido';
 }
 
-if(preg_match('/^\D{0,100}$/', $STOCK_LIBRO)){
+if(preg_match('/^\D{0,100}$/', $STOCK_LIBRO) || 1 >  $STOCK_LIBRO || 100000 < $STOCK_LIBRO){
     $errors[3] = 'el stock del libro tiene que estar entre 0 y 100';
 }
 
