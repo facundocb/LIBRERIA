@@ -1,6 +1,6 @@
 <?php
  include("../../functions/conexion.php");
-
+session_start();
 $ci = $_POST['ci'];    
 
 try{
@@ -16,13 +16,15 @@ try{
     
             $datos = [ 
                 'estado' => 1,
-                0 => $ci,
-                1 => $query_datos['NOMBRE'],
+                0 => $query_datos['NOMBRE'],
+                1 => $ci,
                 2 => $query_datos['APELLIDO'],
                 3 => $query_datos['LOCALIDAD'],
                 4 => $query_datos['FECHA_NACIMIENTO'],
                 5 =>$query_datos['USERNAME']
-            ];    
+            ];   
+             $_SESSION['user_viejo'] = $query_datos['USERNAME'];
+             $_SESSION['ci'] = $ci;
             echo json_encode($datos);
     
         }else{

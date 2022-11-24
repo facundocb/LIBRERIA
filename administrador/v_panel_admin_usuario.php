@@ -81,7 +81,7 @@ session_start();
                 <div class="error_add"></div>
                 <input class="input_texto" type="text" name="add_localidad" id="add_localidad" placeholder="localidad">
                 <div class="error_add"></div>
-                <input class="input_texto" type="date" name="add_fecha_nacimiento" id="add_fecha_nacimiento" placeholder="fecha de nacimiento">
+                <input class="input_texto" type="date" name="add_fecha_nacimiento" id="add_fecha_nacimiento" placeholder="fecha de nacimiento" value="2000-01-01">
 
                 <div class="error_add"></div>
                 <h4 class="subtitulo"   >Informacion del usuario</h4>
@@ -146,11 +146,13 @@ session_start();
                     <div class="error_upd"></div>
                     <input class="input_texto"  type="text" name="update_localidad" id="update_localidad" placeholder="localidad">
                     <div class="error_upd"></div>
-                    <input class="input_texto"  type="date" name="update_fecha_nacimiento" id="update_fecha_nacimiento" placeholder="fecha de nacimiento">
+                    <input class="input_texto" value="2000-01-01" type="date" name="update_fecha_nacimiento" id="update_fecha_nacimiento" placeholder="fecha de nacimiento">
                     <div class="error_upd"></div>
-                    
+
                     <h4 class="subtitulo" >Informacion del usuario</h4>
                     <input class="input_texto"   type="text" name="update_username" id="update_username" placeholder="Nombre de usuario">
+                    <div class="error_upd"></div>
+                    <input class="input_texto"   type="text" name="update_password" id="update_password" placeholder="contraseña">
                     <div class="error_upd"></div>
                     <button class="input_boton" onclick="modificar_user();">Actualizar</button>
 

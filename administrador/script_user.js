@@ -229,6 +229,7 @@ const modificar_user = () => {
   mod_data.set("localidad", inputs_mod_user[3].value);
   mod_data.set("fecha_nacimiento", inputs_mod_user[4].value);
   mod_data.set("username", inputs_mod_user[5].value);
+  mod_data.set("pass", inputs_mod_user[6].value);
 
   fetch("user_functions/c_mod_user.php", {
     method: "POST",
