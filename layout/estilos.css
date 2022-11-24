@@ -949,16 +949,18 @@ display: none;
 }
 
 #listado_estante {
-  border: 1px solid var(--color-tres);
   width: 80vw;
   border-collapse: collapse;
 }
 
 #listado_estante th {
   padding-left: 1vw;
-  background-color: #ccc;
-  border-bottom: solid 1px var(--color-tres);
+  background-color: var(--color-uno);
   width: 10%;
+  color: var(--color-cuatro);
+  font-family: "poppins", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
 }
 
 #listado_estante th:nth-child(1) {
@@ -966,13 +968,19 @@ display: none;
 }
 
 #listado_estante tr {
+  font-family: "poppins", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
   height: 10vh;
+  background-color: var(--color-cuatro);
 }
+#listado_estante tr:nth-child(even){background-color: var(--color-cinco);}
 
 #listado_estante td {
   padding-left: 1vw;
   height: 5vw;
   border-top: solid 1px var(--color-tres);
+
 }
 
 #sub {

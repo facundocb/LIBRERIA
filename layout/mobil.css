@@ -438,9 +438,7 @@ footer a:hover{color:var(--color-dos);}
   min-height:auto;
 }
 #listado_estante {
-  border: 1px solid var(--color-tres);
   width: 100vw;height: 60vw;
-  border-collapse: collapse;
   display: inline-block;
   overflow: hidden;
   text-align: center;
@@ -452,16 +450,13 @@ display: inline-block;
 overflow-y: scroll;
 }
 #listado_estante tbody tr{height: 30vw;}
-
 #listado_estante tfoot{display: inline-block; }
 #listado_estante tbody td:nth-child(1){height: 30vw; width: 10vw; font-size: 0.6em; }
 #listado_estante tbody td{font-size: 0.8em;}
 #listado_estante th {
   padding-left: 1vw;
-  background-color: #ccc;
-  border-bottom: solid 1px var(--color-tres);
   width: 5%;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 #listado_estante th:nth-child(1) {
   width: 5%;
@@ -471,11 +466,11 @@ overflow-y: scroll;
 }
 #listado_estante tr {
   height: 5vh;
+  border: none;
 }
 #listado_estante td {
   padding-left: 1vw;
   height: 5vw;
-  border-top: solid 1px var(--color-tres);
   font-size: 0.8em;
   width: 100vw;
 }
