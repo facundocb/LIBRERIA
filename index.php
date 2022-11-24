@@ -91,12 +91,15 @@ if(isset($_SESSION['logued_as_admin'])){
       <?php   
         try{
 
-          $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%terror%' ORDER BY RAND() limit 3")->fetchAll();
+          $query_terror = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG, ID_LIBRO FROM libro WHERE GENERO_LIBRO LIKE '%terror%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_terror as $libro_terror){
         ?>
             <div class="libros_anchos">
+          <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro_terror['ID_LIBRO'];?>">
               <img src="<?php echo $libro_terror['DIRECCION_IMG'] ?>" alt="">
+          </a>
+
               <h5><?php echo $libro_terror['NOM_LIBRO'] ?> </h5>
             </div>
   
@@ -119,12 +122,14 @@ if(isset($_SESSION['logued_as_admin'])){
         <?php 
         try{
 
-          $query_ensayo = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' ORDER BY RAND() limit 3")->fetchAll();
+          $query_ensayo = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG , ID_LIBRO FROM libro WHERE GENERO_LIBRO LIKE '%ensayo%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_ensayo as $libro_ensayo){
         ?>
             <div class="libros_anchos">
+          <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro_ensayo['ID_LIBRO'];?>">
               <img src="<?php echo $libro_ensayo['DIRECCION_IMG'] ?>" alt="">
+          </a>
               <h5><?php echo $libro_ensayo['NOM_LIBRO'] ?> </h5>
             </div>
   
@@ -147,12 +152,14 @@ if(isset($_SESSION['logued_as_admin'])){
         <?php 
         try{
 
-          $query_romance = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG FROM libro WHERE GENERO_LIBRO LIKE '%romance%' ORDER BY RAND() limit 3")->fetchAll();
+          $query_romance = $db->query("SELECT NOM_LIBRO, DIRECCION_IMG, ID_LIBRO FROM libro WHERE GENERO_LIBRO LIKE '%romance%' ORDER BY RAND() limit 3")->fetchAll();
   
           foreach($query_romance as $libro_romance){
         ?>
             <div class="libros_anchos">
+          <a href="estanteria/v_libros_page.php?ID_LIBRO=<?php echo $libro_romance['ID_LIBRO'];?>">
               <img src="<?php echo $libro_romance['DIRECCION_IMG'] ?>" alt="">
+          </a>
               <h5><?php echo $libro_romance['NOM_LIBRO'] ?> </h5>
             </div>
   
