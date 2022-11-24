@@ -182,22 +182,22 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
         $query = $db->query("SELECT usuario.USERNAME, usuario.PASSWD from usuario inner join persona on persona.CI = '$CI' AND persona.CI = usuario.CI
         ")->fetch();
     
-        $nuevo_usuario = $query['USERNAME'] . '__admin';
-        $nueva_password = $query['PASSWD'] . '__admin';
+        $nuevo_usuario = $query['USERNAME'] . '_a';
+        $nueva_password = $query['PASSWD'] . '_a';
         $PASSWD_HASH = password_hash($nueva_password, PASSWORD_DEFAULT);
         $CLAVE_SEGURIDAD_HASH = password_hash($CLAVE_SEGURIDAD, PASSWORD_DEFAULT);
     
     
-        $insersion_usuario = $db->prepare("INSERT INTO USUARIO(CI, USERNAME, PASSWD) values(?,?,?)");
+        $insersion_usuario = $db->prepare("INSERT INTO usuario(CI, USERNAME, PASSWD) values(?,?,?)");
         $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]);
     
-        $insersion_admin = $db->prepare("INSERT INTO USUARIO_ADMIN(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
+        $insersion_admin = $db->prepare("INSERT INTO usuario_admin(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
         $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD_HASH]);
         Conexion::cerrar_conexion();
 
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
-        echo "error en la consulta";
+        echo "error en la consulta" . $e->getMessage();
         die();
     }
 

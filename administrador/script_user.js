@@ -145,22 +145,33 @@ const asign_admin = () => {
       }
     })
     .then(function (respuesta_asign) {
-      let alerta = document.getElementById('alert_asign_adm');
-      let error_asign_adm = Document.getElementsByClassName('erros')
+      let alerta = document.getElementById('alerta_asign_adm');
+      let error_asign_adm = document.getElementsByClassName('error_asign_adm')
       let resultado = new Array();
       resultado = JSON.parse(respuesta_asign)
 
 
       if(resultado['estado'] == 1){
         alerta.innerHTML = 
-        '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>' + resultado[0] + '</p> </div>';
+        '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Usuario asignado correctamente</p> </div>';
       }else{
         alerta.innerHTML =
-        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>'+ resultado[3]  +'</p> </div>';
+        '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>El usuario no se pudo asignar</p> </div>';
 
+        for(const key in resultado){
 
+          if(key != 'estado'){
+            error_asign_adm[key].innerHTML =
+            '<div class="error"> <p class="error_texto"> '+ resultado[key] +'</p> </div>';
+          }
 
+        }
       }
+
+        
+
+
+      
 
     });
   };
