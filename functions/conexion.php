@@ -173,27 +173,24 @@ function consulta_cedula_administrador($ADMIN_CI){
     }
 }
 
-function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
+function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD, $PASSWD){
     
 
 
     try{
         $db = Conexion::abrir_conexion();
-        $query = $db->query("SELECT usuario.USERNAME, usuario.PASSWD from usuario inner join persona on persona.CI = '$CI' AND persona.CI = usuario.CI
-    
-        ")->fetch();
+        $query = $db->query("SELECT usuario.USERNAME, usuario.PASSWD from usuario inner join persona on persona.CI = '$CI' AND persona.CI = usuario.CI")->fetch();
     
         $nuevo_usuario = $query['USERNAME'] . '_a';
-        $nueva_password = $query['PASSWD'] . '_a';
-        $PASSWD_HASH = password_hash($nueva_password, PASSWORD_DEFAULT);
-        $CLAVE_SEGURIDAD_HASH = password_hash($CLAVE_SEGURIDAD, PASSWORD_DEFAULT);
+
+
         //el usuario y la contraseña del administrador es la misma que del cliente pero con un _a al final
 
         $insersion_usuario = $db->prepare("INSERT INTO usuario(CI, USERNAME, PASSWD) values(?,?,?)");
-        $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]); //se ejecuta la consulta del nuevo usuario
+            $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD]); //se ejecuta la consulta del nuevo usuario
     
         $insersion_admin = $db->prepare("INSERT INTO usuario_admin(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
-        $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD_HASH]); //y se lo hace admin
+        $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD]); //y se lo hace admin
         Conexion::cerrar_conexion();
 
     }catch(PDOException $e){

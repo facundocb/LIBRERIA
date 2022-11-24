@@ -132,6 +132,7 @@ const asign_admin = () => {
   asign_data.set("ci", inputs_asign_admin[0].value);
   asign_data.set("sucursal", inputs_asign_admin[1].value);
   asign_data.set("clave_seguridad", inputs_asign_admin[2].value);
+  asign_data.set("clave", inputs_asign_admin[3].value);
 
   fetch("user_functions/c_asign_admin.php", {
     method: "POST",

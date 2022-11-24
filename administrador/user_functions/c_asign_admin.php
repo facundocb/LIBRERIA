@@ -4,7 +4,8 @@ include('../../functions/conexion.php');
 
 $ci = $_POST['ci'];
 $sucursal = $_POST['sucursal'];
-$clave_seguridad = password_hash($_POST['clave_seguridad'], PASSWORD_DEFAULT);
+$clave_seguridad = $_POST['clave_seguridad'];
+$pass = $_POST['clave'];
 $errors;
 $msj_return;
 
@@ -27,15 +28,31 @@ if(!preg_match("/^[a-zA-Z0-9\s]{4,50}$/",$sucursal))
          $errors[1]='La sucursal no puede tener caracteres especiales, y debe tener entre 4 y 50 caracteres';
      }
 
+     
+if(!preg_match("/^[a-zA-Z0-9\s]{4,50}$/",$clave_seguridad))
+    {
+         $errors[2]='La clave no puede tener caracteres especiales, y debe tener entre 4 y 50 caracteres';
+    }
+
+if(strlen($pass) < 4)
+    {
+        $errors[3]='La pass no puede tener caracteres especiales, y debe tener entre 4 y 50 caracteres';    
+    }
+
+
 if(consulta_cedula_administrador($ci)){
-    $errors[2]= 'el usuario ya es administrador';
+    $errors[0]= 'el usuario ya es administrador';
 }     
 
 
 
 
      if(!isset($errors)){
-        insertar_admin($ci, $sucursal, $clave_seguridad);
+
+
+        $clave_seguridad_hash = password_hash($clave_seguridad, PASSWORD_DEFAULT);
+        $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        insertar_admin($ci, $sucursal, $clave_seguridad_hash, $pass_hash);
         $result[0] = 'usuario asignado correctamente';
         $result['estado'] = 1;
         echo json_encode($result);

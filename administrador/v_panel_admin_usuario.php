@@ -117,6 +117,8 @@ session_start();
                     <div class="error_asign_adm"></div>
                     <input class="input_texto"  type="text" name="asign_clave_seguridad" id="asign_clave_seguridad" placeholder="clave de seguridad">
                     <div class="error_asign_adm"></div>
+                    <input class="input_texto"  type="text" name="asign_clave" id="asign_clave" placeholder="contraseña">
+                    <div class="error_asign_adm"></div>
                     <button class="input_boton" id="asign_admin_boton" onclick="asign_admin()">Asignar</button>
                 </div>
             </div>
