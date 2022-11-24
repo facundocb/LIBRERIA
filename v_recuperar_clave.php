@@ -17,7 +17,7 @@ include("layout/header.php");
         <div id="RESULT">
             <?php
                 if(isset($_REQUEST['error'])){
-                    if($_REQUEST['error'] = 1){
+                    if($_REQUEST['error'] == 1){
                         echo "<div class='error'> <span class='material-icons'>report_problem</span> <p class='error_texto'>las contraseñas no coinciden</p></div>"; 
                     }
                     else{
