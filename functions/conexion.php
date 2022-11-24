@@ -4,6 +4,7 @@ class Conexion
 {
     public static $bd;
     public static $mysqli;
+    
     private static $host = "localhost";
     private static $user_db = "root";
     private static $pass_db = "";
