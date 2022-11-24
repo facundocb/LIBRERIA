@@ -180,6 +180,7 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT usuario.USERNAME, usuario.PASSWD from usuario inner join persona on persona.CI = '$CI' AND persona.CI = usuario.CI
+    
         ")->fetch();
     
         $nuevo_usuario = $query['USERNAME'] . '_a';
@@ -187,7 +188,6 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
         $PASSWD_HASH = password_hash($nueva_password, PASSWORD_DEFAULT);
         $CLAVE_SEGURIDAD_HASH = password_hash($CLAVE_SEGURIDAD, PASSWORD_DEFAULT);
         //el usuario y la contraseña del administrador es la misma que del cliente pero con un _a al final
-    
 
         $insersion_usuario = $db->prepare("INSERT INTO usuario(CI, USERNAME, PASSWD) values(?,?,?)");
         $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]); //se ejecuta la consulta del nuevo usuario
@@ -410,7 +410,7 @@ function borrar_libro_del_carrito($id_libro, $id_estante){
         Conexion::cerrar_conexion();
 
     } catch(PDOException $e){
-        echo "Error en la query" . $e->getMessage();
+        echo "Error en la query";
     }
 
 
@@ -437,14 +437,16 @@ function compra($user, $estante, $metodo_pago){
     try{
         $db = Conexion::abrir_conexion();
         $libros = $db->query("SELECT ID_LIBRO from tiene WHERE tiene.ID_ESTANTERIA = '{$estante}'")->fetchAll();
-    
+        //cuenta todos los libros que estan en la estanteria
+
         foreach($libros as $libro){
             $realiza_insert = $db->prepare("INSERT INTO realiza(ID_ESTANTERIA, ID_LIBRO, USERNAME, FECHA, METODO_DE_PAGO) VALUES (?,?,?,now(),?)");
-
+            
             $realiza_insert->execute([$estante, $libro['ID_LIBRO'], $user, $metodo_pago]);
-            quitar_stock($libro['ID_LIBRO'], $estante);
+            //por cada libro, que se haga una insersión a realiza
+            quitar_stock($libro['ID_LIBRO'], $estante); // y el stock que se quite
         }
-        inhabilitar_estante($estante);
+        inhabilitar_estante($estante); //luego que se quite el estante
     Conexion::cerrar_conexion();
 
     }catch(PDOException $e){
@@ -493,8 +495,8 @@ function ver_stock($id_libro){
         echo "error en la consulta";
         die();
     }
-}
 
+}
 function cargar_historial_de_compras($user){
     try{
         $db = Conexion::abrir_conexion();

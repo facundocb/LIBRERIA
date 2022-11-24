@@ -3,7 +3,7 @@
     session_start();
     $user = $_SESSION['username'];
 
-    $compras = cargar_historial_de_compras($user);
+    $compras = cargar_historial_de_compras($user); //funcion de la bd
 
     if($compras){
         echo '<h2 class="subtitulo">Historial</h2>';

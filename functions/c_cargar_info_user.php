@@ -21,12 +21,12 @@ try{
             'usr' => $query_user['USERNAME']
         ];
     
-        echo json_encode($datos_user);
+        echo json_encode($datos_user); //devuelve un objeto largo con un estado de uno, y la info del usuario
     }else{
         $datos_user = [
             'estado' => 0,
         ];
-        echo json_encode($datos_user);
+        echo json_encode($datos_user); //devuelve un objeto chikito con un estado en 0
     }
 }catch(PDOException $e){
     echo "error en la consulta";

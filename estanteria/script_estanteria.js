@@ -1,3 +1,31 @@
+
+function borrar_prod(id){
+
+  let borrar_data = new FormData;
+
+  borrar_data.set('id', id)
+
+  fetch("c_borrar_prod.php", {
+    method:"POST",
+    body: borrar_data
+  })
+  .then(function(response){
+    if(response.ok){
+      return response.text()
+    }else{
+      throw "Error";
+    }
+  })
+  .then(function(respuesta_borrar_prod){
+    location.reload();
+  })
+
+
+
+  }
+
+  
+
 function cargar_datos() {
   let user = localStorage.getItem("user");
 
@@ -7,14 +35,14 @@ function cargar_datos() {
   fetch("../functions/c_cargar_info_user.php", {
     method: "POST",
     body: cargar_data,
-  })
+  })  
     .then(function (response) {
       if (response.ok) {
         return response.text();
       } else {
         throw "error";
-      }
-    })
+      }  
+    })  
     .then(function (respuesta_cargar_user) {
       let arr_datos_user = new Array();
       arr_datos_user = JSON.parse(respuesta_cargar_user);
@@ -24,8 +52,8 @@ function cargar_datos() {
       inputs_user[1].value = arr_datos_user["nom"];
       inputs_user[2].value = arr_datos_user["ape"];
       inputs_user[3].value = arr_datos_user["loc"];
-    });
-}
+    });  
+}    
 
 window.onload = cargar_datos();
 
@@ -35,7 +63,7 @@ function comprar() {
 
   let metodo_elegido = document.querySelector(
     'input[name="metodo"]:checked'
-  )
+  )  
 
   if(!metodo_elegido){
     alerta.innerHTML = 
@@ -49,47 +77,19 @@ function comprar() {
     fetch("c_compra.php", {
       method: "POST",
       body: compra_data,
-    })
+    })  
       .then(function (response) {
         if (response.ok) {
           return response.text();
         } else {
           throw "error";
-        }
-      })
+        }  
+      })  
       .then(function () {
         location.reload();
-      });
-  }
+      });  
+  }    
   
   
   
-  
-  function borrar_prod(id){
-  
-    let borrar_data = new FormData;
-  
-    borrar_data.set('id', id)
-  
-    fetch("c_borrar_prod.php", {
-      method:"POST",
-      body: borrar_data
-    })
-    .then(function(response){
-      if(response.ok){
-        return response.text()
-      }else{
-        throw "Error";
-      }
-    })
-    .then(function(respuesta_borrar_prod){
-      location.reload();
-    })
-  
-  
-  
-    }
-
-  }  
-
-
+}
