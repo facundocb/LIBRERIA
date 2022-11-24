@@ -431,17 +431,25 @@ header button {
   height: 30vh;
   display: inline-block;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.libros_anchos a{
+  height: 90%; 
+  width: 48%;}
 
 .libros_anchos img {
   height: 100%;
-  width: 35%;
+  width: 100%;
   cursor: pointer;
   margin-right: 1vw;
 }
 
 .libros_anchos h5 {
+  display: flex;
+  width: 20vw;
   font-size: 1em;
+  word-wrap: wrap;
 }
 
 .ver_mas {
