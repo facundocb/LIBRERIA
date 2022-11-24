@@ -517,7 +517,7 @@ justify-content: start;
   margin-right: 5vw;
   margin-left: 5vw;
 }
-}
+
 #comprar {
   margin-top: 5vw;
   margin-bottom: 10vw;
@@ -548,4 +548,113 @@ justify-content: start;
   gap: 10vw;
   margin-top: 10vw;
   margin-bottom: 10vw;
+}
+
+/* chau filtro de busqueda */
+/* hola info de perfil */
+
+.opcion {
+  font-size: 1em;
+  height: 30vw;
+  text-align: center;
+}
+.opcion:hover {
+  color: var(--color-uno);
+}
+
+#container_info_de_perfil {
+  flex-direction: column;
+}
+#menu {
+  width: 100vw;
+  height: 50vh;
+  flex-direction: row;
+  margin: 0;
+  margin-bottom: 10vw;
+  align-items: center;
+
+}#menu a h4 {width: 100%;}
+#datos_personales {
+
+  width: 98vw;
+  height: auto;
+justify-content: center;
+}
+
+.input_general {
+  height: 5vh;
+  width: 20vw;
+  color: #555555;
+  margin: 0;
+  padding-left: 0.5vw;
+  border: none;
+  background-color: var(--color-cuatro);
+  outline: none;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1vh;
+}
+.input_general{
+  width: 60vw;
+  height: 15vw;
+  margin-right: 0;
+
+}
+.content{justify-content: space-evenly;}
+.content input{
+  margin-right: 0vw;
+}
+.content p{width: 37vw; text-align: left;}
+
+.titulo_container {
+padding-bottom: 6vw;
+}
+
+/* historial de compra */
+
+#tabla_historial {
+  width: 100vw;height: 80vw;
+  border-collapse: collapse;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+}
+#tabla_historial tbody{
+max-width: 100vw;
+max-height: 69vw;
+display: inline-block;
+overflow-y: scroll;
+}
+
+#tabla_historial tbody td:nth-child(1){height: 20vw; width: 10vw; font-size: 0.6em; }
+#tabla_historial tbody td{height: 20vw; font-family: "poppins", sans-serif;
+  text-transform: uppercase; font-size: 0.7em;}
+#tabla_historial th {
+  font-family: "poppins", sans-serif;
+  text-transform: uppercase;
+  padding-left: 1vw;
+  background-color: var(--color-uno);
+  width: 5%;
+  font-size: 0.7em;
+  color: var(--color-cuatro);
+}
+#tabla_historial th:nth-child(1) {
+  width: 5%;
+}
+#tabla_historial th:nth-child(2) {
+  display: none;
+}
+#tabla_historial td {
+  padding-left: 1vw;
+  height: 5vw;
+  font-size: 0.8em;
+  width: 100vw;
+}
+#tabla_historial td:nth-child(2) {display:none;}
+.result_fila{background-color: var(--color-cuatro);}
+.result_fila:nth-child(even){background-color: var(--color-cinco);}
+
+
+
+
 }

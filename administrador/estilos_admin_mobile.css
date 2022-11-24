@@ -12,9 +12,16 @@
   
   html {
     scroll-behavior: smooth;
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   
   body {
+    overflow: hidden;
+    width: 100vw;
+    height: auto;
     margin: 0;
     padding: 0;
     background-color: var(--color-cinco);
@@ -25,17 +32,18 @@
 @media (max-width: 740px){
 
     #header{
-        min-width: 10vh;
-
-    }
-
+        min-width: 10vw;
+        max-width: 100vw;
+        align-items: center;
+        justify-content: space-between;
+        }
     #logo p{
         display: none;
     }
 
     #logo img{
-        width: 30vw;
-        height: 30vw;
+        width: 20vw;
+        height: 20vw;
     }
 
     #container_botones{
@@ -43,27 +51,33 @@
     }
 
     #abrir_menu{
-        display: block !important;
+        align-items: center;
+        display: flex !important;
     }
     #menu_botones{
-        width: 100%;
+        width: 100vw;
+        height: 20vw;
         display: flex;
-        gap: 5vw;
+        gap: 7vw;
         align-items: center;
         justify-content: center;
         background-color: var(--color-dos);
         transform: translateX(100vw);
         transition: all 0.5s ease;
+        text-align: center;
+        font-size: 0.8em;
+        margin-bottom: 2vw;
     }
 
     a{
-        width: 35vw;
-        height: 8vh;
+        width: 40vw;
+        height: 15vw;
     }
 
     #buscador{
         height: 10vw;
         margin-bottom: 4vw;
+        margin-top: 0;
     }
 
     #boton_buscar{
@@ -145,19 +159,16 @@
     }
 
     .label_imagen{
-        width: 50vw;
+        width: 89vw;
         margin-left: 5vw;
         height: 11vw;
     }
 
     .input_boton{
-        width: 42vw;
+        width: 90vw;
         margin-left: 5vw;
         height: 11vw;
     }
-
-
-
 
 
 
@@ -207,6 +218,7 @@
 
     #modificar_libro{
         width: 100vw;
+        height: auto;
     }
 
 
@@ -302,6 +314,44 @@
     #actualizar_usuario h4{
         margin-left: 5vw;
     }
+
+/* verif clave de seguridad */
+
+#contenedor form {
+
+    gap: 5vw;
+    width: 100vw;
+    height: 50vh;
+  }
+
+  #contenedor h2 {
+    font-size: 1.5em;
+  }
+
+
+  #contenedor form input {
+    padding-left: 1vw;
+    height: 2vw;
+    width: 20vw;
+    background-color: var(--color-cuatro);
+    border: none;
+    color: #131313;
+    font-size: 0.8em;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+  }
+  #contenedor form input {
+    height: 14vw;
+    width: 80vw;
+
+}
+#contenedor #boton{
+    margin-top: 6vw;
+    height: 14vw;
+    width: 80vw;
+
+}
+
 
 
 
