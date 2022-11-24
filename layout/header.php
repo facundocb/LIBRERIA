@@ -2,7 +2,13 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+<<<<<<< HEAD
     $_SESSION['ruta'] = "/LIBRERIA/";
+=======
+    $_SESSION['ruta'] = "/LIBRERIA/"; //ESTA RUTA TIENE QUE ARRANCAR DESDE LA RAIZ DE APACHE HASTA EL DIRECTORIO EN EL Q NOS ENCONTRAMOS, ej:
+    //si la libreria esta en una carpeta llamada programas, que esta en la raiz, seria /programas/LIBRERIA/
+
+>>>>>>> 232b4976f77347678b6d7d4be5fa1e989dabef42
 ?>
 <!DOCTYPE html>
 <html lang="en">

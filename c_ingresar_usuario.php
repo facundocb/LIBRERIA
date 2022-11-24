@@ -14,11 +14,13 @@
 
         $sql = $db->query("SELECT PASSWD FROM usuario WHERE USERNAME='{$username}'")->Fetch();
         if(!$sql || !password_verify($passwd, $sql[0])){
+            //si no se encuentra, o la verificacion no da, vuelve al inicio.
             header("location:index.php");
         }else{
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['passwd'] = $passwd;
+            //si coincide, verifica si es cliente o administrador.
             if(!verificar_usuario_administrador($username)){
                header("location:index.php");            
             }else{

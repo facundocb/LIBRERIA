@@ -31,35 +31,65 @@ window.onload = cargar_datos();
 
 function comprar() {
   let compra_data = new FormData();
-  /*
-    console.log(metodos.checked);
-
-
-    for(let i = 0; i < metodos.length; i++){
-        if(metodos[i].checked){
-            metodo_elegido = metodos[i].value
-        }
-    }
-*/
+  let alerta = document.getElementById("alerta_compra");
 
   let metodo_elegido = document.querySelector(
     'input[name="metodo"]:checked'
-  ).value;
+  )
 
-  compra_data.set("metodo_de_pago", metodo_elegido);
+  if(!metodo_elegido){
+    alerta.innerHTML = 
+    '<div class="error"> <p class="error_texto"><span class="material-icons">warning</span>No pusiste ningun método de pago</p> </div>';
 
-  fetch("c_compra.php", {
-    method: "POST",
-    body: compra_data,
-  })
-    .then(function (response) {
-      if (response.ok) {
-        return response.text();
-      } else {
-        throw "error";
+  }else{
+
+  
+    compra_data.set("metodo_de_pago", metodo_elegido.value);
+  
+    fetch("c_compra.php", {
+      method: "POST",
+      body: compra_data,
+    })
+      .then(function (response) {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw "error";
+        }
+      })
+      .then(function () {
+        location.reload();
+      });
+  }
+  
+  
+  
+  
+  function borrar_prod(id){
+  
+    let borrar_data = new FormData;
+  
+    borrar_data.set('id', id)
+  
+    fetch("c_borrar_prod.php", {
+      method:"POST",
+      body: borrar_data
+    })
+    .then(function(response){
+      if(response.ok){
+        return response.text()
+      }else{
+        throw "Error";
       }
     })
-    .then(function () {
+    .then(function(respuesta_borrar_prod){
       location.reload();
-    });
-}
+    })
+  
+  
+  
+    }
+
+  }  
+
+

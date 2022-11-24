@@ -9,7 +9,7 @@
   
     <div id="result_register"></div>
 
-    <div id="registrar_container"  autocomplete="off"   >
+    <div id="registrar_container"  autocomplete="off">
 
         <input class="input_general" type="text" id="name" name="name" placeholder="Nombre" maxlength="15">
         <div class='error_container'></div>

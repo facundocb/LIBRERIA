@@ -1,20 +1,26 @@
-let input_datos = document.querySelectorAll(".input_general");
+let input_datos = document.querySelectorAll(".input_general"); //nodo de inputs
 const mostrar_datos = () => {
-  fetch("functions/c_cargar_info_user.php")
+  fetch("functions/c_cargar_info_user.php") //lo primero q hago es llamar al controlador q me carga la info
     .then(function (response) {
       if (response.ok) {
         return response.text();
+        //si esta todo bien, q retorne, sino que tire error
       } else {
         throw "error";
       }
     })
+
     .then(function (respuesta_datos_user) {
       datos_user = new Array();
       datos_user = JSON.parse(respuesta_datos_user);
 
+      //guarda en datos_user la respuesta del controlador
+
       if (datos_user["estado"] == 0) {
+        //si por alguna razón llegara a fallar esto
         console.log("fatal error");
       } else {
+        //sino q guarde los retornos en los inputs
         input_datos[0].value = datos_user["nom"];
         input_datos[1].value = datos_user["ape"];
         input_datos[2].value = datos_user["loc"];
@@ -27,33 +33,44 @@ const mostrar_datos = () => {
 
 window.onload = mostrar_datos;
 
+//q se ejecute cuando cargue
 
 
 
 
 
+let flag = 0;//es como abierto
+let p = document.getElementById("pass"); // el p de contraseña
+let edit_boton = document.getElementById('edit'); //el boton de editar
 
-let flag = 0;
-let p = document.getElementById("pass");
-let edit_boton = document.getElementById('edit');
 
-let datos_personales_cont = document.getElementById("datos_personales");
-let botones_cont = document.getElementById("botones");
+let datos_personales_cont = document.getElementById("datos_personales"); //el container de los datos
+let botones_cont = document.getElementById("botones"); //el container de los botones
+
 function cargar_botones() {
+
   let nuevo_div = document.createElement("div");
   let nuevo_p = document.createElement("p");
   let nuevo_input = document.createElement("input");
   let nuevo_cont_error = document.createElement("div");
+  //crea un seccion nueva para el confirmar contraseña
+
+
   let cancelar_boton = document.createElement("button");
   let span_cancelar = document.createElement("span");
+  //crea el boton de cancelar
   let done_boton = document.createElement("button");
   let span_done = document.createElement("span");
+  //crea el boton de guardar
+
   span_cancelar.innerHTML = 'close';
-  span_done.innerHTML = 'done';
+  span_done.innerHTML = 'done'; 
+  //les guarda los valores para q se carguen los iconos
+
 
   nuevo_div.classList.add("content");
   nuevo_div.setAttribute("id", "new_pass");
-
+  
   nuevo_p.classList.add("subtitulo");
   nuevo_input.classList.add("input_general");
 
@@ -71,21 +88,23 @@ function cargar_botones() {
 
   
   if (!flag) {
-    datos_personales_cont.appendChild(nuevo_div);
-    nuevo_div.appendChild(nuevo_p);
+    datos_personales_cont.appendChild(nuevo_div); //inserta un nuevo contenedor en el principal
+    nuevo_div.appendChild(nuevo_p); 
     nuevo_div.appendChild(nuevo_input);
+    //inserta en el nuevo contenedor el p y el input
     nuevo_p.innerHTML = "Confirmar clave:";
     datos_personales_cont.appendChild(nuevo_cont_error);
 
 
-    cancelar_boton.appendChild(span_cancelar);
-
     botones_cont.appendChild(cancelar_boton);
-
-    done_boton.appendChild(span_done);
+    cancelar_boton.appendChild(span_cancelar); 
     botones_cont.appendChild(done_boton);
-    edit_boton.remove();
+    done_boton.appendChild(span_done);
     
+    //los botones guardan el icon
+
+    edit_boton.remove();
+    //se borra este
   } else {
     let new_pass = document.getElementById("new_pass");
     let cancel = document.getElementById('cancel');
@@ -96,7 +115,7 @@ function cargar_botones() {
     done.remove();  
     new_error.remove();
     botones_cont.appendChild(edit_boton);
-
+    //se borra todo y vuelve a surgir el de editar
 
 
   }
@@ -104,21 +123,22 @@ function cargar_botones() {
 
 let alerta = document.getElementById('alerta');
 function modificar_inputs() {
+
   if (!flag) {
     for (let i = 0; i < input_datos.length; i++) {
 
       if(i != 3){
-        input_datos[i].disabled = false;
+        input_datos[i].disabled = false; //este es el de la ci, no se puede cambiar
       }
     }
     p.innerHTML = "Clave:";
-    cargar_botones();
-    mostrar_datos();
-    alerta.innerHTML = '';
+    cargar_botones(); //que cargue lo q tenga q cargar
+    mostrar_datos(); //que recargue la pagina
+    alerta.innerHTML = ''; //se esconde la alerta
     flag = 1;
   } else {
     for (let i = 0; i < input_datos.length; i++) {
-      input_datos[i].disabled = true;
+      input_datos[i].disabled = true; //se desactivan los inputs
     }
     p.innerHTML = "Clave:";
     cargar_botones();
@@ -133,7 +153,7 @@ function modificar_inputs() {
 
 const actualizar_user = () =>{
   actualizar_user_data = new FormData();
-  let datos = document.querySelectorAll('.input_general');
+  let datos = document.querySelectorAll('.input_general'); //tengo q declarar otra variable porque esta tiene el nuevo input.
 
   actualizar_user_data.set("nombre", datos[0].value);
   actualizar_user_data.set("apellido", datos[1].value);
@@ -142,10 +162,13 @@ const actualizar_user = () =>{
   actualizar_user_data.set("user", datos[5].value);
   actualizar_user_data.set("clave", datos[6].value);
   actualizar_user_data.set("conf_clave", datos[7].value);
-  console.log(actualizar_user_data.get('fecha_nac'));
+  
+  //guardo los datos en un formulario
+
     fetch("c_actualizar_info_de_perfil.php", {
       method:'POST',
       body: actualizar_user_data
+      //le paso este formulario
     })
     .then(function(response){
       if(response.ok){
@@ -157,9 +180,9 @@ const actualizar_user = () =>{
     .then(function(respuesta_update){
       let errors = document.getElementsByClassName('error_upd');
       
-      alerta.innerHTML = '';
-      resultado = new Array();
-      resultado = JSON.parse(respuesta_update);
+      alerta.innerHTML = ''; //reinicio la alerta
+      resultado = new Array(); 
+      resultado = JSON.parse(respuesta_update); // guardo el JSON en un arr
       if(resultado['estado'] == 0){
         alerta.innerHTML = 
         "<div class='error'><p class='error_p'>No se pudo actualizar la información</p></div>" 
@@ -169,10 +192,12 @@ const actualizar_user = () =>{
           if(key !='estado'){
              errors[key].innerHTML = 
              "<p class='error_p'> " + resultado[key] + "</p>";
+             //si sale mal, muestra una alerta de error en cada input
           }
         }
       }else{
         location.reload();
+        //si sale bien q se recargue la pagina.
       }
       
 
