@@ -84,3 +84,7 @@ include("layout/header.php");
 
 <script src="<?php echo $_SESSION['ruta'] ?>/layout/script.js"></script>
 <script src='info_de_perfil.js'></script>
+
+<?php 
+require("layout/footer.php");
+?>

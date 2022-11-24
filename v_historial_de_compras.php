@@ -31,3 +31,6 @@ include("layout/header.php");
         <script src="<?php echo $_SESSION['ruta'] ?>/historial_de_compras.js"></script>
     </div>
 
+    <?php 
+require("layout/footer.php");
+?>

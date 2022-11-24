@@ -13,7 +13,7 @@
 
 
 }
-
+html{overflow-x: hidden; overflow-y: scroll;}
 
 #container {
   width: auto;
@@ -24,6 +24,7 @@
 }
 
 body {
+  height: auto;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -1099,7 +1100,7 @@ display: none;
 
 #container_info_de_perfil {
   width: 100vw;
-  height: 60vh;
+  height: auto;
   display: flex;
 }
 
@@ -1334,4 +1335,49 @@ display: none;
   text-align: justify;
   width: 80vw;
 }
+
+/* historial de libro */
+
+#tabla_historial {
+  width: 70vw;height: auto;
+  border-collapse: collapse;
+  display: inline-block;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom:15vw;
+}
+#tabla_historial tbody{
+max-width: 70vw;
+max-height: 30vw;
+display: inline-block;
+overflow-y: scroll;
+}
+
+#tabla_historial tbody td:nth-child(1){height: 8vw; width: 10vw; font-size: 1em; }
+#tabla_historial tbody td{height: 8vw; font-family: "poppins", sans-serif;
+  text-transform: uppercase; font-size: 1em;}
+#tabla_historial th {
+  font-family: "poppins", sans-serif;
+  text-transform: uppercase;
+  padding-left: 1vw;
+  background-color: var(--color-uno);
+  width: 5%;
+  height: 3vw;
+  font-size: 0.9em;
+  color: var(--color-cuatro);
+}
+#tabla_historial th:nth-child(1) {
+  width: 5%;
+}
+
+
+#tabla_historial td {
+  padding-left: 1vw;
+  height: 5vw;
+  font-size: 0.8em;
+  width: 100vw;
+}
+
+.result_fila{background-color: var(--color-cuatro);}
+.result_fila:nth-child(even){background-color: var(--color-cinco);}
 
