@@ -102,6 +102,7 @@ function cargar_botones() {
   }
 }
 
+let alerta = document.getElementById('alerta');
 function modificar_inputs() {
   if (!flag) {
     for (let i = 0; i < input_datos.length; i++) {
@@ -113,6 +114,7 @@ function modificar_inputs() {
     p.innerHTML = "Clave vieja:";
     cargar_botones();
     mostrar_datos();
+    alerta.innerHTML = '';
     flag = 1;
   } else {
     for (let i = 0; i < input_datos.length; i++) {
@@ -122,6 +124,7 @@ function modificar_inputs() {
     cargar_botones();
     mostrar_datos();
     flag = 0; 
+    alerta.innerHTML = '';
   }
 }
 
@@ -152,13 +155,14 @@ const actualizar_user = () =>{
       }
     })
     .then(function(respuesta_update){
+      let errors = document.getElementsByClassName('error_upd');
+      
+      alerta.innerHTML = '';
       resultado = new Array();
       resultado = JSON.parse(respuesta_update);
-      let errors = document.getElementsByClassName('error_upd');
-      let alerta = document.getElementById('alerta');
       if(resultado['estado'] == 0){
         alerta.innerHTML = 
-        "<div class='error'><p class='error_p'>No se pudo actualizar la información"+ resultado['estado']+"</p></div>" 
+        "<div class='error'><p class='error_p'>No se pudo actualizar la información</p></div>" 
 
 
         for (const key in resultado) {
