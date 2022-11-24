@@ -248,12 +248,17 @@ const modificar_libro = () =>{
 
                 if(key != 'estado'){
                     error_mod[key].innerHTML = 
-                    '<p class="error_p">' + result[key] + "</p>";
+                    '<div class="error"> <p class="error_texto"> '+ result[key]+'</p> </div>';
 
                 }
 
             }
         }else{
+
+            for (const iterator of error_mod) {
+                iterator.innerHTML = '';
+            }
+
             alerta.innerHTML=
             '<div class="ok"> <p class="ok_texto"><span class="material-icons">done</span>Se modifico el libro</p> </div>';
         }

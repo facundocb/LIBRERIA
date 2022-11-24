@@ -28,7 +28,7 @@ if(!preg_match("/^[a-zA-Z0-9\s]{4,50}$/",$sucursal))
      }
 
 if(consulta_cedula_administrador($ci)){
-    $errors[2]= 'el usuario ya es administrador!';
+    $errors[2]= 'el usuario ya es administrador';
 }     
 
 
@@ -38,10 +38,9 @@ if(consulta_cedula_administrador($ci)){
         insertar_admin($ci, $sucursal, $clave_seguridad);
         $result[0] = 'usuario asignado correctamente';
         $result['estado'] = 1;
-        echo json_encode($errors);
+        echo json_encode($result);
      }else{
         $errors['estado'] = 0;
-        $errors[3] = 'El usuario no se pudo asignar';
         echo json_encode($errors);   
     }
 ?>

@@ -60,7 +60,7 @@ if(preg_match('/^\D{0,10000}$/', $PRECIO_LIBRO)){
     $errors[2] = 'el precio del libro no es valido';
 }
 
-if(preg_match('/^\D{0,100}$/', $STOCK_LIBRO)){
+if(preg_match('/^\D{0,100}$/', $STOCK_LIBRO) || 1 >  $STOCK_LIBRO || 100000 < $STOCK_LIBRO){
     $errors[3] = 'el stock del libro tiene que estar entre 0 y 100';
 }
 
@@ -84,12 +84,18 @@ if(isset($errors)){
 }
 
 else{
-    $sql = $conn->prepare('INSERT INTO libro(NOM_LIBRO, PRECIO_LIBRO, DESCRIPCION_LIBRO, STOCK_LIBRO, USERNAME, ESTADO, DIRECCION_IMG, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_SUBIDA_LIBRO, FECHA_PUBLICACION_LIBRO) VALUES 
-    (?,?,?,?,?,?,?,?,?,?,?,?)');
-
-    $insersion_libro = $sql->execute([$NOM_LIBRO, $PRECIO_LIBRO, $DESCRIPCION_LIBRO, $STOCK_LIBRO, $user, '1', $ruta_destino, $AUTOR_LIBRO, $GENERO_LIBRO, $EDITORIAL_LIBRO,$fecha_subida, $FECHA_PUBLICACION ]);
-
-    $result['estado'] = 1;
-    echo json_encode($result);
+    try{
+        $db = Conexion::abrir_conexion();
+        $sql = $db->prepare('INSERT INTO libro(NOM_LIBRO, PRECIO_LIBRO, DESCRIPCION_LIBRO, STOCK_LIBRO, USERNAME, ESTADO, DIRECCION_IMG, AUTOR_LIBRO, GENERO_LIBRO, EDITORIAL_LIBRO, FECHA_SUBIDA_LIBRO, FECHA_PUBLICACION_LIBRO) VALUES 
+        (?,?,?,?,?,?,?,?,?,?,?,?)');
+    
+        $insersion_libro = $sql->execute([$NOM_LIBRO, $PRECIO_LIBRO, $DESCRIPCION_LIBRO, $STOCK_LIBRO, $user, '1', $ruta_destino, $AUTOR_LIBRO, $GENERO_LIBRO, $EDITORIAL_LIBRO,$fecha_subida, $FECHA_PUBLICACION ]);
+    
+        $result['estado'] = 1;
+        echo json_encode($result);
+        
+    }catch(PDOException $e){
+        echo 'error';
+    }
 
 }

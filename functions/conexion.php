@@ -182,22 +182,22 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
         $query = $db->query("SELECT usuario.USERNAME, usuario.PASSWD from usuario inner join persona on persona.CI = '$CI' AND persona.CI = usuario.CI
         ")->fetch();
     
-        $nuevo_usuario = $query['USERNAME'] . '__admin';
-        $nueva_password = $query['PASSWD'] . '__admin';
+        $nuevo_usuario = $query['USERNAME'] . '_a';
+        $nueva_password = $query['PASSWD'] . '_a';
         $PASSWD_HASH = password_hash($nueva_password, PASSWORD_DEFAULT);
         $CLAVE_SEGURIDAD_HASH = password_hash($CLAVE_SEGURIDAD, PASSWORD_DEFAULT);
     
     
-        $insersion_usuario = $db->prepare("INSERT INTO USUARIO(CI, USERNAME, PASSWD) values(?,?,?)");
+        $insersion_usuario = $db->prepare("INSERT INTO usuario(CI, USERNAME, PASSWD) values(?,?,?)");
         $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]);
     
-        $insersion_admin = $db->prepare("INSERT INTO USUARIO_ADMIN(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
+        $insersion_admin = $db->prepare("INSERT INTO usuario_admin(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
         $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD_HASH]);
         Conexion::cerrar_conexion();
 
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
-        echo "error en la consulta";
+        echo "error en la consulta" . $e->getMessage();
         die();
     }
 
@@ -268,7 +268,6 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
         $consulta =$db->prepare("UPDATE libro SET NOM_LIBRO=?,PRECIO_LIBRO=?,DESCRIPCION_LIBRO=?,STOCK_LIBRO=?, AUTOR_LIBRO=?, GENERO_LIBRO=?, FECHA_PUBLICACION_LIBRO=?, EDITORIAL_LIBRO=? WHERE ID_LIBRO =?");
         $consulta->execute([$NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIBRO, $NEW_STOCK_LIBRO, $NEW_AUTOR_LIBRO, $NEW_GENERO_LIBRO, $NEW_FECHA_PUBLICACION_LIBRO, $NEW_EDITORIAL_LIBRO, $ID_BUSCADA]);
         Conexion::cerrar_conexion();
-        echo 'libro modificado';
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
         echo "error en la consulta" . $e->getMessage();
@@ -276,6 +275,7 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
     }
 
 }
+
 
 //funcion para mod_user.php
 function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $NEW_USERNAME, $NEW_PASSWORD){

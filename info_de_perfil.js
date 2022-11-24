@@ -74,7 +74,7 @@ function cargar_botones() {
     datos_personales_cont.appendChild(nuevo_div);
     nuevo_div.appendChild(nuevo_p);
     nuevo_div.appendChild(nuevo_input);
-    nuevo_p.innerHTML = "Nueva Clave:";
+    nuevo_p.innerHTML = "Confirmar clave:";
     datos_personales_cont.appendChild(nuevo_cont_error);
 
 
@@ -102,6 +102,7 @@ function cargar_botones() {
   }
 }
 
+let alerta = document.getElementById('alerta');
 function modificar_inputs() {
   if (!flag) {
     for (let i = 0; i < input_datos.length; i++) {
@@ -110,9 +111,10 @@ function modificar_inputs() {
         input_datos[i].disabled = false;
       }
     }
-    p.innerHTML = "Clave vieja:";
+    p.innerHTML = "Clave:";
     cargar_botones();
     mostrar_datos();
+    alerta.innerHTML = '';
     flag = 1;
   } else {
     for (let i = 0; i < input_datos.length; i++) {
@@ -122,6 +124,7 @@ function modificar_inputs() {
     cargar_botones();
     mostrar_datos();
     flag = 0; 
+    alerta.innerHTML = '';
   }
 }
 
@@ -152,13 +155,14 @@ const actualizar_user = () =>{
       }
     })
     .then(function(respuesta_update){
+      let errors = document.getElementsByClassName('error_upd');
+      
+      alerta.innerHTML = '';
       resultado = new Array();
       resultado = JSON.parse(respuesta_update);
-      let errors = document.getElementsByClassName('error_upd');
-      let alerta = document.getElementById('alerta');
       if(resultado['estado'] == 0){
         alerta.innerHTML = 
-        "<div class='error'><p class='error_p'>No se pudo actualizar la información"+ resultado['estado']+"</p></div>" 
+        "<div class='error'><p class='error_p'>No se pudo actualizar la información</p></div>" 
 
 
         for (const key in resultado) {
