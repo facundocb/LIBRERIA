@@ -28,7 +28,7 @@ try{
 
 <h2> <?php echo $texto_estante; ?></h2>
 
-
+<div id="alerta_compra"></div>
 <?php 
 $total = 0;
 
@@ -58,7 +58,7 @@ $total = 0;
                 echo '<td class="cantidad">' . $row["CANTIDAD"] . '</td>';
                 echo '<td class="precio"> $' . $row["PRECIO_LIBRO"] . '</td>';
                 echo '<td class="subtotal"> $' . $row["SUBTOTAL"] . '</td>';
-                echo '<td> <button class="boton_general"><span class="material-icons">delete</span></button></td>';
+                echo '<td> <button class="boton_general" onclick="borrar_prod('. $row["ID_LIBRO"] . ')"><span class="material-icons">delete</span></button></td>';
                 echo '</tr>';
                 $total = $total + $row['SUBTOTAL'];
                 }
@@ -83,7 +83,6 @@ $total = 0;
         <div class="seccion">
             <h2 class="subtitulo">Informacion personal</h2>
             <input type="text" disabled class="input_texto" id="cedula">
-
             <input type="text" disabled class="input_texto" id="nombre">
             <input type="text" disabled class="input_texto" id="apellido">
             <input type="text" disabled class="input_texto" id="localidad">
@@ -106,11 +105,7 @@ $total = 0;
         localStorage.setItem("user", user);
     </script>
 
-    <?php
-        }else{
-            echo 'hola';
-        }
-    ?>
+    <?php } ?>
   
 
 

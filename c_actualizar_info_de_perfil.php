@@ -32,7 +32,7 @@ if(strlen($localidad) < 4 || preg_match("/[^[:word:]\s]/",$localidad)){
 
 
 
-if($user_nuevo != $user){
+if($user_nuevo != $user){ //si el usuario es el mismo que tiene antes y no lo quiere cambiar no necesita hacer ninguna validacion
 
     if(strlen($user_nuevo) < 4 || preg_match("/\s/", $user_nuevo)){
         $errors[4]='EL NOMBRE DE USUARIO no puede contener espacios ni ser inferior a 4 carácteres';
@@ -60,7 +60,7 @@ if(isset($errors)){
     echo json_encode($errors);
 }else{
 
-    $ci = consulta_CI_con_user($user);
+    $ci = consulta_CI_con_user($user); //no agarra la ci del post porque la pueden modificar, la agarra del user
 
 
     $fecha_nacimiento = $_POST['fecha_nac'];
@@ -71,7 +71,7 @@ if(isset($errors)){
 
     $result['estado'] = 1;
     $_SESSION['username'] = $user_nuevo;
-    echo json_encode($result);
+    echo json_encode($result); //guardo el user nuevo en la sesión para que cuando se recargue ya quede ese usuario, y devuelvo un 1 en el estado para q este todo bien
 }
 
 ?>

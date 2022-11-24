@@ -45,7 +45,7 @@ if(isset($_SESSION['logued_as_admin'])){
     $db = Conexion::abrir_conexion();
     $sql = "SELECT COUNT(realiza.ID_LIBRO) AS CANTIDAD, realiza.ID_LIBRO, libro.NOM_LIBRO, libro.PRECIO_LIBRO, libro.DIRECCION_IMG FROM realiza INNER JOIN libro ON libro.ID_LIBRO = realiza.ID_LIBRO AND libro.STOCK_LIBRO > 0 group by ID_LIBRO ORDER BY CANTIDAD DESC LIMIT 8";
     $query_novedades = $db->query($sql);
-    $result = $query_novedades->fetchALl();
+    $result = $query_novedades->fetchALl(); //que cargue los libros en un arr y los recorra.
     foreach($result as $libro){
       ?>
       

@@ -16,7 +16,7 @@ class Conexion
             return self::$bd;
 
         }catch(PDOException $e){
-            echo 'hubo un error al conectarse a la bd', $e->getMessage();
+            echo 'hubo un error al conectarse a la bd';
         }
     }
 
@@ -32,7 +32,7 @@ class Conexion
             echo 'error';
         }
     }
-
+    //la conexion a mysqli es para los archivos que se mandan por get y asi usar un mysqli_real_escape_string para evitar inyecciones
 
 
 }
@@ -43,10 +43,10 @@ function consulta_CI($ci){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT CI FROM persona WHERE CI='$ci'");
-        $flag_exist = $query->fetch();
+        $flag_exist = $query->fetch(); 
 
         Conexion::cerrar_conexion();
-        return $flag_exist;
+        return $flag_exist; //devuelve la ci o un array vacío
 
     }catch(PDOException $e){
         echo "error en la consulta";
@@ -61,11 +61,11 @@ function consulta_CI_con_user($user){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT CI FROM usuario WHERE USERNAME = '{$user}'");
-        $result = $query->fetch();
+        $result = $query->fetch(); //devuelve la ci o un array vacio
         Conexion::cerrar_conexion();
         return $result;
     } catch(PDOException $e){
-        echo "Error en la query" . $e;
+        echo "Error en la query";
     }
 }
 
@@ -76,7 +76,7 @@ function consulta_usuario($user){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT USERNAME FROM usuario WHERE USERNAME='$user'");
-        $flag_exist = $query->fetch();
+        $flag_exist = $query->fetch(); //devuelve el usuario o un array vacio
         Conexion::cerrar_conexion();
         return $flag_exist;
     }catch(PDOException $e){
@@ -93,8 +93,9 @@ function actualizar_pass($ci, $pass){
     try{
         $db = Conexion::abrir_conexion();
         $username = $db->query("SELECT usuario_cliente.USERNAME FROM `usuario_cliente` INNER JOIN usuario ON usuario_cliente.USERNAME = usuario.USERNAME AND usuario.CI = '{$ci}';")->fetch();
-        $update_user = $db->prepare("UPDATE usuario SET passwd = ? WHERE username = ?");
-        $update_user->execute([$pass, $username[0]]);
+        //guarda el user que tiene alguien con una cedula x 
+        $update_user = $db->prepare("UPDATE usuario SET passwd = ? WHERE username = ?"); //prepara la consulta para guardar la nueva contraseña
+        $update_user->execute([$pass, $username[0]]); //ejecuta con la pasada por parametros y el usuario del select de hace 3 lineas
         Conexion::cerrar_conexion();
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
@@ -110,7 +111,7 @@ function verificar_ban($user){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT USERNAME from usuario_cliente where ESTADO='0' AND USERNAME='$user'");
-        $result = $query->fetch();
+        $result = $query->fetch(); //devuelve el user del usuario baneado o un array vacio
         Conexion::cerrar_conexion();
         return $result;
 
@@ -125,7 +126,7 @@ function banear_cliente($user){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->prepare("UPDATE usuario_cliente SET ESTADO = '0' where USERNAME =?;");
-        $query->execute([$user]);
+        $query->execute([$user]); //ejecuta el baneo con el usuario pasado por parametros
         Conexion::cerrar_conexion();
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
@@ -139,9 +140,9 @@ function verificar_usuario_administrador($USERNAME){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT USERNAME FROM usuario_admin where usuario_admin.USERNAME = '$USERNAME'");
-            //count devuelve una sola fila con la cantidad, y con el fetch se guarda en un array
+        //hace la consulta
         $flag_exist = $query->fetch();
-            //current agarra el valor ACTUAL de un array, al tener 0 o 1 entonces actua como boolean
+            //el fetch va a traer o un array vacio o el array con el usuario
         Conexion::cerrar_conexion();
         return $flag_exist;
             
@@ -160,9 +161,7 @@ function consulta_cedula_administrador($ADMIN_CI){
         $db = Conexion::abrir_conexion();
 
         $query = $db->query("SELECT persona.CI from usuario inner join usuario_admin ON usuario_admin.USERNAME = usuario.USERNAME INNER JOIN persona ON persona.CI = '$ADMIN_CI' AND persona.CI = usuario.CI;");
-            //count devuelve una sola fila con la cantidad, y con el fetch se guarda en un array
-        $flag_exist = $query->fetch();
-            //current agarra el valor ACTUAL de un array, al tener 0 o 1 entonces actua como boolean
+        $flag_exist = $query->fetch(); //devuelve array vacio o la ci del usuario
         Conexion::cerrar_conexion();
         return $flag_exist;
 
@@ -186,18 +185,19 @@ function insertar_admin($CI, $SUCURSAL, $CLAVE_SEGURIDAD){
         $nueva_password = $query['PASSWD'] . '_a';
         $PASSWD_HASH = password_hash($nueva_password, PASSWORD_DEFAULT);
         $CLAVE_SEGURIDAD_HASH = password_hash($CLAVE_SEGURIDAD, PASSWORD_DEFAULT);
+        //el usuario y la contraseña del administrador es la misma que del cliente pero con un _a al final
     
-    
+
         $insersion_usuario = $db->prepare("INSERT INTO usuario(CI, USERNAME, PASSWD) values(?,?,?)");
-        $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]);
+        $insersion_usuario->execute([$CI,$nuevo_usuario, $PASSWD_HASH]); //se ejecuta la consulta del nuevo usuario
     
         $insersion_admin = $db->prepare("INSERT INTO usuario_admin(USERNAME, SUCURSAL, CLAVE_SEGURIDAD) VALUES(?,?,?)");
-        $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD_HASH]);
+        $insersion_admin->execute([$nuevo_usuario, $SUCURSAL, $CLAVE_SEGURIDAD_HASH]); //y se lo hace admin
         Conexion::cerrar_conexion();
 
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
-        echo "error en la consulta" . $e->getMessage();
+        echo "error en la consulta";
         die();
     }
 
@@ -214,7 +214,7 @@ function verificacion_extra_admin($CLAVE_SEGURIDAD, $CI, $USERNAME){
       
         if($query){
             if(password_verify($CLAVE_SEGURIDAD, $query['CLAVE_SEGURIDAD'])){
-                $flag_exist = true;         
+                $flag_exist = true; //si la clave es igual a la clave de la query entonces retorna verdadero         
             }     
         }
         Conexion::cerrar_conexion();
@@ -227,7 +227,6 @@ function verificacion_extra_admin($CLAVE_SEGURIDAD, $CI, $USERNAME){
  
 }
 
-//funcion para registrar_usuario.php y para add_user.php
 function insertar_cliente($CI, $NOMBRE, $APELLIDO, $LOCALIDAD, $FECHA_NACIMIENTO, $USERNAME, $PASSWD){
 
 
@@ -259,7 +258,6 @@ function insertar_cliente($CI, $NOMBRE, $APELLIDO, $LOCALIDAD, $FECHA_NACIMIENTO
 }
 
 
-//funcion para mod_book.php
 function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIBRO, $NEW_STOCK_LIBRO, $NEW_AUTOR_LIBRO, $NEW_GENERO_LIBRO, $NEW_FECHA_PUBLICACION_LIBRO, $NEW_EDITORIAL_LIBRO, $ID_BUSCADA){
 
 
@@ -267,6 +265,7 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
         $db = Conexion::abrir_conexion();
         $consulta =$db->prepare("UPDATE libro SET NOM_LIBRO=?,PRECIO_LIBRO=?,DESCRIPCION_LIBRO=?,STOCK_LIBRO=?, AUTOR_LIBRO=?, GENERO_LIBRO=?, FECHA_PUBLICACION_LIBRO=?, EDITORIAL_LIBRO=? WHERE ID_LIBRO =?");
         $consulta->execute([$NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIBRO, $NEW_STOCK_LIBRO, $NEW_AUTOR_LIBRO, $NEW_GENERO_LIBRO, $NEW_FECHA_PUBLICACION_LIBRO, $NEW_EDITORIAL_LIBRO, $ID_BUSCADA]);
+        //se ejecuta la insersion
         Conexion::cerrar_conexion();
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
@@ -277,18 +276,17 @@ function modificar_libro($NEW_NOM_LIBRO, $NEW_PRECIO_LIBRO, $NEW_DESCRIPCION_LIB
 }
 
 
-//funcion para mod_user.php
 function modificar_cliente($CI, $NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $NEW_USERNAME, $NEW_PASSWORD){
     
     try{
         $db = Conexion::abrir_conexion();
         $consulta_persona = $db->prepare("UPDATE persona SET NOMBRE=?,APELLIDO=?,LOCALIDAD=?,FECHA_NACIMIENTO=? WHERE CI =? ");
         $consulta_persona->execute([$NEW_NOMBRE, $NEW_APELLIDO, $NEW_LOCALIDAD, $NEW_FECHA_NACIMIENTO, $CI]);
-        //la consulta se prepara y se ejecuta con los parametros correspondientes
+        //primero se cambian los atributos de la persona
     
         $consulta_usuario = $db->prepare("UPDATE usuario SET USERNAME=?, PASSWD=? WHERE CI =?");
         $consulta_usuario->execute([$NEW_USERNAME, $NEW_PASSWORD, $CI]);
-        //aca hace lo mismo que arriba
+        //y luego los cambian en el usuario
         Conexion::cerrar_conexion();
     }catch(PDOException $e){
     Conexion::cerrar_conexion();
@@ -302,7 +300,7 @@ function consulta_estanteria_activa($username){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT ID_ESTANTERIA FROM estanteria WHERE USERNAME = '{$username}' AND ESTADO = '1' ");
-        $flag_exist = $query->fetch();
+        $flag_exist = $query->fetch(); //esto devuelve la estanteria o un array vacio
     Conexion::cerrar_conexion();
         return $flag_exist;
     }catch(PDOException $e){
@@ -318,7 +316,7 @@ function crear_estanteria($username){
         $db = Conexion::abrir_conexion();
 
         $insert_estanteria = $db->prepare("INSERT INTO estanteria (username, estado) VALUES (?, '1')");
-        $insert_estanteria->execute([$username]);
+        $insert_estanteria->execute([$username]); //crea una estanteria activa con la id del usuario
     Conexion::cerrar_conexion();
 
     }catch(PDOException $e){
@@ -337,7 +335,7 @@ function inhabilitar_estante($id_estante){
         $db = Conexion::abrir_conexion();
 
         $update_estanteria = $db->prepare("UPDATE estanteria SET ESTADO = 0 WHERE ID_ESTANTERIA = ?");
-        $update_estanteria->execute([$id_estante]);
+        $update_estanteria->execute([$id_estante]); //ejecuta el update
     Conexion::cerrar_conexion();
     }catch(PDOException $e){
     Conexion::cerrar_conexion();
@@ -355,7 +353,7 @@ function consulta_tiene_libro($id_libro, $estante){
         $db = Conexion::abrir_conexion();
         $query = $db->query("SELECT CANTIDAD FROM tiene where id_libro={$id_libro} AND id_estanteria = {$estante};");
 
-        $flag_exist = $query->fetch();
+        $flag_exist = $query->fetch(); //devuelve un arr vacio o la cantidad
     Conexion::cerrar_conexion();
 
         return $flag_exist;
@@ -373,7 +371,7 @@ function actualizar_cantidad_libro($cantidad, $id_libro, $id_estante ){
     try{
         $db = Conexion::abrir_conexion();
         $query = $db->prepare("UPDATE tiene SET cantidad=? WHERE ID_LIBRO = ? AND ID_ESTANTERIA = ?");
-        $query->execute([$cantidad, $id_libro, $id_estante ]);
+        $query->execute([$cantidad, $id_libro, $id_estante ]); //actualiza la cantidad
     Conexion::cerrar_conexion();
         
     }catch(PDOException $e){
@@ -391,7 +389,6 @@ function insertar_libro($cantidad, $id_libro, $id_estante){
     try{
         $db = Conexion::abrir_conexion();
         $subtotal = calcular_subtotal($id_libro, $cantidad);
-    
         $query = $db->prepare("INSERT INTO tiene(CANTIDAD, ID_LIBRO, ID_ESTANTERIA, SUBTOTAL ) values(?,?,?,?)");
         $query->execute([$cantidad,$id_libro,$id_estante, $subtotal]);
     Conexion::cerrar_conexion();
@@ -403,6 +400,21 @@ function insertar_libro($cantidad, $id_libro, $id_estante){
         die();
     }
 }
+
+function borrar_libro_del_carrito($id_libro, $id_estante){
+    try{
+        $db = Conexion::abrir_conexion();
+        $query = $db->prepare("DELETE FROM tiene WHERE ID_LIBRO = ? AND ID_ESTANTERIA = ?");
+        $query->execute([$id_libro, $id_estante]);
+        Conexion::cerrar_conexion();
+
+    } catch(PDOException $e){
+        echo "Error en la query" . $e->getMessage();
+    }
+
+
+}
+
 
 function calcular_subtotal($id_libro, $cantidad){
     try{

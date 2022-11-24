@@ -64,10 +64,12 @@
 
 
     if(isset($errors)){
+        //si existe un error guarda todo los errores en el json y los manda con un estado de 0 
         $errors['estado'] = 0;
         echo json_encode($errors);
     }
     else{
+        //si no manda solo es q tiene el estado de 1
         $errors['estado'] = 1;
         echo json_encode($errors);
     }
