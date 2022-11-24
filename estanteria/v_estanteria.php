@@ -24,6 +24,7 @@ $texto_estante;
 
 </div>
 <script src="../layout/script.js"></script>
+<script src="../layout/scriptmobil.js"></script>
 <?php
 
 include("../layout/footer.php");

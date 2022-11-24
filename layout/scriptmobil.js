@@ -37,14 +37,11 @@ function abririnput() {
   }
 }
 
-onload = function redesyabout(){
+onload = redesyabout;
+
+function redesyabout(){
   if (screen.width<=768){
    const all = document.querySelectorAll('#redes i');
 for( const e in all ){
     all[e].innerHTML = "";
-}
-
-
-
-
-} }
+}}}

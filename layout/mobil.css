@@ -397,7 +397,10 @@ footer a:hover{color:var(--color-dos);}
   margin: 0;
   margin-top: 8vw;
 }
-.logoredes{display: flex; flex-direction: row; gap: 10vw;}
+footer a{ 
+  display: flex;
+}
+.logoredes{display: flex; flex-direction: row; gap: 10vw; margin-top: 6vw;}
 #redes{
   display: flex;
   flex-direction: column;
@@ -613,6 +616,7 @@ padding-bottom: 6vw;
   display: inline-block;
   overflow: hidden;
   text-align: center;
+  margin-bottom: 30vw;
 }
 #tabla_historial tbody{
 max-width: 100vw;
@@ -650,6 +654,10 @@ overflow-y: scroll;
 .result_fila:nth-child(even){background-color: var(--color-cinco);}
 
 
+/* about us */
+
+#about_us {height: auto; margin-bottom: 10vw;}
+#about_us p {font-size: 0.8em;}
 
 
 }

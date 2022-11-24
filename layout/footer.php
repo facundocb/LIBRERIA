@@ -1,4 +1,4 @@
-<footer id='footer'>
+<footer id="footer" >
   
   <img id="footer_logo" alt='imagen'  src="<?php echo $_SESSION['ruta']?>RECURSOS/logo.svg">
 
