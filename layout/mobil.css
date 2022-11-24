@@ -14,7 +14,7 @@
 
 
 
-
+html{overflow-x: hidden;}
 
 
   body {
@@ -593,7 +593,7 @@ justify-content: center;
   margin-bottom: 1vh;
 }
 .input_general{
-  width: 60vw;
+  width: 80vw;
   height: 15vw;
   margin-right: 0;
 
@@ -658,6 +658,62 @@ overflow-y: scroll;
 
 #about_us {height: auto; margin-bottom: 10vw;}
 #about_us p {font-size: 0.8em;}
+
+
+/* cambiar clave */
+#container_cambiar_clave {
+  height: 100vh;
+
+}
+#container_cambiar_clave p {
+  font-size: 1em;
+  text-align: center;
+  margin: 1.5vw 0 1.5vw 1.5vw;
+  margin-top: 20vw;
+  margin-bottom: 30vw;
+
+}
+#form_cambiar_clave {
+  width: 100vw;
+  align-items: center;
+  gap: 6vw;
+}
+.boton_general{width: 80vw; height: 15vw;}
+#RESULT{height: auto; width: 100vw; display: flex; justify-content: center; margin-top: 10vw;}
+.error_texto{margin: 0 !important; }
+.error{width: 81vw; margin: 0;}
+
+
+/* registrarrrrrr */
+
+
+.titulo {
+  margin-top: 10vw;
+  font-size: 1em;
+}
+
+#registrar_container {
+  width: 100vw;
+  align-items: center;
+  margin: 0;
+}
+#registrar_container input{width: 80vw;}
+#registrar_container button{width: 80vw;}
+#result_register{margin: 0; margin-top: 20vw; margin-bottom: 5vw; width: 100%; height: auto; display: flex; justify-content: center; align-items: center;}
+
+.error_p{width: 80vw; font-size: 0.7em; margin-top: 0;}
+
+/* ERROR BUSQUEDA */
+#contenedor_libros_result .error{height: 15vw; width: 80vw;}
+
+
+
+
+
+
+
+
+
 
 
 }

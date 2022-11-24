@@ -831,6 +831,7 @@ display: none;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
+  color: var(--error_color);
 }
 
 #informacion h2 {
@@ -1285,7 +1286,6 @@ display: none;
 #registrar_container {
   display: flex;
   flex-direction: column;
-  border: solid 1px black;
   width: 50vw;
   margin-left: 1.5vw;
   gap: 1vh;

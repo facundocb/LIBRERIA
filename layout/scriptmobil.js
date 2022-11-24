@@ -15,7 +15,7 @@ if (screen.width<=768){
 
 function abrir_estanteria(){
   if (screen.width<=768){
-    location.href = ("../estanteria/v_estanteria.php");
+    location.href = ("estanteria/v_estanteria.php");
   }
 }
 

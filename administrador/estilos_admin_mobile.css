@@ -148,13 +148,14 @@
         height: 11vw;
         border-radius: 7px;
         align-self: flex-start;
-        margin-left: 5vw;
+        margin-bottom: 5vw;
+        margin-top: 5vw;
     }
 
     .input_texto_descripcion{
         width: 90vw;
         align-self: flex-start;
-        margin-left: 5vw;
+
         height: 30vw;
     }
 
@@ -166,37 +167,47 @@
 
     .input_boton{
         width: 90vw;
-        margin-left: 5vw;
+
         height: 11vw;
     }
 
 
-
+    
 
     #funciones{
         flex-direction: column;
     }
 
     #contenedor_grande{
+        margin: 5vw;
         width: 100vw;
     }
+    #contenedor_grande .ok_texto{font-size: 12px;}
 
-    #agregar_libro h2{
-        margin-left: 5vw;
+
+    #contenedor_grande h2{
+        width: 100vw;
+        margin: 0;
+        margin-top: 10vw;
+        font-size: 1.5em;
+
     }
 
     #form_agregar_libro{
         width: 100%;
         margin-left: 0;
     }
+    #form_agregar_libro div, #contenedor_grande div{width: 89.5vw; font-size: 12px; height: auto; margin: 0; margin-top: 3vw; margin-bottom: 3vw;}
 
 
 
     #form_agregar_libro label{
+        font-size: 1em;
         margin-top: 1.5vw;
-        margin-left: 5vw;
-    }
+        margin-left: 0;
 
+    }
+    #form_agregar_libro input{margin-left: 0;}
 
     #cambiar_estado_libro{
         width: 100vw;
@@ -205,38 +216,33 @@
         width: 100vw;
         display: flex;
         flex-wrap: wrap;
-    }
-
-    #cambiar_estado_libro h2{
-        margin-left: 5vw;
-    } 
-
-    #cambiar_estado_libro h4{
-        margin-left: 5vw;
-    }
+    }#form_cambiar_estado_libro .ok_texto{font-size: 1.2em }
 
 
     #modificar_libro{
         width: 100vw;
         height: auto;
+        margin-left: 5vw;
     }
-
+    #modificar_libro div{ width: 89vw; margin-left: 0; margin-top: 3vw;}
+    #modificar_libro h2{margin: 0; font-size: 1.5em;height: auto; width: 100vw;}
 
     #modificar_libro .titulo{
         width: 100%;
     }
 
     #form_buscar_libro_mod h4{
-        margin-left: 5vw;
+        font-size: 1em;
         width: 100%;
     }
 
     #form_modificar_datos_libro{
      width: 100%;   
     }
+    #form_modificar_datos_libro .ok_texto{font-size: 12px;}
 
     #form_modificar_datos_libro h4{
-        margin-left: 5vw;
+        font-size: 1em;
     }
 
 
@@ -248,18 +254,30 @@
         width: 100%;
         height: auto;
         margin: 0;
+        margin-left: 5vw;
     }
 
     #insertar_usuario div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90vw;
         margin: 0;
         height: auto;
+        font-size: 12px;
+
     }
     #insertar_usuario h2{
-        margin-left: 5vw;
+        width: 100vw;
+        margin: 0;
+        height: auto;
+        margin-top: 10vw;
+        font-size: 1.5em;
     }
 
     #insertar_usuario h4{
-        margin-left: 5vw;
+ 
+        font-size: 1.3em;
     }
 
 
@@ -270,51 +288,85 @@
     }
 
     #banear_usuario{
-        width: 100%;
+        width: 800%;
         height: auto;
+        margin-left: 5vw;
     }
+    #banear_usuario .ok_texto {font-size: 0.9em;}
 
     #banear_usuario h2{
-        margin-left: 5vw;
+   
+        font-size: 1.5em;
     }
 
     #banear_usuario h4{
-        margin-left: 5vw;
+
+        font-size: 1em;
     }
 
     #banear_usuario div{
+        width: 90vw;
+        display: flex;
+    align-items: center;
+    justify-content: center;
         margin: 0;
         height: auto;
+
     }
 
     #agregar_administrador{
         width: 100%;
         height: auto;
-    }
-
-    #agregar_administrador h2{
         margin-left: 5vw;
     }
 
+
     #agregar_administrador div{
-        width: 100%;
+        width: 90vw;
         margin: 0;
         height: auto;
     }
-
+    #agregar_administrador h2{font-size: 1.5em; }
     #actualizar_usuario{
         width: 100%;
-    }
-
-    #actualizar_usuario h2{
-        height: auto;
         margin-left: 5vw;
+    }
+    #agregar_administrador .ok_texto{font-size: 0.9em;}
+
+
+
+
+
+    #actualizar_usuario div{width: 90vw; margin: 0; margin-top: 5vw; display: flex; align-items: center;}
+    #actualizar_usuario div p{font-size: 12px;}
+    #actualizar_usuario h2{
+        width: 90vw;
+        font-size: 1.5em;
+        height: auto;
+        margin: 0;
+        margin-top: 10vw;
     }
 
     #actualizar_usuario h4{
-        margin-left: 5vw;
+        font-size: 1em;
     }
 
+    #insertar_usuario {
+        width: 45vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      #form_insertar_usuario{
+        margin-left: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      #form_insertar_usuario button{margin: 0; margin-top: 10vw;}
+      #form_insertar_usuario .ok_texto{font-size: 0.9em;}
 /* verif clave de seguridad */
 
 #contenedor form {
