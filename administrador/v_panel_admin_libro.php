@@ -80,7 +80,7 @@ $title = "panel admin";
                 <input type="text" name="genero_libro" class="input_texto" placeholder="genero">
                 <div class="error_add"></div>
                 <label for="fecha_publicacion" class='subtitulo'>Fecha de publicacion:</label>
-                <input type="date" name="fecha_publicacion" class="input_texto">
+                <input type="date" name="fecha_publicacion" class="input_texto" value="2000-01-01">
                 <div class="error_add"></div>
                 <input type="text" name="editorial_libro" class="input_texto" placeholder="editorial">
                 <div class="error_add"></div>
