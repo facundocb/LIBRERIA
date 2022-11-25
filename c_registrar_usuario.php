@@ -7,10 +7,11 @@
     $APELLIDO = $_POST['ape'];
     $LOCALIDAD = $_POST['local'];
     $CI = $_POST['ci'];
-    if($_POST['fecha_nac'] = ''){
-        $errors[4] = 'fecha no valida';        
-    }else{
+    if($_POST['fecha_nac'] != ''){
         $FECHA_NACIMIENTO = $_POST['fecha_nac'];
+    }
+    else{
+        $errors[4] = 'fecha no valida';
     }
     $USERNAME = $_POST['user'];
     $PASSWORD = $_POST['pass'];
@@ -70,6 +71,7 @@
     }
     else{
         //si no manda solo es q tiene el estado de 1
+        insertar_cliente($CI, $NOMBRE, $APELLIDO, $LOCALIDAD, $FECHA_NACIMIENTO, $USERNAME, $PASSWORD);
         $errors['estado'] = 1;
         echo json_encode($errors);
     }

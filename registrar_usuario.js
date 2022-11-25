@@ -15,6 +15,8 @@ function registrar_usuario() {
 
   //agarra los valores de los inputs
 
+
+  console.log(register_data.get("fecha_nac"));
   fetch("c_registrar_usuario.php", {
     method: "POST",
     body: register_data

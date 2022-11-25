@@ -250,7 +250,7 @@ function insertar_cliente($CI, $NOMBRE, $APELLIDO, $LOCALIDAD, $FECHA_NACIMIENTO
         Conexion::cerrar_conexion();
     }catch(PDOException $e){
         Conexion::cerrar_conexion();
-        echo "error en la consulta";
+        echo "error en la consulta" . $e->getMessage();
         die();
     }
 }
