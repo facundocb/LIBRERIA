@@ -11,7 +11,7 @@
     
     $cantidad = $_POST['cantidad'];
     if($cantidad < 1 || $cantidad > 10){
-        echo "<div class='error'> <span class='material-icons'>report_problem</span> <p class='error_texto'>  sos chistoso, pelotudito?</p></div>"   ;
+        echo "<div class='error'> <span class='material-icons'>report_problem</span> <p class='error_texto'> la cantidad no es valida</p></div>"   ;
         die();
     }
 
